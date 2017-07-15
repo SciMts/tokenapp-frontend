@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
 
-import MultiStepForm from '@/components/MultiStepForm'
-import SignUp from '@/components/SignUp'
+import Wizard from '@/components/FormWizard'
+import Layout from '@/components/Layout'
 
 Vue.use(Router)
 
@@ -11,18 +10,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
-    },
-    {
-      path: '/form',
-      name: 'multistepform',
-      component: MultiStepForm
-    },
-    {
-      path: '/signup',
-      name: 'signup',
-      component: SignUp
+      name: 'Layout',
+      component: Layout,
+      children: [
+        // Root path needs to show UserList in the left sidebar
+        {
+          path: '/wizard',
+          name: 'wizard',
+          component: Wizard
+        }
+      ]
     }
   ]
 })
