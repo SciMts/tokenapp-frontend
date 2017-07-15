@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div id="formwizard">
     <h1>{{ msg }}</h1>
 
-    <form-wizard @on-complete="onComplete" :start-index="this.startingTabIndex">
+    <form-wizard @on-complete="onComplete"
+                 :start-index="this.startingTabIndex"
+                 :before-change="handleValidation">
       <tab-content title="Add Email">
         <sign-up></sign-up>
       </tab-content>

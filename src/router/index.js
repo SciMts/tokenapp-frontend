@@ -10,13 +10,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Layout',
       component: Layout,
       children: [
         // Root path needs to show UserList in the left sidebar
         {
-          path: '/wizard',
-          name: 'wizard',
+          path: '/',
           component: Wizard
         }
       ]

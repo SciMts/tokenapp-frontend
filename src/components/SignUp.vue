@@ -23,7 +23,7 @@
 
   import VueForm from 'vue-form'
 
-  var registerEndpoint = '/register'
+  var registerEndpoint = 'http://localhost:8081/register'
   export default {
     name: 'signup',
     data () {
@@ -42,11 +42,19 @@
           return
         }
         console.log('send')
+        var headers = new Headers()
 
-        fetch(registerEndpoint, {method: 'post', body: this.model.email}).then(
-          (response) => response.json().then((responseData) => {
+        headers.append('Content-Type', 'application/json')
+        var body = {email: this.model.email}
+        fetch(registerEndpoint,
+          {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(body)
+          }).then(
+          (response) => {
             this.sent = true
-          })
+          }
         ).catch(
           (error) => {
             console.error('Error sending mail. ', error)
