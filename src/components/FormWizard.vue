@@ -2,19 +2,16 @@
   <div id="formwizard">
     <h1>{{ msg }}</h1>
 
-    <form-wizard @on-complete="onComplete"
-                 :start-index="this.startingTabIndex"
-                 :before-change="handleValidation">
-      <tab-content title="Add Email">
-        <sign-up></sign-up>
-      </tab-content>
-      <tab-content title="Add your wallet">
-        <wallet></wallet>
-      </tab-content>
-      <tab-content title="Pay in">
-        <pay-in></pay-in>
-      </tab-content>
-    </form-wizard>
+    <h3>Signup</h3>
+
+    <sign-up></sign-up>
+<hr>
+    <h3>Generate Wallet</h3>
+    <wallet></wallet>
+
+    <hr>
+    <h3>Invest</h3>
+    <pay-in></pay-in>
   </div>
 </template>
 
