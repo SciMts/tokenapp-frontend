@@ -1,8 +1,7 @@
-'use strict';
-import ethUtil from 'ethereumjs-util';
-ethUtil.crypto = require('crypto');
-ethUtil.scrypt = require('scryptsy');
-ethUtil.uuid   = require('uuid');
+'use strict'
+import ethUtil from 'ethereumjs-util'
+ethUtil.crypto = require('crypto')
+ethUtil.uuid = require('uuid')
 
 var Wallet = function(priv, pub, path, hwType, hwTransport) {
   if (typeof priv != "undefined") {

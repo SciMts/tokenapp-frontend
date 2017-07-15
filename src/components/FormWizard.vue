@@ -7,7 +7,7 @@
         <sign-up></sign-up>
       </tab-content>
       <tab-content title="Add your wallet">
-        My second tab content
+        <wallet></wallet>
       </tab-content>
       <tab-content title="Pay in">
         <pay-in></pay-in>
@@ -21,6 +21,7 @@
   import {FormWizard, TabContent} from 'vue-form-wizard'
   import SignUp from './SignUp.vue'
   import PayIn from './PayIn.vue'
+  import Wallet from './Wallet.vue'
   export default {
     name: 'formwizard',
     data () {
@@ -51,7 +52,8 @@
       FormWizard,
       TabContent,
       SignUp,
-      PayIn
+      PayIn,
+      Wallet
     }
   }
 </script>
