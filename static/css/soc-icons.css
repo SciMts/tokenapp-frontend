@@ -1,0 +1,133 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?85g02s');
+	src:url('../fonts/icomoon.eot?#iefix85g02s') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?85g02s') format('woff'),
+		url('../fonts/icomoon.ttf?85g02s') format('truetype'),
+		url('../fonts/icomoon.svg?85g02s#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-soc-"], [class*=" icon-soc-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-soc-googleplus:before {
+	content: "\e601";
+}
+.icon-soc-google-drive:before {
+	content: "\e600";
+}
+.icon-soc-facebook:before {
+	content: "\e602";
+}
+.icon-soc-instagram:before {
+	content: "\e607";
+}
+.icon-soc-twitter:before {
+	content: "\e608";
+}
+.icon-soc-feed:before {
+	content: "\e609";
+}
+.icon-soc-youtube:before {
+	content: "\e60a";
+}
+.icon-soc-vimeo:before {
+	content: "\e60b";
+}
+.icon-soc-flickr:before {
+	content: "\e60c";
+}
+.icon-soc-picassa:before {
+	content: "\e60d";
+}
+.icon-soc-dribbble:before {
+	content: "\e60e";
+}
+.icon-soc-forrst:before {
+	content: "\e60f";
+}
+.icon-soc-deviantart:before {
+	content: "\e603";
+}
+.icon-soc-steam:before {
+	content: "\e610";
+}
+.icon-soc-github:before {
+	content: "\e611";
+}
+.icon-soc-github2:before {
+	content: "\e612";
+}
+.icon-soc-wordpress:before {
+	content: "\e613";
+}
+.icon-soc-joomla:before {
+	content: "\e614";
+}
+.icon-soc-blogger:before {
+	content: "\e615";
+}
+.icon-soc-tumblr:before {
+	content: "\e616";
+}
+.icon-soc-yahoo:before {
+	content: "\e617";
+}
+.icon-soc-apple:before {
+	content: "\e604";
+}
+.icon-soc-android:before {
+	content: "\e605";
+}
+.icon-soc-windows8:before {
+	content: "\e606";
+}
+.icon-soc-soundcloud:before {
+	content: "\e618";
+}
+.icon-soc-skype:before {
+	content: "\e619";
+}
+.icon-soc-reddit:before {
+	content: "\e61a";
+}
+.icon-soc-linkedin:before {
+	content: "\e61b";
+}
+.icon-soc-lastfm:before {
+	content: "\e61c";
+}
+.icon-soc-delicious:before {
+	content: "\e61d";
+}
+.icon-soc-stumbleupon:before {
+	content: "\e61e";
+}
+.icon-soc-stackoverflow:before {
+	content: "\e61f";
+}
+.icon-soc-pinterest:before {
+	content: "\e620";
+}
+.icon-soc-xing:before {
+	content: "\e621";
+}
+.icon-soc-foursquare:before {
+	content: "\e622";
+}
+.icon-soc-paypal:before {
+	content: "\e623";
+}

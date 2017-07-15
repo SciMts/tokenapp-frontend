@@ -1,6 +1,14 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
+    <p>Please send the transaction to the follwing address:</p>
+    <div class="row">
+         <div class="col-md-6">Ethereum</div>
+         <div class="col-md-6">Bitcoin</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">{{this.ethereumAddress}}</div>
+      <div class="col-md-6">{{this.bitcoinAddress}}</div>
+    </div>
   </div>
 </template>
 
@@ -9,7 +17,9 @@ export default {
   name: 'payin',
   data () {
     return {
-      msg: 'Pay-in'
+      msg: 'Pay-in',
+      ethereumAddress: '',
+      bitcoinAddress: ''
     }
   }
 }

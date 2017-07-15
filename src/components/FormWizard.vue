@@ -3,30 +3,30 @@
     <h1>{{ msg }}</h1>
 
     <form-wizard @on-complete="onComplete" :start-index="this.startingTabIndex">
-      <tab-content title="Personal details">
-        My first tab content
+      <tab-content title="Add Email">
+        <sign-up></sign-up>
       </tab-content>
-      <tab-content title="Additional Info">
+      <tab-content title="Add your wallet">
         My second tab content
       </tab-content>
-      <tab-content title="Last step">
-        Yuhuuu! This seems pretty damn simple
+      <tab-content title="Pay in">
+        <pay-in></pay-in>
       </tab-content>
     </form-wizard>
-
   </div>
 </template>
 
 <script>
 
   import {FormWizard, TabContent} from 'vue-form-wizard'
-
+  import SignUp from './SignUp.vue'
+  import PayIn from './PayIn.vue'
   export default {
     name: 'formwizard',
     data () {
       return {
         msg: 'FormWizard',
-        startingTabIndex: 0
+        startingTabIndex: 1
       }
     },
     methods: {
@@ -49,7 +49,9 @@
     },
     components: {
       FormWizard,
-      TabContent
+      TabContent,
+      SignUp,
+      PayIn
     }
   }
 </script>
