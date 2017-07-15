@@ -11,6 +11,9 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "crypto": "0.0.3",
+    "ethereumjs-util": "^5.1.2",
+    "uuid": "^3.0.1",
     "vue": "^2.3.3",
     "vue-router": "^2.6.0"
   },
