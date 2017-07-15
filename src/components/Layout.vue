@@ -56,8 +56,8 @@
         </div>
         <div id="slides" data-stellar-ratio="0.4">
           <div class="slides-container"><img src="static/images/sudstdadt-edited-1024x576.jpg"
-                                             alt=""> <img src="static/images/2.jpg" alt=""> <img
-            src="static/images/3.jpg" alt=""></div>
+                                             alt=""> <img src="static/images/Company-Backdrop-1920-x-1080-1024x576.jpg" alt=""> <img
+            src="static/images/factory-white-out-1024x576.jpg" alt=""></div>
         </div>
       </section>
       <!-- INTRO END -->
@@ -86,7 +86,7 @@
 <script>
   import VueForm from 'vue-form'
 
-  var registerEndpoint = '/register'
+  var registerEndpoint = 'http://localhost:8081/api/register'
 
   export default {
     name: 'layout',
