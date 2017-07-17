@@ -66,6 +66,7 @@ section {
 	position: relative;
 	background: #fff;
 	z-index: 2;
+  text-align: center;
 }
 
 .form-group input,
@@ -286,7 +287,7 @@ section {
 	-moz-transform-origin: center bottom;
 	transform-origin: center bottom;
 }
-@-webkit-keyframes 
+@-webkit-keyframes
 rotation {  0% {
  -webkit-transform: rotate(0deg);
 }
@@ -294,7 +295,7 @@ rotation {  0% {
  -webkit-transform: rotate(360deg);
 }
 }
-@keyframes 
+@keyframes
 rotation {  0% {
  transform: rotate(0deg);
 }
@@ -348,13 +349,13 @@ header {
 	display:block;
 	transition: all 0.15s ease-in-out;
 	-webkit-transition: all 0.15s ease-in-out;
-	-moz-transition: all 0.15s ease-in-out;	
+	-moz-transition: all 0.15s ease-in-out;
 }
 
 .soc_nav li a:hover:before{
 	transform:translateY(-2px);
-	-webkit-transform:translateY(-2px); 
-	-moz-transform:translateY(-2px); 
+	-webkit-transform:translateY(-2px);
+	-moz-transform:translateY(-2px);
 }
 
 .soc_nav li a.icon-soc-googleplus { background: #dd4b39; }
