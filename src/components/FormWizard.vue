@@ -1,21 +1,24 @@
 <template>
   <div class="wizard" id="wizard">
-
     <div class="progress" v-bind:style="{ width: barWidth + '%' }"></div>
     <ul>
       <li :class="{active: $route.name === 'step1'}">
+        <p class="icon-text">Registration</p>
         <icon name="envelope-o"></icon>
       </li>
 
       <li :class="{active: $route.name === 'step2'}">
+        <p class="icon-text">Confirm</p>
         <icon name="inbox"></icon>
       </li>
 
       <li :class="{active: $route.name === 'step3'}">
+        <p class="icon-text">Wallet</p>
         <icon name="wallet" style="width: 80%; height: 80%"></icon>
       </li>
 
       <li :class="{active: $route.name === 'step4'}">
+        <p class="icon-text">Pay-In Address</p>
         <icon name="btc"></icon>
       </li>
 
@@ -161,6 +164,10 @@
     position: relative;
     top: 60px;
     transition: width 0.3s ease;
+  }
+  .icon-text {
+    position: absolute;
+    padding-top: 120px;
   }
 
 </style>
