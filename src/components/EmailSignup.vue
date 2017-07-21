@@ -41,8 +41,8 @@
 <script>
   import axios from 'axios'
 
-  var registerEndpoint = 'http://localhost:8081/register'
-//  var registerEndpoint = 'https://token.modum.io/api/register'
+//  var registerEndpoint = 'http://localhost:8081/register'
+  var registerEndpoint = 'api/register'
   export default {
     data: function () {
       return {

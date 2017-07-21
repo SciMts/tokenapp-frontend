@@ -40,7 +40,8 @@
 <script>
   import axios from 'axios'
 
-  var addressEndpoint = 'http://localhost:8081/address'
+//  var addressEndpoint = 'http://localhost:8081/address'
+  var addressEndpoint = 'api/address'
   export default {
 
     data: function () {
