@@ -10,7 +10,7 @@
       </div>
       <div class="row">
         <div class="col-xs-offset-2 col-xs-8">
-          <input id="email"
+          <input type="email" id="email"
                  required="required"
                  v-model="email"
                  v-on:keyup.enter="send"
