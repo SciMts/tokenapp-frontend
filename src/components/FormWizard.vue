@@ -70,7 +70,6 @@
     methods: {
       setToken(token){
         this.token = token
-        console.log(token)
       }
     },
     computed: {

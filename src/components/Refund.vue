@@ -2,7 +2,11 @@
   <div>
     <h3>Almost there!</h3>
     <p>Please specify your Bitcoin or Refund</p>
-
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="bg-danger">{{this.errorMsg}}</p>
+      </div>
+    </div>
     <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
       <div class="panel"><a class="panel-heading collapsed" data-toggle="collapse"
                             data-parent="#accordion"
@@ -40,7 +44,7 @@
 <script>
   import axios from 'axios'
 
-//  var addressEndpoint = 'http://localhost:8081/address'
+  //  var addressEndpoint = 'http://localhost:8081/address'
   var addressEndpoint = 'api/address'
   export default {
 
@@ -51,28 +55,20 @@
         errorMsg: ''
       }
     },
-
-    mounted: function () {
-      console.log(this.$root.sourceOfTruth.token)
-    },
     methods: {
       sendRefund(){
-        console.log('send requ est')
-
         var config = {
           headers: {'Authorization': 'Bearer ' + this.$root.sourceOfTruth.token}
         }
-
         axios.post(addressEndpoint, {
-          address: this.$root.sourceOfTruth.address,
-          refundBTC: this.btc,
-          refundETH: this.eth
-        },
-        config).then(response => {
+            address: this.$root.sourceOfTruth.address,
+            refundBTC: this.btc,
+            refundETH: this.eth
+          },
+          config).then(response => {
           this.$router.push({name: 'step5'})
         }).catch(err => {
-          console.log(err)
-          this.errorMsg = 'Ops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contract us...'
+          this.errorMsg = 'Ops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contract us...'
         })
       }
     }

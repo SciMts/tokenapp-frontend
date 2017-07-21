@@ -22,7 +22,8 @@
         <div class="col-xs-offset-2 col-xs-8">
           <div class="checkbox-inline">
             <label class="checkbox-inline">
-              <input type="checkbox" value="" v-model="terms">I've read and accepted to token <a target="_blank" href="https://www.modum.io/terms">sales terms</a></label>
+              <input type="checkbox" value="" v-model="terms">I've read and accepted to token <a
+              target="_blank" href="https://www.modum.io/terms">sales terms</a></label>
           </div>
         </div>
       </div>
@@ -31,9 +32,6 @@
           <button type="submit" v-on:click="send" :disabled="!valid">Send Invite</button>
         </div>
       </div>
-
-
-
     </form>
   </div>
 </template>
@@ -41,7 +39,7 @@
 <script>
   import axios from 'axios'
 
-//  var registerEndpoint = 'http://localhost:8081/register'
+  //  var registerEndpoint = 'http://localhost:8081/register'
   var registerEndpoint = 'api/register'
   export default {
     data: function () {

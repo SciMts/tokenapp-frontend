@@ -99,7 +99,6 @@
   import FileSaver from 'file-saver'
   import Wallet from '../lib/wallet'
 
-
   export default {
     data: function () {
       return {
@@ -129,11 +128,9 @@
       }
     },
     mounted: function () {
-      console.log('token set: ', this.token)
       this.$root.sourceOfTruth.token = this.token
     },
     methods: {
-
       create: function () {
         if (this.validPassword) {
           let wallet = Wallet.generate()
