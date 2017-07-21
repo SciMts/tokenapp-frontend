@@ -39,8 +39,8 @@
 <script>
   import axios from 'axios'
 
-  //  var registerEndpoint = 'http://localhost:8081/register'
-  var registerEndpoint = 'api/register'
+  //  let registerEndpoint = 'http://localhost:8081/register'
+  let registerEndpoint = 'api/register'
   export default {
     data: function () {
       return {
@@ -64,7 +64,6 @@
           }).then(response => {
             this.$router.push({name: 'step2'})
           }).catch(err => {
-            console.log(err)
             this.errorMsg = 'Oops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contract us...'
           })
         }
