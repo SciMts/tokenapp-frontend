@@ -889,32 +889,6 @@ footer .logo img { content: url("../images/logo_dark@2x.png"); }
 ----------------------------------------------------------------------------------------*/
 
 
-/*footer {*/
-  /*background: #eee;*/
-  /*padding: 80px 0;*/
-  /*text-align: center;*/
-  /*position: relative;*/
-  /*z-index: 2;*/
-/*}*/
-
-/*footer .logo { float: none; }*/
-
-/*footer .logo img {*/
-  /*margin: 0 auto 40px auto;*/
-  /*float: none;*/
-  /*opacity: 0.2;*/
-/*}*/
-
-
-
-/*footer {*/
-  /*padding: 40px 0;*/
-  /*background-color: #818181;*/
-  /*!*position: absolute;*!*/
-  /*!*right: 0;*!*/
-  /*!*bottom: 0;*!*/
-  /*!*left: 0;*!*/
-/*}*/
 
 section {
   min-height: 80%;
@@ -924,4 +898,9 @@ footer {
   /*height:260px;   !* Height of the footer *!*/
   background:#818181;
   padding: 40px 0;
+}
+
+footer a {
+  color:  rgb(68, 68, 68);
+
 }

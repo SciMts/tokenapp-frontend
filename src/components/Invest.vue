@@ -1,6 +1,6 @@
 <template xmlns:v-clipboard="http://www.w3.org/1999/xhtml">
   <div>
-    <h2>Almost done!</h2>
+    <h3>Almost done!</h3>
     <p>
       You can send your Ether and Bitcoin from any source including Exchanges wallets. You can also send as often as you want.</p>
     <p>
