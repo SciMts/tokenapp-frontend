@@ -82,7 +82,7 @@
             Phone: +41 44 586 1286
           </div>
           <div class="col-xs-12 col-sm-6 text-right">
-            &nbsp;<br/>
+
             <a target="_blank" href="https://www.modum.io/terms">Terms & Conditions</a><br/>
             <a target="_blank" href="https://www.modum.io/tokensale">Token Sale Information</a><br/>
             <a target="_blank" href="https://www.modum.io">Website</a><br/>

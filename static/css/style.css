@@ -69,6 +69,10 @@ section {
   text-align: center;
 }
 
+input {
+  text-align: center;
+}
+
 input#email {
   width: 250px;
 }
