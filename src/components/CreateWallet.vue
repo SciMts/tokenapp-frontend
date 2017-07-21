@@ -7,12 +7,14 @@
       <p>We offer you 3 different options to define where you want to receive the modum tokens. </p>
 
       <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-        <div class="panel"> <a class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#question1">Option 1: Create New Wallet</a>
+        <div class="panel"><a class="panel-heading" data-toggle="collapse" data-parent="#accordion"
+                              href="#question1">Option 1: Create New Wallet</a>
           <div id="question1" class="panel-collapse collapse in">
             <div class="panel-body">
               <p>Enter a password with which to protect your new wallet. <strong>Do not forget this password.</strong>
                 The password is required to unlock the newly generated wallet file.</p>
-              <p><b>If you loose your passwort and key store, your money is lost as we cannot retrieve them.</b></p>
+              <p><b>If you loose your passwort and key store, your money is lost as we cannot retrieve them.</b>
+              </p>
               <form>
                 <fieldset :disabled="waiting">
                   <fieldset>
@@ -29,20 +31,23 @@
             </div>
           </div>
         </div>
-        <div class="panel"> <a class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#question2">Option 2: Import Existing Wallet</a>
+        <div class="panel"><a class="panel-heading collapsed" data-toggle="collapse"
+                              data-parent="#accordion" href="#question2">Option 2: Import Existing Wallet</a>
           <div id="question2" class="panel-collapse collapse ">
             <div class="panel-body">
               <p>Required format: UTC JSON (myetherwallet)</p>
               <form>
                 <fieldset :disabled="waiting">
-                  <input type="file" @change="fileImport($event.target.files[0])" accept=".json" style="text-align: center;
+                  <input type="file" @change="fileImport($event.target.files[0])" accept=".json"
+                         style="text-align: center;
   margin: auto;">
                 </fieldset>
               </form>
             </div>
           </div>
         </div>
-        <div class="panel"> <a class="panel-heading collapsed" data-toggle="collapse" href="#question3">Option 3: Enter Address Manually (advanced)</a>
+        <div class="panel"><a class="panel-heading collapsed" data-toggle="collapse"
+                              href="#question3">Option 3: Enter Address Manually (advanced)</a>
           <div id="question3" class="panel-collapse collapse">
             <div class="panel-body">
               <form>
@@ -59,7 +64,6 @@
           </div>
         </div>
       </div>
-
 
 
     </div>
@@ -82,7 +86,7 @@
 
       <fieldset>
         <button v-on:click="invest" :disabled="!address || (v3stringwallet && !disclaimer)">
-          Make Investment
+          Set up Refund Address
         </button>
       </fieldset>
 
@@ -94,6 +98,7 @@
 <script>
   import FileSaver from 'file-saver'
   import Wallet from '../lib/wallet'
+
 
   export default {
     data: function () {
@@ -110,6 +115,9 @@
       token: {
         type: String,
         required: true
+      },
+      setToken: {
+        type: Function
       }
     },
     computed: {
@@ -117,11 +125,15 @@
         return this.password.length > 0
       },
       validAddress: function () {
-        return (this.insertedAddress.startsWith("0x") || this.insertedAddress.startsWith(("0X")))
-          && this.insertedAddress.length === 42
+        return (this.insertedAddress.startsWith('0x') || this.insertedAddress.startsWith(('0X'))) && this.insertedAddress.length === 42
       }
     },
+    mounted: function () {
+      console.log('token set: ', this.token)
+      this.$root.sourceOfTruth.token = this.token
+    },
     methods: {
+
       create: function () {
         if (this.validPassword) {
           let wallet = Wallet.generate()
@@ -130,9 +142,9 @@
         }
       },
       fileImport: function (file) {
-        let reader = new FileReader();
+        let reader = new FileReader()
         reader.onload = event => {
-          this.address = "0x" + JSON.parse(event.target.result).address
+          this.address = '0x' + JSON.parse(event.target.result).address
         }
         reader.readAsText(file)
       },
@@ -142,9 +154,10 @@
         FileSaver.saveAs(blob, 'modum-ico.json')
       },
       manual: function () {
-        this.address = this.insertedAddress;
+        this.address = this.insertedAddress
       },
       invest: function () {
+        this.$root.sourceOfTruth.address = this.address
         this.$router.push({name: 'step4'})
       }
     }

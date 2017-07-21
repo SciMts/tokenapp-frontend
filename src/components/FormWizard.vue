@@ -18,6 +18,11 @@
       </li>
 
       <li :class="{active: $route.name === 'step4'}">
+        <p class="icon-text">Refund Address</p>
+        <icon name="reply-all"></icon>
+      </li>
+
+      <li :class="{active: $route.name === 'step5'}">
         <p class="icon-text">Pay-In Address</p>
         <icon name="btc"></icon>
       </li>
@@ -34,6 +39,7 @@
   import 'vue-awesome/icons/envelope-o'
   import 'vue-awesome/icons/inbox'
   import 'vue-awesome/icons/btc'
+  import 'vue-awesome/icons/reply-all'
 
   // Custom wallet icon
   Icon.register({
@@ -51,10 +57,22 @@
     }
   })
 
-  const stepCount = 4
+  const stepCount = 5
 
   export default {
     name: 'formwizard',
+    data: function () {
+      return {
+        token: '',
+        eth: ''
+      }
+    },
+    methods: {
+      setToken(token){
+        this.token = token
+        console.log(token)
+      }
+    },
     computed: {
       step: function () {
         return this.$route.name.replace(/\D/g, '')
@@ -165,6 +183,7 @@
     top: 60px;
     transition: width 0.3s ease;
   }
+
   .icon-text {
     position: absolute;
     padding-top: 120px;

@@ -7,6 +7,7 @@ import EmailSignup from '@/components/EmailSignup'
 import CheckEmail from '@/components/CheckEmail'
 import CreateWallet from '@/components/CreateWallet'
 import Invest from '@/components/Invest'
+import Refund from '@/components/Refund'
 
 Vue.use(Router)
 
@@ -38,8 +39,13 @@ export default new Router({
               props: true
             },
             {
-              path: '/invest',
+              path: '/refund',
               name: 'step4',
+              component: Refund
+            },
+            {
+              path: '/invest',
+              name: 'step5',
               component: Invest
             }
           ]
