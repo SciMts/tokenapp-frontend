@@ -57,6 +57,7 @@
     },
     methods: {
       send: function () {
+        this.errorMsg = ''
         if (this.valid) {
           axios.post(registerEndpoint, {
             email: this.email
@@ -64,7 +65,7 @@
             this.$router.push({name: 'step2'})
           }).catch(err => {
             console.log(err)
-            this.errorMsg = 'Ops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contract us...'
+            this.errorMsg = 'Oops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contract us...'
           })
         }
       }

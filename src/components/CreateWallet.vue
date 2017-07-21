@@ -128,9 +128,13 @@
       }
     },
     mounted: function () {
+
       this.$root.sourceOfTruth.token = this.token
     },
     methods: {
+      isTokenValid: function(){
+
+      },
       create: function () {
         if (this.validPassword) {
           let wallet = Wallet.generate()

@@ -57,6 +57,7 @@
     },
     methods: {
       sendRefund(){
+        this.errorMsg = ''
         var config = {
           headers: {'Authorization': 'Bearer ' + this.$root.sourceOfTruth.token}
         }
@@ -68,7 +69,7 @@
           config).then(response => {
           this.$router.push({name: 'step5'})
         }).catch(err => {
-          this.errorMsg = 'Ops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contract us...'
+          this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contract us...'
         })
       }
     }
