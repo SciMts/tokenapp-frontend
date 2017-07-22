@@ -3,7 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
+// Add Bootstrap
+require('../node_modules/bootstrap/less/bootstrap.less')
+
 Vue.config.productionTip = false
+
+Vue.config.API = 'http://localhost:8081/'
+// Vue.config.API = 'api/'
 
 /* eslint-disable no-new */
 new Vue({
@@ -13,7 +20,7 @@ new Vue({
   components: { App },
   data () {
     return {
-      sourceOfTruth: { msg: '' }
+      store: { }
     }
   }
 })

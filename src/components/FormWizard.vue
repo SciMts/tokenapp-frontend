@@ -67,11 +67,6 @@
         eth: ''
       }
     },
-    methods: {
-      setToken(token){
-        this.token = token
-      }
-    },
     computed: {
       step: function () {
         return this.$route.name.replace(/\D/g, '')

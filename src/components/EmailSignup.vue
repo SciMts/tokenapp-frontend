@@ -37,10 +37,11 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import axios from 'axios'
 
-  //  let registerEndpoint = 'http://localhost:8081/register'
-  let registerEndpoint = 'api/register'
+  let registerEndpoint = 'register'
+
   export default {
     data: function () {
       return {
@@ -51,7 +52,8 @@
     },
     computed: {
       valid: function () {
-        const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        // eslint-disable-next-line
+        const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
         return this.email && re.test(this.email) && this.terms
       }
     },
@@ -59,11 +61,12 @@
       send: function () {
         this.errorMsg = ''
         if (this.valid) {
-          axios.post(registerEndpoint, {
+          axios.post(Vue.config.API + registerEndpoint, {
             email: this.email
           }).then(response => {
             this.$router.push({name: 'step2'})
           }).catch(err => {
+            console.log(err)
             this.errorMsg = 'Oops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contract us...'
           })
         }

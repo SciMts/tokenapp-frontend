@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 import Layout from '@/components/Layout'
-import Wizard from '@/components/FormWizard'
+import FormWizard from '@/components/FormWizard'
 import EmailSignup from '@/components/EmailSignup'
 import CheckEmail from '@/components/CheckEmail'
 import CreateWallet from '@/components/CreateWallet'
-import Invest from '@/components/Invest'
-import Refund from '@/components/Refund'
 
 Vue.use(Router)
 
@@ -20,7 +17,7 @@ export default new Router({
         // Root path needs to show UserList in the left sidebar
         {
           path: '/',
-          component: Wizard,
+          component: FormWizard,
           children: [
             {
               path: '/',
@@ -37,17 +34,17 @@ export default new Router({
               name: 'step3',
               component: CreateWallet,
               props: true
-            },
-            {
-              path: '/refund',
-              name: 'step4',
-              component: Refund
-            },
-            {
-              path: '/invest',
-              name: 'step5',
-              component: Invest
             }
+          //   {
+          //     path: '/refund',
+          //     name: 'step4',
+          //     component: Refund
+          //   },
+          //   {
+          //     path: '/invest',
+          //     name: 'step5',
+          //     component: Invest
+          //   }
           ]
         }
 

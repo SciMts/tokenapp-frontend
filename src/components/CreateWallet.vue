@@ -105,15 +105,18 @@
 
       </div>
     </div>
+
+
   </div>
 </template>
 
 <script>
+  import Vue from 'vue'
+  import axios from 'axios'
   import FileSaver from 'file-saver'
   import Wallet from '../lib/wallet'
-  import axios from 'axios'
 
-  let validTokenEndpoint = 'api/register/:token/validate'
+  let validTokenEndpoint = 'register/:token/validate'
   export default {
     data: function () {
       return {
@@ -138,20 +141,21 @@
         return this.password.length > 0
       },
       validAddress: function () {
-        return (this.insertedAddress.startsWith('0x') || this.insertedAddress.startsWith(('0X')))
-          && this.insertedAddress.length === 42
+        return (this.insertedAddress.startsWith('0x') || this.insertedAddress.startsWith(('0X'))) && this.insertedAddress.length === 42
       }
     },
     mounted: function () {
-      this.isTokenValid()
-      this.$root.sourceOfTruth.token = this.token
+//    TODO  this.isTokenValid()
+      this.$root.store.token = this.token
     },
     methods: {
       isTokenValid: function () {
-        axios.get(validTokenEndpoint.replace(':token', this.token))
+        axios.get(Vue.config.API + validTokenEndpoint.replace(':token', this.token))
         .then(response => {
+          // TODO
           console.log(response)
         }).catch(err => {
+          console.error(err)
           this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token?'
         })
       },

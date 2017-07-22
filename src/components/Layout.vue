@@ -9,10 +9,9 @@
     </div>
     <div id="wrap">
     </div>
-
+    <img id="logo" src="./../assets/modum.png">
     <section>
       <div class="container">
-        <img src="static/images/modum.png" class="centered" height="100px" />
         <h2>Modum Token Sale</h2>
         <p class="lead">Please follow the steps below to buy your modum tokens. <br/> Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.</p>
         <router-view></router-view>
@@ -23,10 +22,10 @@
     <footer>
       <div class="container">
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-xs-12 text-left">
             <img class="footer_logo" src="https://assets.modum.io/wp-content/uploads/2017/03/modum_logo_white-text-tight-crop.png" alt="logo" width="150">
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 text-left">
             modum.io AG<br>
             Technoparkstrasse 1<br>
             8005 Zürich, CH<br>
@@ -45,16 +44,10 @@
     </footer>
     <!-- FOOTER END -->
 
-
-
-
-
-
   </div>
 </template>
 
 <script>
-
   export default {
     name: 'layout',
     data () {
@@ -65,15 +58,31 @@
         email: 'invalid-email',
         sent: false
       }
-    },
-    methods: {
-      scollDown: function () {
-        console.log('send')
-      }
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+  #logo {
+    height: 150px;
+  }
+
+  section {
+    padding: 20px 0;
+    position: relative;
+    background: #fff;
+  }
+
+  footer {
+    /*height:260px;   !* Height of the footer *!*/
+    background:#818181;
+    padding: 40px 0;
+  }
+
+  footer a {
+    color:  rgb(68, 68, 68);
+
+  }
 </style>

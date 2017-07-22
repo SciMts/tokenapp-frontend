@@ -1,6 +1,6 @@
-# tokenapp-frontend
+# modum-token
 
-> Tokenapp..
+> modum.io token
 
 ## Build Setup
 
