@@ -27,7 +27,6 @@ var Wallet = function (priv, pub, path, hwType, hwTransport) {
 Wallet.generate = function (icapDirect) {
   if (icapDirect) {
     while (true) {
-      console.log(ethUtil.crypto)
       var privKey = ethUtil.crypto.randomBytes(32)
       if (ethUtil.privateToAddress(privKey)[0] === 0) {
         return new Wallet(privKey)
@@ -299,9 +298,9 @@ Wallet.prototype.toV3 = function (password, opts) {
 //   }
 //   return new Wallet(seed)
 // }
-// Wallet.prototype.toV3String = function (password, opts) {
-//   return JSON.stringify(this.toV3(password, opts))
-// }
+Wallet.prototype.toV3String = function (password, opts) {
+  return JSON.stringify(this.toV3(password, opts))
+}
 // Wallet.prototype.getV3Filename = function (timestamp) {
 //   var ts = timestamp ? new Date(timestamp) : new Date()
 //   return ['UTC--', ts.toJSON().replace(/:/g, '-'), '--',
