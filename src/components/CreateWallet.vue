@@ -51,8 +51,7 @@
                 <form>
                   <fieldset :disabled="waiting">
                     <input type="file" @change="fileImport($event.target.files[0])" accept=".json"
-                           style="text-align: center;
-  margin: auto;">
+                           style="text-align: center;  margin: auto;">
                   </fieldset>
                 </form>
               </div>

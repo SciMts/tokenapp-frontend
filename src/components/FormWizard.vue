@@ -3,34 +3,46 @@
     <div class="progress" v-bind:style="{ width: barWidth + '%' }"></div>
     <ul>
       <li :class="{active: $route.name === 'step1'}">
-        <p class="icon-text">Registration</p>
-        <icon name="envelope-o"></icon>
+        <div>
+          <icon name="envelope-o"></icon>
+          <span>Register</span>
+        </div>
       </li>
 
       <li :class="{active: $route.name === 'step2'}">
-        <p class="icon-text">Confirm</p>
-        <icon name="inbox"></icon>
+        <div>
+          <icon name="inbox"></icon>
+          <span>Confirm</span>
+        </div>
       </li>
 
       <li :class="{active: $route.name === 'step3'}">
-        <p class="icon-text">Wallet</p>
-        <icon name="wallet" style="width: 80%; height: 80%"></icon>
+        <div>
+          <icon name="wallet"></icon>
+          <span>Wallet</span>
+        </div>
       </li>
 
       <li :class="{active: $route.name === 'step4'}">
-        <p class="icon-text">Refund Address</p>
-        <icon name="reply-all"></icon>
+        <div>
+          <icon name="reply-all"></icon>
+          <span>Refund</span>
+        </div>
       </li>
 
       <li :class="{active: $route.name === 'step5'}">
-        <p class="icon-text">Pay-In Address</p>
-        <icon name="btc"></icon>
+        <!--<p class="icon-text">Pay-In Address</p>-->
+        <div>
+          <icon name="btc"></icon>
+          <span>Invest</span>
+        </div>
       </li>
 
     </ul>
     <div class="container">
       <router-view class="wizard-component"></router-view>
     </div>
+
   </div>
 </template>
 
@@ -87,17 +99,10 @@
   /* General Typography */
 
   a {
-    color: #25A9E1;
+    color: #00A8E5;
   }
 
   /* Form Stuff */
-
-  fieldset {
-    border: 0;
-    padding: 0;
-    margin-top: 10px;
-  }
-
   label {
     display: block;
   }
@@ -135,8 +140,8 @@
 
   .wizard li {
     list-style-type: none;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border: 3px solid #0C547C;
     border-radius: 50%;
     display: flex;
@@ -146,7 +151,7 @@
     transition: background 0.3s ease;
   }
 
-  .wizard li > svg {
+  .wizard li  svg {
     width: 50%;
     height: 50%;
     color: rgba(0, 0, 0, .2);
@@ -156,15 +161,17 @@
     background: #0C547C;
   }
 
-  .wizard li.active > svg {
+  .wizard li div {
+    height: 90%;
+    width: 90%;
+
+    display: table;
+  }
+  .wizard li.active > div,
+  .wizard li.active > div > svg{
     color: white;
   }
 
-  .wizard span {
-    height: 30px;
-    margin: auto;
-    text-align: center;
-  }
 
   .wizard .wizard-component {
     margin-top: 40px;
@@ -174,13 +181,34 @@
     background-color: #0C547C;
     height: 3px;
     position: relative;
-    top: 60px;
+    top: 70px;
     transition: width 0.3s ease;
   }
 
-  .icon-text {
-    position: absolute;
-    padding-top: 120px;
-  }
+  @media only screen and (max-width: 500px) {
+    .wizard li {
+      list-style-type: none;
+      width: 50px;
+      height: 50px;
+      border: 3px solid #0C547C;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      transition: background 0.3s ease;
+    }
+    .wizard li > div > span {
+      display: none;
+    }
+    .wizard .progress {
+      top:45px;
+    }
+    .wizard li > div > svg {
+      vertical-align:middle;
+      display: list-item;
+    }
 
+
+  }
 </style>
