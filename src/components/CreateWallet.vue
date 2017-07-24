@@ -33,10 +33,10 @@
                       <input id="password"
                              type="password"
                              v-model="password"
-                             v-on:keyup.enter="create"
+                             v-on:keyup.enter="createWallet"
                              placeholder="PASSWORD"
                              autofocus>
-                      <button v-on:click="create" :disabled="!validPassword">Create Wallet</button>
+                      <button v-on:click="createWallet" :disabled="!validPassword">Create Wallet</button>
                     </fieldset>
                   </fieldset>
                 </form>
@@ -77,33 +77,34 @@
             </div>
           </div>
         </div>
-
-
       </div>
-      <div v-if="v3stringwallet !== null">
-        <h2>Download Wallet</h2>
-        <p>Please back-up your wallet file and remember the password to unlock it.</p>
+      <transition name="fade">
+        <div v-if="v3stringwallet !== null">
+          <h2>Download Wallet</h2>
+          <p>Please back-up your wallet file and remember the password to unlock it.</p>
 
-        <button v-on:click="download" style="background-color: red">!! DOWNLOAD WALLET FILE !!
-        </button>
-      </div>
-
-      <div v-if="address !== null">
-        <h2>Your Address</h2>
-        <p>Tokens will be sent to this address.</p>
-        <p>
-          <a target="_blank" :href="'https://etherscan.io/address/' + address">{{ address }}</a>
-        </p>
-        <img
-          :src="'https://chart.googleapis.com/chart?cht=qr&chl=' + address + '&chs=200x200&choe=UTF-8&chld=L|2'"/>
-
-        <fieldset>
-          <button v-on:click="invest" :disabled="!address || (v3stringwallet && !disclaimer)">
-            Set up Refund Address
+          <button v-on:click="download" style="background-color: red">!! DOWNLOAD WALLET FILE !!
           </button>
-        </fieldset>
+        </div>
+      </transition>
+      <transition name="fade">
+        <div v-if="address !== null">
+          <h2>Your Address</h2>
+          <p>Tokens will be sent to this address.</p>
+          <p>
+            <a target="_blank" :href="'https://etherscan.io/address/' + address">{{ address }}</a>
+          </p>
+          <img
+            :src="'https://chart.googleapis.com/chart?cht=qr&chl=' + address + '&chs=200x200&choe=UTF-8&chld=L|2'"/>
 
-      </div>
+          <fieldset>
+            <button v-on:click="invest" :disabled="!address || (v3stringwallet && !disclaimer)">
+              Set up Refund Address
+            </button>
+          </fieldset>
+
+        </div>
+      </transition>
     </div>
 
 
@@ -159,7 +160,18 @@
           this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token?'
         })
       },
-      create: function () {
+      startWaiting: function () {
+        this.waiting = true
+      },
+      stopWaiting: function () {
+        this.waiting = false
+      },
+      createWallet: function () {
+        this.startWaiting()
+        this.generateWallet()
+        this.stopWaiting()
+      },
+      generateWallet: function () {
         if (this.validPassword) {
           let wallet = Wallet.generate()
           this.v3stringwallet = wallet.toV3String(this.password, {kdf: 'pbkdf2'})
@@ -188,3 +200,15 @@
     }
   }
 </script>
+
+<style>
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0
+  }
+
+
+</style>
+
