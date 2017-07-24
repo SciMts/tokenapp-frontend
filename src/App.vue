@@ -14,7 +14,7 @@
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:1/00,300,700,800);
 
   body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
     font-size: 16px;
     font-weight: 100;
     color: #444;

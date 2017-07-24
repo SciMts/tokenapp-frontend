@@ -3,13 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// Add Bootstrap
-require('../node_modules/bootstrap/less/bootstrap.less')
+import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
+// Import the styles directly. (Or you could add them via script tags.)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
 
 // Vue.config.API = 'http://localhost:8081/'
 Vue.config.API = 'api/'
+
+Vue.use(BootstrapVue)
 
 /* eslint-disable no-new */
 new Vue({
