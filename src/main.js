@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
 // Add Bootstrap
 require('../node_modules/bootstrap/less/bootstrap.less')
 

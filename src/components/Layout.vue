@@ -14,25 +14,26 @@
       <div class="container">
         <h2>Modum Token Sale</h2>
         <p class="lead">Please follow the steps below to buy your modum tokens. <br/> Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.</p>
+        <status-comp></status-comp>
         <router-view></router-view>
       </div>
     </section>
 
     <!-- FOOTER BEGIN -->
-    <footer>
+    <footer class="footer">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 text-left">
             <img class="footer_logo" src="https://assets.modum.io/wp-content/uploads/2017/03/modum_logo_white-text-tight-crop.png" alt="logo" width="150">
           </div>
-          <div class="col-xs-12 col-sm-6 text-left">
+          <div class="col-xs-6 col-sm-6 text-left">
             modum.io AG<br>
             Technoparkstrasse 1<br>
             8005 Zürich, CH<br>
             info@modum.io<br>
             Phone: +41 44 586 1286
           </div>
-          <div class="col-xs-12 col-sm-6 text-right">
+          <div class="col-xs-6 col-sm-6 text-right">
 
             <a target="_blank" href="https://www.modum.io/terms">Terms & Conditions</a><br/>
             <a target="_blank" href="https://www.modum.io/tokensale">Token Sale Information</a><br/>
@@ -40,14 +41,13 @@
           </div>
         </div>
       </div>
-
     </footer>
     <!-- FOOTER END -->
-
   </div>
 </template>
 
 <script>
+  import StatusComp from './Status.vue'
   export default {
     name: 'layout',
     data () {
@@ -58,6 +58,9 @@
         email: 'invalid-email',
         sent: false
       }
+    },
+    components: {
+      StatusComp
     }
   }
 </script>
@@ -76,13 +79,16 @@
   }
 
   footer {
-    /*height:260px;   !* Height of the footer *!*/
+    padding-top: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 260px;
     background:#818181;
-    padding: 40px 0;
   }
 
   footer a {
     color:  rgb(68, 68, 68);
-
   }
 </style>
