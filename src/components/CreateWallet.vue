@@ -193,7 +193,7 @@
         this.address = this.insertedAddress
       },
       invest: function () {
-        this.$root.sourceOfTruth.address = this.address
+        this.$root.store.address = this.address
         this.$router.push({name: 'step4'})
       }
     }

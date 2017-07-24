@@ -12,6 +12,7 @@
 
 <style>
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:1/00,300,700,800);
+
   body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
