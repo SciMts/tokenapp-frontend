@@ -8,8 +8,8 @@ require('../node_modules/bootstrap/less/bootstrap.less')
 
 Vue.config.productionTip = false
 
-Vue.config.API = 'http://localhost:8081/'
-// Vue.config.API = 'api/'
+// Vue.config.API = 'http://localhost:8081/'
+Vue.config.API = 'api/'
 
 /* eslint-disable no-new */
 new Vue({
