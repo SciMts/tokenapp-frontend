@@ -4,37 +4,67 @@
     <ul>
       <li :class="{active: $route.name === 'step1'}">
         <div>
-          <icon name="envelope-o"></icon>
-          <span>Register</span>
+          <!--<icon name="envelope-o"></icon>-->
+          <!--<span>Register</span>-->
+          <div class="icon-container">
+            <icon name="envelope-o"></icon>
+          </div>
+          <div class="text-container">
+            <span>Register</span>
+          </div>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step2'}">
         <div>
-          <icon name="inbox"></icon>
-          <span>Confirm</span>
+          <!--<icon name="inbox"></icon>-->
+          <!--<span>Confirm</span>-->
+          <div class="icon-container">
+            <icon name="inbox"></icon>
+          </div>
+          <div class="text-container">
+            <span>Confirm</span>
+          </div>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step3'}">
         <div>
-          <icon name="wallet"></icon>
-          <span>Wallet</span>
+          <!--<icon name="wallet"></icon>-->
+          <!--<span>Wallet</span>-->
+          <div class="icon-container">
+            <icon name="wallet"></icon>
+          </div>
+          <div class="text-container">
+            <span>Wallet</span>
+          </div>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step4'}">
         <div>
-          <icon name="reply-all"></icon>
-          <span>Refund</span>
+          <!--<icon name="reply-all"></icon>-->
+          <!--<span>Refund</span>-->
+          <div class="icon-container">
+            <icon name="reply-all"></icon>
+          </div>
+          <div class="text-container">
+            <span>Refund</span>
+          </div>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step5'}">
         <!--<p class="icon-text">Pay-In Address</p>-->
         <div>
-          <icon name="btc"></icon>
-          <span>Invest</span>
+          <div class="icon-container">
+            <icon name="btc"></icon>
+          </div>
+          <div class="text-container">
+            <span>Invest</span>
+          </div>
+          <!--<icon name="btc"></icon>-->
+          <!---->
         </div>
       </li>
 
@@ -151,27 +181,39 @@
     transition: background 0.3s ease;
   }
 
-  .wizard li  svg {
-    width: 50%;
-    height: 50%;
-    color: rgba(0, 0, 0, .2);
-  }
+
 
   .wizard li.active {
     background: #0C547C;
   }
 
   .wizard li div {
-    height: 90%;
-    width: 90%;
-
+    height: 100%;
+    width: 100%;
     display: table;
   }
+
   .wizard li.active > div,
   .wizard li.active > div > svg{
     color: white;
   }
 
+  /**/
+  .wizard li > div > .icon-container {
+    padding-top:10%;
+    /*height: 50%;*/
+    max-height: 50%;
+    /*background-color: red;*/
+  }
+  .wizard li > div > .icon-container >  svg {
+    width: auto;
+    height: 35px;
+    color: rgba(0, 0, 0, .2);
+  }
+  .wizard li > div > .text-container {
+    height: 50%;
+  }
+  /**/
 
   .wizard .wizard-component {
     margin-top: 40px;
@@ -198,17 +240,11 @@
       background: white;
       transition: background 0.3s ease;
     }
-    .wizard li > div > span {
+    .wizard li > div > .text-container > span {
       display: none;
     }
     .wizard .progress {
       top:45px;
     }
-    .wizard li > div > svg {
-      vertical-align:middle;
-      display: list-item;
-    }
-
-
   }
 </style>

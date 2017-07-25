@@ -11,6 +11,15 @@ import Invest from '@/components/Invest'
 Vue.use(Router)
 
 export default new Router({
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+      return { selector: to.hash }
+    } else if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     {
       path: '/',
@@ -20,6 +29,7 @@ export default new Router({
         {
           path: '/',
           component: FormWizard,
+          meta: { scrollToTop: true },
           children: [
             {
               path: '/',

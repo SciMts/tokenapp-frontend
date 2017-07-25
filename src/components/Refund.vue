@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Almost there!</h3>
-    <p>Please specify your Bitcoin or Refund</p>
+    <p>Please specify your Bitcoin or Ethereum refund address</p>
     <div class="row">
       <div class="col-xs-12">
         <p class="bg-danger">{{this.errorMsg}}</p>
@@ -42,9 +42,9 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import axios from 'axios'
 
-  //  var addressEndpoint = 'http://localhost:8081/address'
   var addressEndpoint = 'api/address'
   export default {
 
@@ -61,7 +61,7 @@
         var config = {
           headers: {'Authorization': 'Bearer ' + this.$root.store.token}
         }
-        axios.post(addressEndpoint, {
+        axios.post(Vue.config.API + addressEndpoint, {
           address: this.$root.store.address,
           refundBTC: this.btc,
           refundETH: this.eth

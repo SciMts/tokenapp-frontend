@@ -14,7 +14,7 @@
       <div class="container">
         <h2>Modum Token Sale</h2>
         <p class="lead">Please follow the steps below to buy your modum tokens. <br/> Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.</p>
-        <section>
+        <section id="section">
           <status-comp></status-comp>
         </section>
 
@@ -87,11 +87,21 @@
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 260px;
+    height: 230px;
     background:#818181;
   }
 
   footer a {
     color:  rgb(68, 68, 68);
+  }
+
+  @media only screen and (max-width: 500px) {
+    #logo {
+      width: 80%;
+      height: auto;
+    }
+    footer {
+      font-size: small;
+    }
   }
 </style>
