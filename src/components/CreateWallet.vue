@@ -14,7 +14,7 @@
           We offer you 3 different options to define where you want to receive the modum tokens. </p>
         <div class="row">
           <div class="col-xs-12">
-            <p class="bg-danger">{{this.errorMsg}}</p>
+            <p class="bg-danger">{{errorMsg}}</p>
           </div>
         </div>
         <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
@@ -25,7 +25,7 @@
               <div class="panel-body">
                 <p>Enter a password with which to protect your new wallet. <strong>Do not forget this password.</strong>
                   The password is required to unlock the newly generated wallet file.</p>
-                <p><b>If you loose your passwort and key store, your money is lost as we cannot retrieve them.</b>
+                <p><b>If you loose your password and key store, your money is lost as we cannot retrieve them.</b>
                 </p>
                 <form>
                   <fieldset :disabled="waiting">
@@ -36,7 +36,8 @@
                              v-on:keyup.enter="createWallet"
                              placeholder="PASSWORD"
                              autofocus>
-                      <button v-on:click="createWallet" :disabled="!validPassword">Create Wallet</button>
+                      <button v-on:click="createWallet" :disabled="!validPassword">Create Wallet
+                      </button>
                     </fieldset>
                   </fieldset>
                 </form>
@@ -66,7 +67,7 @@
                     <input type="text" v-model="insertedAddress"
                            size="42"
                            placeholder="0x32Be343B94f860124dC4fEe278FDCBD38C102D88"
-                           pattern=".{42}" equired
+                           pattern=".{42}"
                            title="42 characters long address starting with 0x"
                            v-on:keyup.enter="manual">
                     <button v-on:click="manual" :disabled="!validAddress">Use Address</button>
@@ -145,17 +146,20 @@
       }
     },
     mounted: function () {
-//    TODO  this.isTokenValid()
+      this.isTokenValid()
       this.$root.store.token = this.token
     },
     methods: {
       isTokenValid: function () {
         axios.get(Vue.config.API + validTokenEndpoint.replace(':token', this.token))
         .then(response => {
-          // TODO
-          console.log(response)
+          if (response.status !== 200) {
+            this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token?'
+            this.invalidToken = true
+          }
         }).catch(err => {
           console.error(err)
+          this.invalidToken = true
           this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token?'
         })
       },
@@ -204,7 +208,9 @@
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s
   }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+  {
     opacity: 0
   }
 

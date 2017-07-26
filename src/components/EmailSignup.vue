@@ -5,7 +5,7 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <p class="bg-danger">{{this.errorMsg}}</p>
+          <p class="bg-danger">{{errorMsg}}</p>
         </div>
       </div>
       <div class="row">
@@ -29,7 +29,7 @@
       </div>
       <div class="row">
         <div class="col-xs-offset-2 col-xs-8">
-          <button type="submit" v-on:click="send" :disabled="!valid">Send Invite</button>
+          <button v-on:click="send" :disabled="!valid">Send Invite</button>
         </div>
       </div>
     </form>
@@ -59,6 +59,7 @@
     },
     methods: {
       send: function () {
+        event.preventDefault() // prevents to add a question mark before the hashtag
         this.errorMsg = ''
         if (this.valid) {
           axios.post(Vue.config.API + registerEndpoint, {
