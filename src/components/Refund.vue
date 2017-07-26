@@ -4,7 +4,7 @@
     <p>Please specify your Bitcoin or Ethereum refund address</p>
     <div class="row">
       <div class="col-xs-12">
-        <p class="bg-danger">{{this.errorMsg}}</p>
+        <p class="bg-danger">{{errorMsg}}</p>
       </div>
     </div>
     <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
@@ -16,7 +16,7 @@
             <input type="text" v-model="eth"
                    size="42"
                    placeholder="0x32Be343B94f860124dC4fEe278FDCBD38C102D88"
-                   pattern=".{42}" equired title="42 characters long address starting with 0x">
+                   pattern=".{42}"  title="42 characters long address starting with 0x">
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
   import Vue from 'vue'
   import axios from 'axios'
 
-  var addressEndpoint = 'api/address'
+  const addressEndpoint = 'address'
   export default {
 
     data: function () {
@@ -58,7 +58,7 @@
     methods: {
       sendRefund () {
         this.errorMsg = ''
-        var config = {
+        const config = {
           headers: {'Authorization': 'Bearer ' + this.$root.store.token}
         }
         axios.post(Vue.config.API + addressEndpoint, {
@@ -67,7 +67,8 @@
           refundETH: this.eth
         },
         config).then(response => {
-          console.log(response)
+          this.$root.store.ether = response.ether
+          this.$root.store.btc = response.btc
           this.$router.push({name: 'step5'})
         }).catch(err => {
           console.error(err)
