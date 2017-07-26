@@ -58,7 +58,7 @@
       }
     },
     methods: {
-      send: function () {
+      send: function (event) {
         event.preventDefault() // prevents to add a question mark before the hashtag
         this.errorMsg = ''
         if (this.valid) {
