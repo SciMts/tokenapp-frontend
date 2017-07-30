@@ -17,14 +17,14 @@
 
       <div class="row">
         <div class="col-lg-6 col-sm-6 col-xs-6, col-md-6">
-          <h3>Bitcoin</h3>
+          <h4>Bitcoin</h4>
           <p v-model="btc">
             <a target="_blank" :href="'https://blockchain.info/address/' + btc">{{ btc }}</a>
           </p>
           <img :src="'https://blockchain.info/qr?data=' + btc + '&size=200'"/>
         </div>
         <div class="col-lg-6 col-sm-6 col-xs-6, col-md-6">
-          <h3>Ether</h3>
+          <h4>Ether</h4>
           <p>
             <a target="_blank" :href="'https://etherscan.io/address/' + ether">{{ ether }}</a>
           </p>
