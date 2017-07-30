@@ -62,6 +62,10 @@
     text-align: left;
   }
 
+  .panel > a {
+    text-decoration: none;
+  }
+
   .panel .panel-heading{
     color: #222;
     background: #eeeeee;
