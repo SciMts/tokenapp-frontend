@@ -14,11 +14,10 @@
       <div class="container">
         <h2>Modum Token Sale</h2>
         <p class="lead">Please follow the steps below to buy your modum tokens. <br/> Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.</p>
+        <router-view></router-view>
         <section id="section">
           <status-comp></status-comp>
         </section>
-
-        <router-view></router-view>
       </div>
     </section>
 
