@@ -89,7 +89,7 @@
       </transition>
       <transition name="fade">
         <div v-if="address !== null">
-          <h2>Your Address</h2>
+          <h3>Your Address</h3>
           <p>Tokens will be sent to this address.</p>
           <p>
             <a target="_blank" :href="'https://etherscan.io/address/' + address">{{ address }}</a>
@@ -106,8 +106,6 @@
         </div>
       </transition>
     </div>
-
-
   </div>
 </template>
 
