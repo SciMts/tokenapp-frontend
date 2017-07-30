@@ -33,8 +33,7 @@
             modum.io AG<br>
             Technoparkstrasse 1<br>
             8005 Zürich, CH<br>
-            info@modum.io<br>
-            Phone: +41 44 586 1286
+            info@modum.io
           </div>
           <div class="col-xs-6 col-sm-6 text-right">
 
