@@ -1,16 +1,7 @@
 'use strict'
 import ethUtil from 'ethereumjs-util'
-// ethUtil.crypto = require('crypto')
-// ethUtil.crypto = require('crypto-browserify')
 ethUtil.uuid = require('uuid')
-
-// ethUtil.crypto = require('crypto')
-
-try {
-  ethUtil.crypto = require('crypto')
-} catch (err) {
-  console.log('crypto support is disabled!')
-}
+ethUtil.crypto = require('crypto')
 
 var Wallet = function (priv, pub, path, hwType, hwTransport) {
   // eslint-disable-next-line
