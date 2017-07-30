@@ -81,12 +81,12 @@
   }
 
   footer {
-    padding-top: 40px;
+    padding-top: 20px;
     position: absolute;
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 230px;
+    height: 200px;
     background:#818181;
   }
 
