@@ -12,7 +12,7 @@
     <img id="logo" src="./../assets/modum.png">
     <section>
       <div class="container">
-        <h2>Modum Token Sale</h2>
+        <h2>Token Sale</h2>
         <p class="lead">Please follow the steps below to buy your modum tokens. <br/> Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.</p>
         <router-view></router-view>
         <section id="section">
