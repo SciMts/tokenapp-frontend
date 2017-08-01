@@ -109,4 +109,9 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+  @media only screen and (max-width: 500px) {
+    .modal-container {
+      width: 90%;
+    }
+  }
 </style>
