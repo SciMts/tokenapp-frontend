@@ -1,6 +1,5 @@
 <template>
   <div>
-``
     <!-- use the modal component, pass in the prop -->
     <modal-comp v-if="modalVisible" v-bind:modalVisible="this.modalVisible" @close="hideModal()">
       <!--overwrite modal defaults-->
