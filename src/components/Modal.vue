@@ -4,6 +4,9 @@
       <div class="modal-wrapper">
         <div class="modal-container" @click.stop>
           <div class="modal-header">
+            <div id="icon-wrapper" @click="$emit('close')">
+              <icon name="close"></icon>
+            </div>
             <slot name="header">
               default header
             </slot>
@@ -28,6 +31,8 @@
 </template>
 
 <script>
+  import Icon from 'vue-awesome/components/Icon'
+  import 'vue-awesome/icons/close'
   export default {
     name: 'modal',
     props: ['modalVisible'],
@@ -41,6 +46,9 @@
           this.$emit('close')
         }
       })
+    },
+    components: {
+      Icon
     }
   }
 </script>
@@ -64,7 +72,7 @@
   }
 
   .modal-container {
-    width: 500px;
+    width: 600px;
     margin: 0px auto;
     padding: 20px 30px;
     background-color: #fff;
@@ -74,9 +82,20 @@
     font-family: Helvetica, Arial, sans-serif;
   }
 
+  .modal-header {
+    position: relative;
+  }
+
   .modal-header h3 {
     margin-top: 0;
     color: #42b983;
+
+  }
+
+  .modal-header #icon-wrapper {
+    position: absolute;
+    top:0;
+    right: 0;
   }
 
   .modal-body {
