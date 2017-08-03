@@ -71,7 +71,6 @@
     },
     methods: {
       showModal: function () {
-        event.preventDefault() // prevents to add a question mark before the hashtag
         this.modalVisible = true
       },
       hideModal: function () {
