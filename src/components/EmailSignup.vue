@@ -16,8 +16,14 @@
         </div>
       </div>
     </modal-comp>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <div class="logo-width" style="margin: auto;">
+          <h2>Please register your E-Mail and<br/>confirm the token sale terms.</h2>
+        </div>
+      </div>
+    </div>
     <form>
-      <h3>Please register your E-Mail and<br/>confirm the token sale terms.</h3>
 
       <div class="row">
         <div class="col-xs-12">

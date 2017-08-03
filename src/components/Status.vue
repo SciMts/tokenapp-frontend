@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h3>Status</h3>
-    <div class="row">
+    <div class="logo-width" style="margin: auto;">
+      <h2>Status</h2>
+    </div>
+    <div class="row" v-if="!errorMsg">
       <div class="col-xs-3" v-for="tier in tiers">
         <div class="row">{{tier.name}}</div>
         <div class="row">
@@ -12,9 +14,12 @@
           {{ Math.ceil(tier.amount / tier.maxAmount  * 100 )}}%
         </div>
       </div>
-
     </div>
-
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="bg-danger">{{errorMsg}}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,6 +33,7 @@
     name: 'status-comp',
     data: function () {
       return {
+        errorMsg: '',
         tiers: [
           {
             name: 'Pre ICO',
@@ -62,6 +68,7 @@
             this.setTiers(response.data)
           }).catch(err => {
             console.error(err)
+            this.errorMsg = 'Oops. an error occured while loading the status'
           })
       },
       setTiers: function (amount) {

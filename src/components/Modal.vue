@@ -86,7 +86,7 @@
     position: relative;
   }
 
-  .modal-header h3 {
+  .modal-header h2 {
     margin-top: 0;
     color: #42b983;
 

@@ -9,15 +9,23 @@
     </div>
     <div id="wrap">
     </div>
-    <img id="logo" src="./../assets/modum.png">
+
+    <img class="logo-width" src="./../assets/modum.png">
+
+    <h1>Token Sale</h1>
     <section>
       <div class="container">
-        <h2>Token Sale</h2>
-        <p class="lead">Please follow the steps below to buy your modum tokens. <br/> Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.</p>
+
+        <p class="lead">Please follow the steps below to buy your modum tokens. <br/>
+          Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.
+        </p>
         <router-view></router-view>
-        <section id="section">
-          <status-comp></status-comp>
-        </section>
+
+      </div>
+    </section>
+    <section id="section">
+      <div class="container">
+        <status-comp></status-comp>
       </div>
     </section>
 
@@ -26,7 +34,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 text-left">
-            <img class="footer_logo" src="https://assets.modum.io/wp-content/uploads/2017/03/modum_logo_white-text-tight-crop.png" alt="logo" width="150">
+            <img class="footer_logo" src="./../assets/modum_logo_white-text-tight-crop.png" alt="logo" width="150">
           </div>
           <div class="col-xs-6 col-sm-6 text-left">
             modum.io AG<br>
@@ -49,6 +57,7 @@
 
 <script>
   import StatusComp from './Status.vue'
+
   export default {
     name: 'layout',
     data () {
@@ -68,10 +77,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #logo {
-    height: 150px;
-  }
-
   section {
     padding: 20px 0;
     position: relative;
@@ -85,11 +90,11 @@
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 200px;
-    background:#818181;
+    background: #818181;
   }
 
   footer a {
-    color:  rgb(68, 68, 68);
+    color: rgb(68, 68, 68);
   }
 
   @media only screen and (max-width: 500px) {
@@ -97,6 +102,7 @@
       width: 80%;
       height: auto;
     }
+
     footer {
       font-size: small;
     }

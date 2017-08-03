@@ -9,7 +9,7 @@
     </div>
     <div v-if="invalidToken==false">
       <div v-if="address === null">
-        <h3>Define the token destination address</h3>
+        <h2>Define the token destination address</h2>
         <p>
           We offer you 3 different options to define where you want to receive the modum tokens. </p>
         <div class="row">
@@ -89,7 +89,7 @@
       </transition>
       <transition name="fade">
         <div v-if="address !== null">
-          <h3>Your Address</h3>
+          <h2>Your Address</h2>
           <p>Tokens will be sent to this address.</p>
           <p>
             <a target="_blank" :href="'https://etherscan.io/address/' + address">{{ address }}</a>

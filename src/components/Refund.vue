@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Almost there!</h3>
+    <h2>Almost there!</h2>
     <p>Please specify your Bitcoin or Ethereum refund address</p>
     <div class="row">
       <div class="col-xs-12">

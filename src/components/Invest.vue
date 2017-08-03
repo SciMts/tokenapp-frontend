@@ -6,7 +6,7 @@
       </div>
     </div>
     <div v-if="!this.errorMsg">
-      <h3>Almost done!</h3>
+      <h2>Almost done!</h2>
       <p>
         You can send your Ether and Bitcoin from any source including Exchanges wallets. You can also send as often as you want.</p>
       <p>
