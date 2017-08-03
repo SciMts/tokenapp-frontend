@@ -35,9 +35,6 @@ fi
 #Deployment
 for i in "${SERVERS[@]}"
 do
-    #http://www.g-loaded.eu/2006/11/24/auto-closing-ssh-tunnels/
-    ssh -f -L 1234:"$i":22 -i "$PRIV_PROXY" ubuntu@"$JUMP_HOST" sleep 5; \
-    #access the tokenapp server
-    #ssh -i priv.key -p 1234 ubuntu@localhost
-    scp -r -i "$PRIV_APP" -P 1234 dist/* ubuntu@localhost:/var/www/html
+    ssh -f -L 1237:"$i":22 -i "$PRIV_PROXY" -p 2202 ubuntu@"$JUMP_HOST" sleep 5; \
+    scp -r -i "$PRIV_APP" -P 1237 dist/* ubuntu@localhost:/var/www/html
 done
