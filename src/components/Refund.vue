@@ -77,7 +77,7 @@
           this.$router.push({name: 'step5'})
         }).catch(err => {
           console.error(err)
-          this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contract us...'
+          this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contact us...'
         })
       }
     },

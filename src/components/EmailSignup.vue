@@ -75,7 +75,8 @@
       }
     },
     methods: {
-      showModal: function () {
+      showModal: function (event) {
+        event.preventDefault() // prevents to add a question mark before the hashtag
         this.modalVisible = true
       },
       hideModal: function () {
@@ -91,7 +92,7 @@
             this.$router.push({name: 'step2'})
           }).catch(err => {
             console.log(err)
-            this.errorMsg = 'Oops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contract us...'
+            this.errorMsg = 'Oops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contact us...'
           })
         } else {
           this.errorMsg = 'Please enter a valid E-Mail address or accept the Terms & Conditions'
