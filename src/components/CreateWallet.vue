@@ -94,8 +94,7 @@
           </p>
           <div class="row">
             <div class="col-xs-12">
-              <img
-                :src="'https://chart.googleapis.com/chart?cht=qr&chl=' + address + '&chs=200x200&choe=UTF-8&chld=L|2'"/>
+              <qrcode :value=address :size="200"></qrcode>
             </div>
           </div>
 
@@ -121,6 +120,7 @@
   import axios from 'axios'
   import FileSaver from 'file-saver'
   import Wallet from '../lib/wallet'
+  import Qrcode from 'v-qrcode'
 
   let validTokenEndpoint = 'register/:token/validate'
   export default {
@@ -205,6 +205,9 @@
         this.$root.store.address = this.address
         this.$router.push({name: 'step4'})
       }
+    },
+    components: {
+      Qrcode
     }
   }
 </script>

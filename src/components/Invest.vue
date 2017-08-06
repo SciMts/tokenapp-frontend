@@ -22,15 +22,14 @@
           <p v-model="btc">
             <a target="_blank" :href="'https://blockchain.info/address/' + btc">{{ btc }}</a>
           </p>
-          <img :src="'https://blockchain.info/qr?data=' + btc + '&size=200'"/>
+          <qrcode :value=btc :size="200"></qrcode>
         </div>
         <div class="col-lg-6 col-sm-6 col-xs-6, col-md-6">
           <h4>Ether</h4>
           <p>
             <a target="_blank" :href="'https://etherscan.io/address/' + ether">{{ ether }}</a>
           </p>
-          <img
-            :src="'https://chart.googleapis.com/chart?cht=qr&chl=' + ether + '&chs=200x200&choe=UTF-8&chld=L|2'"/>
+          <qrcode :value=ether :size="200"></qrcode>
         </div>
       </div>
       <div class="row">
@@ -47,6 +46,7 @@
 </template>
 
 <script>
+  import Qrcode from 'v-qrcode'
   export default {
     data: function () {
       return {
@@ -61,6 +61,9 @@
       }
       this.btc = this.$root.store.btc
       this.ether = this.$root.store.ether
+    },
+    components: {
+      Qrcode
     }
   }
 </script>
