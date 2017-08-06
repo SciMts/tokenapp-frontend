@@ -89,3 +89,9 @@
     }
   }
 </script>
+
+<style scoped>
+  input {
+    width: 400px;
+  }
+</style>
