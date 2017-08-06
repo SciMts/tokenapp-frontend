@@ -146,4 +146,13 @@
     margin-top: 10px;
   }
 
+  @media only screen and (max-width: 500px) {
+    h1 {
+      letter-spacing: 15px;
+      margin-right: 0;
+    }
+    .logo-width {
+      width:90%;
+    }
+  }
 </style>
