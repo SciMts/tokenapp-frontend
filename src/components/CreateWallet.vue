@@ -163,9 +163,9 @@
             this.invalidToken = true
           }
         }).catch(err => {
-          console.error(err)
           this.invalidToken = true
           this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token?'
+          return err
         })
       },
       startWaiting: function () {

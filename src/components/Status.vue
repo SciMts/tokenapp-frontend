@@ -67,8 +67,8 @@
           .then(response => {
             this.setTiers(response.data)
           }).catch(err => {
-            console.error(err)
             this.errorMsg = 'Oops. an error occured while loading the status'
+            return err
           })
       },
       setTiers: function (amount) {

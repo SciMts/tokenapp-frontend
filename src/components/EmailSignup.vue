@@ -91,8 +91,8 @@
           }).then(response => {
             this.$router.push({name: 'step2'})
           }).catch(err => {
-            console.log(err)
             this.errorMsg = 'Oops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contact us...'
+            return err
           })
         } else {
           this.errorMsg = 'Please enter a valid E-Mail address or accept the Terms & Conditions'
