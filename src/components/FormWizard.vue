@@ -4,72 +4,39 @@
     <ul>
       <li :class="{active: $route.name === 'step1'}">
         <div>
-          <!--<icon name="envelope-o"></icon>-->
-          <!--<span>Register</span>-->
-          <div class="icon-container">
-            <icon name="envelope-o"></icon>
-          </div>
-          <div class="text-container">
-            <span>Register</span>
-          </div>
+          <img src="../assets/icons/register_active.svg" v-if="$route.name === 'step1'"/>
+          <img src="../assets/icons/register.svg" v-else/>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step2'}">
         <div>
-          <!--<icon name="inbox"></icon>-->
-          <!--<span>Confirm</span>-->
-          <div class="icon-container">
-            <icon name="inbox"></icon>
-          </div>
-          <div class="text-container">
-            <span>Confirm</span>
-          </div>
+          <img src="../assets/icons/confirm_active.svg" v-if="$route.name === 'step2'"/>
+          <img src="../assets/icons/confirm.svg" v-else>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step3'}">
         <div>
-          <!--<icon name="wallet"></icon>-->
-          <!--<span>Wallet</span>-->
-          <div class="icon-container">
-            <icon name="wallet"></icon>
-          </div>
-          <div class="text-container">
-            <span>Wallet</span>
-          </div>
+          <img src="../assets/icons/wallet_active.svg" v-if="$route.name === 'step3'"/>
+          <img src="../assets/icons/wallet.svg" v-else>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step4'}">
         <div>
-          <!--<icon name="reply-all"></icon>-->
-          <!--<span>Refund</span>-->
-          <div class="icon-container">
-            <icon name="reply-all"></icon>
-          </div>
-          <div class="text-container">
-            <span>Refund</span>
-          </div>
+          <img src="../assets/icons/refund_active.svg" v-if="$route.name === 'step4'"/>
+          <img src="../assets/icons/refund.svg" v-else>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step5'}">
-        <!--<p class="icon-text">Pay-In Address</p>-->
         <div>
-          <div class="icon-container">
-            <icon name="btc"></icon>
-          </div>
-          <div class="text-container">
-            <span>Invest</span>
-          </div>
-          <!--<icon name="btc"></icon>-->
-          <!---->
+          <img src="../assets/icons/invest_active.svg" v-if="$route.name === 'step5'"/>
+          <img src="../assets/icons/invest.svg" v-else>
         </div>
       </li>
-
     </ul>
-
     <div>
       <router-view class="wizard-component"></router-view>
     </div>
@@ -169,55 +136,16 @@
     position: relative;
   }
 
+  .wizard ul img {
+    height: 100px;
+  }
+
   .wizard li {
     list-style-type: none;
-    width: 100px;
+    /*width: 100px;*/
     height: 100px;
-    border: 3px solid #0C547C;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: white;
     transition: background 0.3s ease;
-  }
-
-
-
-  .wizard li.active {
-    background: #0C547C;
-  }
-
-  .wizard li div {
-    height: 100%;
-    width: 100%;
-    display: table;
-  }
-
-  .wizard li.active > div,
-  .wizard li.active > div > svg{
-    color: white;
-  }
-
-  /**/
-  .wizard li > div > .icon-container {
-    padding-top:10%;
-    /*height: 50%;*/
-    max-height: 50%;
-    /*background-color: red;*/
-  }
-  .wizard li > div > .icon-container >  svg {
-    width: auto;
-    height: 35px;
-    color: rgba(0, 0, 0, .2);
-  }
-  .wizard li > div > .text-container {
-    height: 50%;
-  }
-  /**/
-
-  .wizard .wizard-component {
-    margin-top: 40px;
   }
 
   .wizard .progress {
@@ -228,24 +156,26 @@
     transition: width 0.3s ease;
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 600px) {
     .wizard li {
-      list-style-type: none;
-      width: 50px;
-      height: 50px;
-      border: 3px solid #0C547C;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: white;
-      transition: background 0.3s ease;
+      height: 80px;
     }
-    .wizard li > div > .text-container > span {
-      display: none;
+    .wizard ul img {
+      height: 80px;
     }
     .wizard .progress {
-      top:45px;
+      top: 60px;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .wizard li {
+      height: 60px;
+    }
+    .wizard ul img {
+      height: 60px;
+    }
+    .wizard .progress {
+      top: 50px;
     }
   }
 </style>
