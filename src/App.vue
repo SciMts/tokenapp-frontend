@@ -62,27 +62,31 @@
     text-align: center;
   }
 
-  /*#yikes-easy-mc-form-1-EMAIL, #yikes-easy-mc-form-3-EMAIL {*/
-  input {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
     line-height: 36px;
-    font-family: Raleway, sans-serif;
+    /*font-family: Raleway, sans-serif;*/
     white-space: nowrap;
     outline: 0;
     font-style: normal;
     letter-spacing: 1px;
     text-shadow: none;
     text-decoration: none;
-    padding: 0 23px;
+    padding: 0 15px;
     border-style: solid;
     height: 3rem;
-    font-size: 13px;
+    /*font-size: 13px;*/
     color: rgb(12, 84, 124);
     border-color: rgb(12, 84, 124);
     background-color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.8);
-    width: 100%;
+    width: 300px;
     border-radius: 4px;
-    margin: 0;
+
+  }
+  button{
+    width:300px;
   }
 
   .panel {
@@ -139,4 +143,7 @@
   .logo-width {
     width: 415px;
   }
+
+  .top-buffer { margin-top:10px; }
+
 </style>
