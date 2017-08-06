@@ -3,28 +3,27 @@
     <!-- use the modal component, pass in the prop -->
     <modal-comp v-if="modalVisible" v-bind:modalVisible="this.modalVisible" @close="hideModal()">
       <!--overwrite modal defaults-->
-      <h4 slot="header">Terms & Conditions</h4>
+      <h3 slot="header">Terms & Conditions</h3>
       <div slot="body">
         <textarea readonly style="width: 100%; height: 200px; resize: none; font-size: small;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-        <input type="checkbox" value="" v-model="terms"> I've read and accepted to token
+        <input type="checkbox" value="" v-model="terms">I have read and accepted the terms of the MOD token sale
       </div>
       <div slot="footer">
         <div class="text-center">
           <button  @click="send()" :disabled="!valid">
-            Accept
+            Send Invite
           </button>
         </div>
       </div>
     </modal-comp>
     <div class="row">
       <div class="col-xs-12 text-center">
-        <div class="logo-width" style="margin: auto;">
+        <div style="margin: auto;">
           <h2>Please register your E-Mail and<br/>confirm the token sale terms.</h2>
         </div>
       </div>
     </div>
     <form>
-
       <div class="row">
         <div class="col-xs-12">
           <p class="bg-danger">{{errorMsg}}</p>
@@ -106,6 +105,4 @@
   }
 </script>
 
-<style scoped>
-  .top-buffer { margin-top:10px; }
-</style>
+

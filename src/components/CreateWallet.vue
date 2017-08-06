@@ -9,7 +9,7 @@
     </div>
     <div v-if="invalidToken==false">
       <div v-if="address === null">
-        <h2>Define the token destination address</h2>
+        <h2>Select how you would like to receive your MOD tokens.</h2>
         <p>
           We offer you 3 different options to define where you want to receive the modum tokens. </p>
         <div class="row">
@@ -23,9 +23,9 @@
                                 href="#question1">Option 1: Create New Wallet</a>
             <div id="question1" class="panel-collapse collapse in">
               <div class="panel-body">
-                <p>Enter a password with which to protect your new wallet. <strong>Do not forget this password.</strong>
-                  The password is required to unlock the newly generated wallet file.</p>
-                <p><b>If you loose your password and key store, your money is lost as we cannot retrieve them.</b>
+                <p>Enter a password for your new wallet. <strong>Do not forget it.</strong> Your password will be required to unlock the new wallet file that is generated for you.</p>
+
+                <p><b>If you loose your password and key store, your money wil be lost, we can not retrieve it.</b>
                 </p>
                 <form>
                   <fieldset :disabled="waiting">
@@ -81,27 +81,34 @@
       <transition name="fade">
         <div v-if="v3stringwallet !== null">
           <h2>Download Wallet</h2>
-          <p>Please back-up your wallet file and remember the password to unlock it.</p>
-
-          <button v-on:click="download" style="background-color: red">!! DOWNLOAD WALLET FILE !!
-          </button>
+          <p>Pease download your wallet file here. Remember to back up your wallet file and store your password securely, your password is not retrievable if lost.</p>
+          <button v-on:click="download" id="downloadBtn">DOWNLOAD WALLET FILE </button>
         </div>
       </transition>
       <transition name="fade">
         <div v-if="address !== null">
-          <h2>Your Address</h2>
+          <h3>Your Address</h3>
           <p>Tokens will be sent to this address.</p>
           <p>
             <a target="_blank" :href="'https://etherscan.io/address/' + address">{{ address }}</a>
           </p>
-          <img
-            :src="'https://chart.googleapis.com/chart?cht=qr&chl=' + address + '&chs=200x200&choe=UTF-8&chld=L|2'"/>
+          <div class="row">
+            <div class="col-xs-12">
+              <img
+                :src="'https://chart.googleapis.com/chart?cht=qr&chl=' + address + '&chs=200x200&choe=UTF-8&chld=L|2'"/>
+            </div>
+          </div>
 
-          <fieldset>
+          <div class="row top-buffer">
+          <div class="col-xs-12">
+            <p>Next Step:</p>
+          </div>
+          </div>
+          <div class="row">
             <button v-on:click="invest" :disabled="!address || (v3stringwallet && !disclaimer)">
               Set up Refund Address
             </button>
-          </fieldset>
+          </div>
 
         </div>
       </transition>
@@ -202,7 +209,13 @@
   }
 </script>
 
-<style>
+<style scoped>
+  input{
+    width: 400px;
+  }
+  #downloadBtn {
+    background-color: #31BA99;
+  }
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s
   }

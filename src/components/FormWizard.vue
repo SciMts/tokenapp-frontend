@@ -69,7 +69,8 @@
       </li>
 
     </ul>
-    <div class="container">
+
+    <div>
       <router-view class="wizard-component"></router-view>
     </div>
 
