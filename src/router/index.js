@@ -42,7 +42,7 @@ export default new Router({
               component: CheckEmail
             },
             {
-              path: '/wallet/:token',
+              path: '/confirm/:token',
               name: 'step3',
               component: CreateWallet,
               props: true
