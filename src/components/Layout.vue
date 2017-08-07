@@ -36,9 +36,10 @@
             <img class="footer_logo" src="./../assets/modum_logo_white-text-tight-crop.png" alt="logo" width="150">
           </div>
           <div class="col-xs-6 col-sm-6 text-left">
-            modum.io AG<br>
-            Technoparkstrasse 1<br>
-            8005 Zürich, CH
+            modum.io AG<br/>
+            Technoparkstrasse 1<br/>
+            8005 Zürich, CH<br/>
+            <a href="mailto:token@modum.io?Subject=[modum.io ICO]" target="_top">token@modum.io</a>
           </div>
           <div class="col-xs-6 col-sm-6 text-right">
 
