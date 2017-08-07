@@ -9,31 +9,29 @@
     </div>
     <div v-if="!invalidToken">
 
-
-      <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-        <div class="panel"><a class="panel-heading collapsed" data-toggle="collapse"
-                              data-parent="#accordion"
-                              href="#ethRefund">Specify your Ethereum Address as Refund Address</a>
-          <div id="ethRefund" class="panel-collapse collapse">
-            <div class="panel-body">
+      <div class="panel-group">
+        <div class="panel">
+          <b-link block v-b-toggle.refundoption1 class="panel-heading">Specify your Ethereum Address as Refund Address</b-link>
+          <b-collapse id="refundoption1" accordion="refundoptions">
+            <b-card>
               <input type="text" v-model="eth"
                      size="42"
                      placeholder="0x32Be343B94f860124dC4fEe278FDCBD38C102D88"
                      pattern=".{42}" title="42 characters long address starting with 0x">
-            </div>
-          </div>
+            </b-card>
+          </b-collapse>
         </div>
-        <div class="panel"><a class="panel-heading collapsed" data-toggle="collapse"
-                              href="#btcRefund">Specify your Bitcoin Address as Refund Address</a>
-          <div id="btcRefund" class="panel-collapse collapse">
-            <div class="panel-body">
-              <input type="text" v-model="btc"
-                     size="42"
-                     placeholder="1P82rBjJMDFSay2RqKx1bydDRVh5QnGkkZ">
-            </div>
-          </div>
+        <div class="panel">
+          <b-link block v-b-toggle.refundoption2 class="panel-heading">Specify your Bitcoin Address as Refund Address</b-link>
+          <b-collapse id="refundoption2" accordion="refundoptions">
+            <b-card>
+              <input type="text" v-model="btc" size="42" placeholder="1P82rBjJMDFSay2RqKx1bydDRVh5QnGkkZ">
+            </b-card>
+          </b-collapse>
         </div>
       </div>
+
+
       <div class="row">
         <div class="col-xs-offset-2 col-xs-8">
           <button type="submit" v-on:click="sendRefund">Make Investment</button>
