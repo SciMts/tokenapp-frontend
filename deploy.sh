@@ -35,6 +35,7 @@ fi
 #Deployment
 for i in "${SERVERS[@]}"
 do
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -f -L 1237:"$i":22 -i "$PRIV_PROXY" -p 2202 ubuntu@"$JUMP_HOST" sleep 5; \
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -f -L 1237:"$i":22 -i "$PRIV_PROXY" -p 2202 ubuntu@"$JUMP_HOST" sleep 3; \
     scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r -i "$PRIV_APP" -P 1237 dist/* ubuntu@localhost:/var/www/html
+    sleep 3
 done
