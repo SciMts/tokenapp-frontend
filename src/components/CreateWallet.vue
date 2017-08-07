@@ -17,67 +17,66 @@
             <p class="bg-danger">{{errorMsg}}</p>
           </div>
         </div>
-        <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-          <div class="panel"><a class="panel-heading" data-toggle="collapse"
-                                data-parent="#accordion"
-                                href="#question1">Option 1: Create New Wallet</a>
-            <div id="question1" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <p>Enter a password for your new wallet. <strong>Do not forget it.</strong> Your password will be required to unlock the new wallet file that is generated for you.</p>
 
-                <p><b>If you loose your password and key store, your money wil be lost, we can not retrieve it.</b>
-                </p>
-                <form>
-                  <fieldset :disabled="waiting">
-                    <fieldset>
-                      <input id="password"
-                             type="password"
-                             v-model="password"
-                             v-on:keyup.enter="createWallet"
-                             placeholder="PASSWORD"
-                             autofocus>
-                      <button v-on:click="createWallet" :disabled="!validPassword">Create Wallet
-                      </button>
-                    </fieldset>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div class="panel"><a class="panel-heading collapsed" data-toggle="collapse"
-                                data-parent="#accordion" href="#question2">Option 2: Import Existing Wallet</a>
-            <div id="question2" class="panel-collapse collapse ">
-              <div class="panel-body">
-                <p>Required format: UTC JSON (myetherwallet)</p>
-                <form>
-                  <fieldset :disabled="waiting">
-                    <input type="file" @change="fileImport($event.target.files[0])" accept=".json"
-                           style="text-align: center;  margin: auto;">
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div class="panel"><a class="panel-heading collapsed" data-toggle="collapse"
-                                href="#question3">Option 3: Enter Address Manually (advanced)</a>
-            <div id="question3" class="panel-collapse collapse">
-              <div class="panel-body">
-                <form>
-                  <fieldset :disabled="waiting">
-                    <input type="text" v-model="insertedAddress"
-                           size="42"
-                           placeholder="0x32Be343B94f860124dC4fEe278FDCBD38C102D88"
-                           pattern=".{42}"
-                           title="42 characters long address starting with 0x"
-                           v-on:keyup.enter="manual">
-                    <button v-on:click="manual" :disabled="!validAddress">Use Address</button>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-          </div>
+      <div class="panel-group">
+        <div class="panel">
+          <b-link block v-b-toggle.walletoption1 class="panel-heading">Option 1: Create New Wallet</b-link>
+
+
+        <b-collapse id="walletoption1" visible accordion="walletoptions">
+          <b-card>
+            <p>Enter a password for your new wallet. <strong>Do not forget it.</strong> Your password will be required to unlock the new wallet file that is generated for you.</p>
+
+            <p><b>If you loose your password and key store, your money wil be lost, we can not retrieve it.</b>
+            </p>
+            <fieldset :disabled="waiting">
+              <fieldset>
+                <input id="password"
+                       type="password"
+                       v-model="password"
+                       v-on:keyup.enter="createWallet"
+                       placeholder="PASSWORD"
+                       autofocus>
+                <button v-on:click="createWallet" :disabled="!validPassword">Create Wallet
+                </button>
+              </fieldset>
+            </fieldset>
+          </b-card>
+        </b-collapse>
+        </div>
+        <div class="panel">
+          <b-link block class="panel-heading" v-b-toggle.walletoption2>Option 2: Import Existing Wallet</b-link>
+
+        <b-collapse id="walletoption2" accordion="walletoptions">
+          <b-card>
+            <p>Required format: UTC JSON (myetherwallet)</p>
+            <fieldset :disabled="waiting">
+              <input type="file" @change="fileImport($event.target.files[0])" accept=".json"
+                     style="text-align: center;  margin: auto;">
+            </fieldset>
+          </b-card>
+        </b-collapse>
+        </div>
+        <div class="panel">
+          <b-link block class="panel-heading" v-b-toggle.walletoption3>Option 3: Enter Address Manually (advanced)</b-link>
+
+        <b-collapse id="walletoption3" accordion="walletoptions">
+          <b-card>
+            <fieldset :disabled="waiting">
+              <input type="text" v-model="insertedAddress"
+                     size="42"
+                     placeholder="0x32Be343B94f860124dC4fEe278FDCBD38C102D88"
+                     pattern=".{42}"
+                     title="42 characters long address starting with 0x"
+                     v-on:keyup.enter="manual">
+              <button v-on:click="manual" :disabled="!validAddress">Use Address</button>
+            </fieldset>
+          </b-card>
+        </b-collapse>
         </div>
       </div>
+      </div>
+
       <transition name="fade">
         <div v-if="v3stringwallet !== null">
           <h2>Download Wallet</h2>

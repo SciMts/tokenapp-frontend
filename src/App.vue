@@ -113,7 +113,6 @@
 
   .panel .panel-heading:before {
     content: "";
-    display: block;
     position: absolute;
     left: 30px;
     top: 33px;
@@ -123,6 +122,11 @@
     margin-top: 9px;
     opacity: 0.25;
   }
+  .panel .panel-heading[aria-expanded="false"]:before {
+    height: 20px;
+    background: url(./assets/cross.png) no-repeat center;
+    margin-top: 0;
+  }
 
   .panel .collapsed.panel-heading:before {
     height: 20px;
@@ -130,7 +134,7 @@
     margin-top: 0;
   }
 
-  .panel .panel-body {
+  .panel  div.card {
     padding: 30px;
     color: #666;
     text-align: center;
