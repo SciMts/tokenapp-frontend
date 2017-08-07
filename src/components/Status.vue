@@ -17,9 +17,21 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <p class="bg-danger">{{errorMsg}}</p>
+        <p class="bg-warning">We experienced some problems connecting to our ICO-Monitoring service.</p>
       </div>
     </div>
+    <div class="row" v-if="errorMsg">
+      <div class="col-xs-3" v-for="tier in tiers">
+        <div class="row">{{tier.name}}</div>
+        <div class="row">
+          <img src="../assets/box-open.svg" height="70px">
+        </div>
+        <div class="row">
+          ???
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
