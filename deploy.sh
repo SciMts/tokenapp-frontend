@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #servers to deploy to and jumphost for the tunnel
-SERVERS=( "tokenapp1.modum.intern" )
+SERVERS=( "tokenapp1.modum.intern" "tokenapp2.modum.intern" )
 JUMP_HOST="jump.modum.io"
 
 #if only one key is provided, both servers have the same key
@@ -35,6 +35,6 @@ fi
 #Deployment
 for i in "${SERVERS[@]}"
 do
-    ssh -f -L 1237:"$i":22 -i "$PRIV_PROXY" -p 2202 ubuntu@"$JUMP_HOST" sleep 5; \
-    scp -r -i "$PRIV_APP" -P 1237 dist/* ubuntu@localhost:/var/www/html
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -f -L 1237:"$i":22 -i "$PRIV_PROXY" -p 2202 ubuntu@"$JUMP_HOST" sleep 5; \
+    scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r -i "$PRIV_APP" -P 1237 dist/* ubuntu@localhost:/var/www/html
 done
