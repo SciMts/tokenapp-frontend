@@ -38,14 +38,13 @@
           <div class="col-xs-6 col-sm-6 text-left">
             modum.io AG<br>
             Technoparkstrasse 1<br>
-            8005 Zürich, CH<br>
-            info@modum.io
+            8005 Zürich, CH
           </div>
           <div class="col-xs-6 col-sm-6 text-right">
 
-            <a target="_blank" href="https://www.modum.io/terms">Terms & Conditions</a><br/>
-            <a target="_blank" href="https://www.modum.io/tokensale">Token Sale Information</a><br/>
-            <a target="_blank" href="https://www.modum.io">Website</a><br/>
+            <a target="_blank" href="https://modum.io/terms">Terms & Conditions</a><br/>
+            <a target="_blank" href="https://modum.io/tokensale">Token Sale Information</a><br/>
+            <a target="_blank" href="https://modum.io">Website</a><br/>
           </div>
         </div>
       </div>
