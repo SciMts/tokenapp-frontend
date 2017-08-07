@@ -21,6 +21,7 @@
     font-weight: 100;
     color: #444;
     line-height: 1.8;
+    padding-top:40px;
   }
 
   h1 {
