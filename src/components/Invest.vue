@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row">
+    <div class="row top-buffer">
       <div class="col-xs-12">
         <p class="bg-danger">{{errorMsg}}</p>
       </div>
@@ -35,13 +35,11 @@
       <div class="row">
         <div class="col-lg-12">
           <p id="thanks" class="bg-success">
-            Thank you very much for your contribution. You will receive an email, once the token is ready for distribution. In the meantime stay tuned to our progress on our <a
-            target="_blank" href="https://medium.com/@modum_io">blog.</a></p>
+            Thank you very much for your contribution. You will receive an e-mail, once the token is ready for distribution. In the meantime, stay tuned to our progress on our <a
+            target="_blank" href="https://medium.com/@modum_io" style="color: rgb(68, 68, 68);">blog.</a></p>
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 

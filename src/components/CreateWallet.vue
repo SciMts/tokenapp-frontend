@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="invalidToken">
-      <div class="row">
+      <div class="row top-buffer">
         <div class="col-xs-12">
           <p class="bg-danger">Oh no. Invalid token...</p>
         </div>
