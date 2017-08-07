@@ -17,7 +17,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <p class="bg-warning">We experienced some problems connecting to our ICO-Monitoring service.</p>
+        <p class="bg-warning">We are currently unable to determine your expected bonus tier.</p>
       </div>
     </div>
     <div class="row" v-if="errorMsg">
