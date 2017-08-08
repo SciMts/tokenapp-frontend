@@ -115,10 +115,12 @@
 </template>
 
 <script>
+  var WalletWorker = require('worker-loader!@/lib/walletWorker.js')
+  import store from '@/store'
   import Vue from 'vue'
   import axios from 'axios'
   import FileSaver from 'file-saver'
-  import Wallet from '../lib/wallet'
+  // import Wallet from '../lib/wallet'
   import Qrcode from 'v-qrcode'
 
   let validTokenEndpoint = 'register/:token/validate'
@@ -132,7 +134,8 @@
         insertedAddress: '',
         address: null,
         invalidToken: false,
-        errorMsg: ''
+        errorMsg: '',
+        sharedState: store
       }
     },
     props: {
@@ -180,9 +183,16 @@
       },
       generateWallet: function () {
         if (this.validPassword) {
-          let wallet = Wallet.generate()
-          this.v3stringwallet = wallet.toV3String(this.password, {kdf: 'pbkdf2'})
-          this.address = wallet.getAddressString()
+          this.sharedState.loading = true
+          let worker = new WalletWorker()
+          worker.onmessage = ({data}) => {
+            this.v3stringwallet = data.v3stringwallet
+            this.address = data.address
+            this.sharedState.loading = false
+          }
+          worker.postMessage({
+            password: this.password
+          })
         }
       },
       fileImport: function (file) {
@@ -227,4 +237,3 @@
     opacity: 0
   }
 </style>
-

@@ -12,11 +12,6 @@
 
 <style>
 
-  .modum-blue {
-    color: #fff;
-    background-color: rgba(54, 189, 156, 0.8);
-  }
-
   /*@import url(./assets/opensans/stylesheet.css);*/
   /*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700,800');*/
   /*@import url(./assets/open_sans/stylesheet.css);*/
