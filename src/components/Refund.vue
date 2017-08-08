@@ -5,7 +5,7 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <div class="alert modum-blue">
+        <div class="alert refund-info">
           <h4>Why provide refund addresses?</h4>
           <p><b>A:</b> Oversubscriptions of the whole token sale are returned to the investors after the closing of the token sales.</p>
         </div>
@@ -101,5 +101,10 @@
 <style scoped>
   input {
     width: 400px;
+  }
+
+  .refund-info {
+    color: #fff;
+    background-color: rgba(54, 189, 156, 0.8);
   }
 </style>

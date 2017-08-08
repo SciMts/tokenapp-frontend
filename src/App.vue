@@ -14,7 +14,7 @@
 
   .modum-blue {
     color: #fff;
-    background-color: rgb(12, 84, 124);
+    background-color: rgba(54, 189, 156, 0.8);
   }
 
   /*@import url(./assets/opensans/stylesheet.css);*/
