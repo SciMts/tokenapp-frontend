@@ -222,9 +222,6 @@
 </script>
 
 <style scoped>
-  input{
-    width: 400px;
-  }
   #downloadBtn {
     background-color: #31BA99;
   }
