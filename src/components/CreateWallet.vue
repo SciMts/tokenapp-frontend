@@ -80,7 +80,7 @@
       <transition name="fade">
         <div v-if="v3stringwallet !== null">
           <h2>Download Wallet</h2>
-          <p>Pease download your wallet file here. Remember to back up your wallet file and store your password securely, your password is not retrievable if lost.</p>
+          <p>Please download your wallet file here. Remember to back up your wallet file and store your password securely, your password is not retrievable if lost.</p>
           <button v-on:click="download" id="downloadBtn">DOWNLOAD WALLET FILE </button>
         </div>
       </transition>
@@ -158,6 +158,14 @@
           if (response.status !== 200) {
             this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token?'
             this.invalidToken = true
+          } else {
+            let {ether, btc} = response.data
+
+            if (ether != null && btc != null) {
+              this.$root.store.ether = ether
+              this.$root.store.btc = btc
+              this.$router.push({name: 'step5'})
+            }
           }
         }).catch(err => {
           this.invalidToken = true

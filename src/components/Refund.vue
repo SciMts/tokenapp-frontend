@@ -84,7 +84,11 @@
           this.$root.store.btc = response.data.btc
           this.$router.push({name: 'step5'})
         }).catch(err => {
-          this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contact us...'
+          if (err.status === 409) {
+            this.errorMsg = 'You have already defined your token address.'
+          } else {
+            this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contact us...'
+          }
           return err
         })
       }
@@ -99,10 +103,6 @@
 </script>
 
 <style scoped>
-  input {
-    width: 400px;
-  }
-
   .refund-info {
     color: #fff;
     background-color: rgba(54, 189, 156, 0.8);
