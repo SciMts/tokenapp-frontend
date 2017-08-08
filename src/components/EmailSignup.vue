@@ -78,8 +78,10 @@
     },
     methods: {
       showModal: function (event) {
-        event.preventDefault() // prevents to add a question mark before the hashtag
-        this.modalVisible = true
+        if (this.validEmail) {
+          event.preventDefault() // prevents to add a question mark before the hashtag
+          this.modalVisible = true
+        }
       },
       hideModal: function () {
         this.modalVisible = false

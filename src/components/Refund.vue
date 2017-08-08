@@ -44,7 +44,7 @@
 
       <div class="row">
         <div class="col-xs-offset-2 col-xs-8">
-          <button type="submit" v-on:click="sendRefund">Make Investment</button>
+          <button type="submit" v-on:click="sendRefund">Next: Make Investment</button>
         </div>
       </div>
     </div>
