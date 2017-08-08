@@ -28,6 +28,8 @@
       </div>
     </section>
 
+    <spinner v-if="sharedState.loading"/>
+
     <!-- FOOTER BEGIN -->
     <footer class="footer">
       <div class="container">
@@ -55,6 +57,8 @@
 </template>
 
 <script>
+  import store from '@/store'
+  import Spinner from './Spinner.vue'
   import StatusComp from './Status.vue'
 
   export default {
@@ -65,11 +69,13 @@
         formstate: {},
         model: {email: ''},
         email: 'invalid-email',
-        sent: false
+        sent: false,
+        sharedState: store
       }
     },
     components: {
-      StatusComp
+      StatusComp,
+      Spinner
     }
   }
 </script>

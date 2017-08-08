@@ -50,6 +50,7 @@
 </template>
 
 <script>
+  import store from '@/store'
   import Vue from 'vue'
   import axios from 'axios'
   import ModalComp from './Modal.vue'
@@ -61,7 +62,8 @@
         modalVisible: false,
         email: '',
         terms: false,
-        errorMsg: ''
+        errorMsg: '',
+        sharedState: store
       }
     },
     computed: {
@@ -83,17 +85,19 @@
         this.modalVisible = false
         this.terms = false
       },
-      send: function () {
+      async send () {
         this.errorMsg = ''
         if (this.valid) {
-          axios.post(Vue.config.API + registerEndpoint, {
-            email: this.email
-          }).then(response => {
+          this.sharedState.loading = true
+          try {
+            await axios.post(Vue.config.API + registerEndpoint, {
+              email: this.email
+            })
             this.$router.push({name: 'step2'})
-          }).catch(err => {
+          } catch (e) {
             this.errorMsg = 'Oops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contact us...'
-            return err
-          })
+          }
+          this.sharedState.loading = false
         } else {
           this.errorMsg = 'Please enter a valid E-Mail address or accept the Terms & Conditions'
         }
@@ -105,5 +109,3 @@
     }
   }
 </script>
-
-
