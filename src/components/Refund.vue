@@ -84,8 +84,9 @@
           this.$root.store.btc = response.data.btc
           this.$router.push({name: 'step5'})
         }).catch(err => {
-          if (err.status === 409) {
-            this.errorMsg = 'You have already defined your token address.'
+          let {status} = err.response
+          if (status === 409) {
+            this.errorMsg = 'You have already defined your token address. Please check your email for an overview of your provided data.'
           } else {
             this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contact us...'
           }
