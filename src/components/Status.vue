@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" v-if="errorMsg">
       <div class="col-xs-12">
         <p class="bg-warning">We are currently unable to determine your expected bonus tier.</p>
       </div>
