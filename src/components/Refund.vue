@@ -2,6 +2,16 @@
   <div>
     <h2>Almost there!</h2>
     <p>Please specify your Bitcoin or Ethereum refund address</p>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="alert modum-blue">
+          <h4>Why provide refund addresses?</h4>
+          <p><b>A:</b> Oversubscriptions of the whole token sale are returned to the investors after the closing of the token sales.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-xs-12">
         <p class="bg-danger">{{errorMsg}}</p>
