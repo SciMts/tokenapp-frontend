@@ -81,7 +81,7 @@
         <div v-if="v3stringwallet !== null">
           <h2>Download Wallet</h2>
           <p>Pease download your wallet file here. Remember to back up your wallet file and store your password securely, your password is not retrievable if lost.</p>
-          <button v-on:click="download" id="downloadBtn">DOWNLOAD WALLET FILE </button>
+          <button v-on:click="download" :class="{downloadBtn: !disclaimer}">DOWNLOAD WALLET FILE </button>
         </div>
       </transition>
       <transition name="fade">
@@ -97,14 +97,9 @@
             </div>
           </div>
 
-          <div class="row top-buffer">
-          <div class="col-xs-12">
-            <p>Next Step:</p>
-          </div>
-          </div>
           <div class="row">
             <button v-on:click="invest" :disabled="!address || (v3stringwallet && !disclaimer)">
-              Set up Refund Address
+              Next: Refund Address
             </button>
           </div>
 
@@ -222,7 +217,7 @@
 </script>
 
 <style scoped>
-  #downloadBtn {
+  .downloadBtn {
     background-color: #31BA99;
   }
   .fade-enter-active, .fade-leave-active {

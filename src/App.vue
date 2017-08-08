@@ -79,13 +79,15 @@
     border-color: rgb(12, 84, 124);
     background-color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.8);
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     border-radius: 4px;
     margin-bottom: 10px;
   }
 
   button {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
   }
 
   .panel {

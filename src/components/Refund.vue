@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Almost there!</h2>
-    <p>Please specify your Bitcoin or Ethereum refund address</p>
+    <p>Optionally specify your Bitcoin or Ethereum refund address</p>
 
     <div class="row">
       <div class="col-lg-12">
