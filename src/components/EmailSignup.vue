@@ -34,7 +34,7 @@
           <input type="email" id="email"
                  required="required"
                  v-model="email"
-                 v-on:keyup.enter="send"
+                 v-on:keyup.enter="showModal"
                  placeholder="E-Mail"
                  autofocus>
         </div>
@@ -88,8 +88,8 @@
       async send () {
         this.errorMsg = ''
         if (this.valid) {
-          this.sharedState.loading = true
           try {
+            this.sharedState.loading = true
             await axios.post(Vue.config.API + registerEndpoint, {
               email: this.email
             })
@@ -97,11 +97,11 @@
           } catch (e) {
             this.errorMsg = 'Oops. Something is wrong. Is it possible that this E-Mail is already used? Please feel free to contact us...'
           }
-          this.sharedState.loading = false
         } else {
           this.errorMsg = 'Please enter a valid E-Mail address or accept the Terms & Conditions'
         }
-        this.terms = false
+        this.sharedState.loading = false
+        this.hideModal()
       }
     },
     components: {
