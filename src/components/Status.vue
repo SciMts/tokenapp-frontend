@@ -50,17 +50,17 @@
           {
             name: 'Pre ICO',
             amount: 0,
-            maxAmount: 2100000
+            maxAmount: 1050000
           },
           {
             name: 'Tier 1',
             amount: 0,
-            maxAmount: 6000000
+            maxAmount: 4200000
           },
           {
             name: 'Tier 2',
             amount: 0,
-            maxAmount: 6000000
+            maxAmount: 5100000
           },
           {
             name: 'Tier 3',
