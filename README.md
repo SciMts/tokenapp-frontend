@@ -1,6 +1,7 @@
-# modum-token
+# tokenapp-frontend
 
-> modum.io token
+> The frontend application used in the modum token sale
+
 
 ## Build Setup
 
