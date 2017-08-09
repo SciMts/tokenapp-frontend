@@ -3,34 +3,44 @@
     <div class="progress" v-bind:style="{ width: barWidth + '%' }"></div>
     <ul>
       <li :class="{active: $route.name === 'step1'}">
-        <p class="icon-text">Registration</p>
-        <icon name="envelope-o"></icon>
+        <div>
+          <img src="../assets/icons/register_active.svg" v-if="$route.name === 'step1'"/>
+          <img src="../assets/icons/register.svg" v-else/>
+        </div>
       </li>
 
       <li :class="{active: $route.name === 'step2'}">
-        <p class="icon-text">Confirm</p>
-        <icon name="inbox"></icon>
+        <div>
+          <img src="../assets/icons/confirm_active.svg" v-if="$route.name === 'step2'"/>
+          <img src="../assets/icons/confirm.svg" v-else>
+        </div>
       </li>
 
       <li :class="{active: $route.name === 'step3'}">
-        <p class="icon-text">Wallet</p>
-        <icon name="wallet" style="width: 80%; height: 80%"></icon>
+        <div>
+          <img src="../assets/icons/wallet_active.svg" v-if="$route.name === 'step3'"/>
+          <img src="../assets/icons/wallet.svg" v-else>
+        </div>
       </li>
 
       <li :class="{active: $route.name === 'step4'}">
-        <p class="icon-text">Refund Address</p>
-        <icon name="reply-all"></icon>
+        <div>
+          <img src="../assets/icons/refund_active.svg" v-if="$route.name === 'step4'"/>
+          <img src="../assets/icons/refund.svg" v-else>
+        </div>
       </li>
 
       <li :class="{active: $route.name === 'step5'}">
-        <p class="icon-text">Pay-In Address</p>
-        <icon name="btc"></icon>
+        <div>
+          <img src="../assets/icons/invest_active.svg" v-if="$route.name === 'step5'"/>
+          <img src="../assets/icons/invest.svg" v-else>
+        </div>
       </li>
-
     </ul>
-    <div class="container">
+    <div>
       <router-view class="wizard-component"></router-view>
     </div>
+
   </div>
 </template>
 
@@ -67,11 +77,6 @@
         eth: ''
       }
     },
-    methods: {
-      setToken(token){
-        this.token = token
-      }
-    },
     computed: {
       step: function () {
         return this.$route.name.replace(/\D/g, '')
@@ -92,17 +97,10 @@
   /* General Typography */
 
   a {
-    color: #25A9E1;
+    color: #00A8E5;
   }
 
   /* Form Stuff */
-
-  fieldset {
-    border: 0;
-    padding: 0;
-    margin-top: 10px;
-  }
-
   label {
     display: block;
   }
@@ -138,54 +136,46 @@
     position: relative;
   }
 
+  .wizard ul img {
+    height: 100px;
+  }
+
   .wizard li {
     list-style-type: none;
-    width: 80px;
-    height: 80px;
-    border: 3px solid #0C547C;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /*width: 100px;*/
+    height: 100px;
     background: white;
     transition: background 0.3s ease;
-  }
-
-  .wizard li > svg {
-    width: 50%;
-    height: 50%;
-    color: rgba(0, 0, 0, .2);
-  }
-
-  .wizard li.active {
-    background: #0C547C;
-  }
-
-  .wizard li.active > svg {
-    color: white;
-  }
-
-  .wizard span {
-    height: 30px;
-    margin: auto;
-    text-align: center;
-  }
-
-  .wizard .wizard-component {
-    margin-top: 40px;
   }
 
   .wizard .progress {
     background-color: #0C547C;
     height: 3px;
     position: relative;
-    top: 60px;
+    top: 70px;
     transition: width 0.3s ease;
   }
 
-  .icon-text {
-    position: absolute;
-    padding-top: 120px;
+  @media only screen and (max-width: 600px) {
+    .wizard li {
+      height: 80px;
+    }
+    .wizard ul img {
+      height: 80px;
+    }
+    .wizard .progress {
+      top: 60px;
+    }
   }
-
+  @media only screen and (max-width: 500px) {
+    .wizard li {
+      height: 60px;
+    }
+    .wizard ul img {
+      height: 60px;
+    }
+    .wizard .progress {
+      top: 50px;
+    }
+  }
 </style>

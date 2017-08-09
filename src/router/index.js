@@ -1,17 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 import Layout from '@/components/Layout'
-import Wizard from '@/components/FormWizard'
+import FormWizard from '@/components/FormWizard'
 import EmailSignup from '@/components/EmailSignup'
 import CheckEmail from '@/components/CheckEmail'
 import CreateWallet from '@/components/CreateWallet'
-import Invest from '@/components/Invest'
 import Refund from '@/components/Refund'
+import Invest from '@/components/Invest'
 
 Vue.use(Router)
 
 export default new Router({
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+      return { selector: to.hash }
+    } else if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -20,7 +29,8 @@ export default new Router({
         // Root path needs to show UserList in the left sidebar
         {
           path: '/',
-          component: Wizard,
+          component: FormWizard,
+          meta: { scrollToTop: true },
           children: [
             {
               path: '/',
@@ -33,7 +43,7 @@ export default new Router({
               component: CheckEmail
             },
             {
-              path: '/wallet/:token',
+              path: '/confirm/:token',
               name: 'step3',
               component: CreateWallet,
               props: true
@@ -52,6 +62,14 @@ export default new Router({
         }
 
       ]
+    },
+    // and finally the default route, when none of the above matches:
+    {
+      path: '*',
+      name: '404',
+      component: {
+        template: '<div><h2>Oops</h2><p>Page Not Found</p></div>'
+      }
     }
   ]
 })

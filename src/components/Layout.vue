@@ -10,50 +10,56 @@
     <div id="wrap">
     </div>
 
+    <img class="logo-width" src="./../assets/modum.png">
+
+    <h1>Token Sale</h1>
     <section>
       <div class="container">
-        <img src="static/images/modum.png" class="centered" height="100px" />
-        <h2>Modum Token Sale</h2>
-        <p class="lead">Please follow the steps below to buy your modum tokens. <br/> Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.</p>
+        <p class="lead">Please follow the steps below to purchase your modum tokens. <br/>
+          Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.
+        </p>
         <router-view></router-view>
+
+      </div>
+    </section>
+    <section id="section">
+      <div class="container">
+        <status-comp></status-comp>
       </div>
     </section>
 
+    <spinner v-if="sharedState.loading"/>
+
     <!-- FOOTER BEGIN -->
-    <footer>
+    <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12">
-            <img class="footer_logo" src="https://assets.modum.io/wp-content/uploads/2017/03/modum_logo_white-text-tight-crop.png" alt="logo" width="150">
+          <div class="col-xs-12 text-left">
+            <img class="footer_logo" src="./../assets/modum_logo_white-text-tight-crop.png" alt="logo" width="150">
           </div>
-          <div class="col-xs-12 col-sm-6">
-            modum.io AG<br>
-            Technoparkstrasse 1<br>
-            8005 Zürich, CH<br>
-            info@modum.io<br>
-            Phone: +41 44 586 1286
+          <div class="col-xs-6 col-sm-6 text-left">
+            modum.io AG<br/>
+            Technoparkstrasse 1<br/>
+            8005 Zürich, CH<br/>
+            <a href="mailto:token@modum.io?Subject=[modum.io ICO]" target="_top">token@modum.io</a>
           </div>
-          <div class="col-xs-12 col-sm-6 text-right">
+          <div class="col-xs-6 col-sm-6 text-right">
 
-            <a target="_blank" href="https://www.modum.io/terms">Terms & Conditions</a><br/>
-            <a target="_blank" href="https://www.modum.io/tokensale">Token Sale Information</a><br/>
-            <a target="_blank" href="https://www.modum.io">Website</a><br/>
+            <a target="_blank" href="https://modum.io/terms">Terms & Conditions</a><br/>
+            <a target="_blank" href="https://modum.io/tokensale">Token Sale Information</a><br/>
+            <a target="_blank" href="https://modum.io">Website</a><br/>
           </div>
         </div>
       </div>
-
     </footer>
     <!-- FOOTER END -->
-
-
-
-
-
-
   </div>
 </template>
 
 <script>
+  import store from '@/store'
+  import Spinner from './Spinner.vue'
+  import StatusComp from './Status.vue'
 
   export default {
     name: 'layout',
@@ -63,17 +69,47 @@
         formstate: {},
         model: {email: ''},
         email: 'invalid-email',
-        sent: false
+        sent: false,
+        sharedState: store
       }
     },
-    methods: {
-      scollDown: function () {
-        console.log('send')
-      }
+    components: {
+      StatusComp,
+      Spinner
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  section {
+    padding: 20px 0;
+    position: relative;
+    background: #fff;
+  }
+
+  footer {
+    padding-top: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 200px;
+    background: #818181;
+  }
+
+  footer a {
+    color: rgb(68, 68, 68);
+  }
+
+  @media only screen and (max-width: 500px) {
+    #logo {
+      width: 80%;
+      height: auto;
+    }
+
+    footer {
+      font-size: small;
+    }
+  }
 </style>
