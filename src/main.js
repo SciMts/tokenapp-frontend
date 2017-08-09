@@ -24,7 +24,9 @@ new Vue({
   components: { App },
   data () {
     return {
-      store: { }
+      store: {
+        soldOut: false
+      }
     }
   }
 })

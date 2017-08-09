@@ -3,7 +3,7 @@
     <div class="logo-width" style="margin: auto;">
       <h2>Status</h2>
     </div>
-    <div class="row" v-if="!errorMsg">
+    <div class="row" v-if="!errorMsg && !soldOut">
       <div class="col-xs-3" v-for="tier in tiers">
         <div class="row">{{tier.name}}</div>
         <div class="row">
@@ -13,6 +13,11 @@
         <div class="row">
           {{ Math.ceil(tier.amount / tier.maxAmount  * 100 )}}%
         </div>
+      </div>
+    </div>
+    <div class="row" v-if="soldOut">
+      <div class="col-xs-4  col-xs-offset-4">
+        <p>SOLD OUT</p>
       </div>
     </div>
     <div class="row" v-if="errorMsg">
@@ -73,6 +78,21 @@
     mounted: function () {
       this.getStatus()
     },
+    computed: {
+      soldOut () {
+        return this.$root.store.soldOut
+      }
+    },
+    watch: {
+      tiers: {
+        deep: true,
+        handler (val) {
+          let {maxAmount} = this.tiers.reduce((total, item) => ({maxAmount: total.maxAmount + item.maxAmount}))
+          let {amount} = this.tiers.reduce((total, item) => ({amount: total.amount + item.amount}))
+          this.$root.store.soldOut = amount >= maxAmount
+        }
+      }
+    },
     methods: {
       getStatus: function () {
         axios.get(Vue.config.API + statusEndpoint)
@@ -97,4 +117,3 @@
     }
   }
 </script>
-

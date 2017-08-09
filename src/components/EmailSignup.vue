@@ -42,7 +42,7 @@
       <div class="row top-buffer">
         <div class="col-md-offset-2 col-md-8 col-xs-12">
           <!--<button v-on:click="send" :disabled="!valid">Send Invite</button>-->
-          <button :disabled="!validEmail" @click="showModal">Next</button>
+          <button :disabled="!validEmail || $root.store.soldOut" @click="showModal">Next</button>
         </div>
       </div>
     </form>
@@ -78,7 +78,7 @@
     },
     methods: {
       showModal: function (event) {
-        if (this.validEmail) {
+        if (this.validEmail && !this.$root.store.soldOut) {
           event.preventDefault() // prevents to add a question mark before the hashtag
           this.modalVisible = true
         }
