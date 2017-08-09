@@ -14,6 +14,7 @@
           {{ Math.ceil(tier.amount / tier.maxAmount  * 100 )}}%
         </div>
       </div>
+      <p><b>Attention:</b> The tier status is not shown in realtime, because of confirmation delay</p>
     </div>
     <div class="row" v-if="soldOut">
       <div class="col-xs-4  col-xs-offset-4">
@@ -53,7 +54,7 @@
         errorMsg: '',
         tiers: [
           {
-            name: 'Pre ICO',
+            name: 'Pre ITO',
             amount: 0,
             maxAmount: 1050000
           },
