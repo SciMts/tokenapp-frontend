@@ -110,7 +110,7 @@
 
 <script>
   var WalletWorker = require('worker-loader!@/lib/walletWorker.js')
-  import {isAddress} from '@/lib/validate'
+  import {isETHAddress} from '@/lib/validate'
   import store from '@/store'
   import Vue from 'vue'
   import axios from 'axios'
@@ -144,7 +144,7 @@
         return this.password.length > 0
       },
       validAddress () {
-        return isAddress(this.insertedAddress)
+        return isETHAddress(this.insertedAddress)
       }
     },
     mounted: function () {
@@ -203,7 +203,7 @@
         reader.onload = event => {
           try {
             let {address} = JSON.parse(event.target.result)
-            if (isAddress(address)) {
+            if (isETHAddress(address)) {
               this.address = '0x' + address
               this.fileErr = false
             } else {

@@ -6,7 +6,7 @@
       <div class="col-lg-12">
         <div class="alert refund-info">
           <h4>Why provide refund addresses?</h4>
-          <p><b>A:</b> If you provide a refund address, oversubscriptions of the token sale can be returned to you after the closing of the token sale. If you do not provide a refund address we will not be able to return any oversubscriptions of the tokensale. In such a case we will donate oversubscriptions without refund address to a charity at modum's sole discretion.</p>
+          <p><b>A:</b> If you provide a refund address, oversubscriptions of the token sale can be returned to you after the closing of the token sale. If you do not provide a refund address we will not be able to return any oversubscriptions of the token sale. In such a case, we will donate oversubscriptions without refund address to a charity at modum's sole discretion.</p>
         </div>
       </div>
     </div>
@@ -23,6 +23,7 @@
           <b-link block v-b-toggle.refundoption1 class="panel-heading">Specify your Ethereum address as refund address</b-link>
           <b-collapse id="refundoption1" accordion="refundoptions">
             <b-card>
+              <p>If you provide an Ethereum refund address, only investments in ETH will be refunded to this address.</p>
               <input type="text" v-model="eth"
                      size="42"
                      placeholder="Your Ethereum address"
@@ -34,6 +35,7 @@
           <b-link block v-b-toggle.refundoption2 class="panel-heading">Specify your Bitcoin address as refund address</b-link>
           <b-collapse id="refundoption2" accordion="refundoptions">
             <b-card>
+              <p>If you provide a Bitcoin refund address, only investments in BTC will be refunded to this address.</p>
               <input type="text" v-model="btc" size="42" placeholder="Your Bitcoin address">
             </b-card>
           </b-collapse>
@@ -45,7 +47,7 @@
         <div class="col-xs-offset-2 col-xs-8">
           <p class="bg-danger" v-if="!validETH">The Ethereum refund address which you provided is not valid</p>
           <p class="bg-danger" v-if="!validBTC">The Bitcoin refund address which you provided is not valid</p>
-          <fieldset :disabled="waiting">
+          <fieldset>
             <input type="checkbox" value="" v-model="agree">
             <span>I understand that a refund is impossible without setting refund addresses</span>
           </fieldset>
@@ -59,7 +61,7 @@
 <script>
   import Vue from 'vue'
   import axios from 'axios'
-  import {isAddress} from '@/lib/validate'
+  import {isETHAddress, isBTCAddress} from '@/lib/validate'
 
   const addressEndpoint = 'address'
   export default {
@@ -75,10 +77,10 @@
     },
     computed: {
       validBTC () {
-        return isAddress(this.btc) || this.btc === ''
+        return isBTCAddress(this.btc) || this.btc === ''
       },
       validETH () {
-        return isAddress(this.eth) || this.eth === ''
+        return isETHAddress(this.eth) || this.eth === ''
       }
     },
     methods: {
