@@ -92,40 +92,7 @@
   }
 </script>
 
-<style>
-
-  /* General Typography */
-
-  a {
-    color: #00A8E5;
-  }
-
-  /* Form Stuff */
-  label {
-    display: block;
-  }
-
-  button {
-    background-color: #0C547C;
-    border: 2px solid #0C547C;
-    border-radius: 4px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  button:disabled {
-    background-color: #0C547C;
-    opacity: 0.4;
-    border-color: #0C547C;
-    cursor: not-allowed;
-  }
-
-  input {
-    border: 1px solid #25A9E1;
-    border-radius: 8px;
-  }
-
+<style scoped>
   /* Multi Step Breadcrumbs */
 
   .wizard ul {
