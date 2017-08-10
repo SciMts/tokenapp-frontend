@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <p class="space-attention"><b>*Remark:</b> The tier status only serves as a indicator and is not binding (e.g. due to pending transactions)</p>
+    <p class="space-attention"><b>*Remark:</b> The tier status only serves as an indicator and is not binding (e.g. due to pending transactions)</p>
     <div class="row" v-if="soldOut">
       <div class="col-xs-4  col-xs-offset-4">
         <p>SOLD OUT</p>

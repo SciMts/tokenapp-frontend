@@ -80,6 +80,8 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
   .modal-header {
@@ -89,7 +91,6 @@
   .modal-header h2 {
     margin-top: 0;
     color: #42b983;
-
   }
 
   .modal-header #icon-wrapper {
@@ -98,8 +99,8 @@
     right: 0;
   }
 
-  .modal-body {
-    margin: 20px 0;
+  /*.modal-body {
+
   }
 
   .modal-default-button {

@@ -130,7 +130,7 @@
           <h4>VII. GOVERNING LAW AND JURISDICTION</h4>
           <p><b>THIS TERMS SHALL BE GOVERNED BY AND CONSTRUED IN ACCORDANCE WITH THE SUBSTANTIVE LAWS OF SWITZERLAND, EXCLUDING THE PROVISIONS OF THE CONFLICT OF LAWS AND ANY INTERNATIONAL CONVENTIONS APPLICABLE. ANY DISPUTE ARISING IN CONNECTION WITH THIS AGREEMENT SHALL BE SUBJECT TO THE EXCLUSIVE JURISDICTION OF THE COURTS COMPETENT FOR THE CITY OF ZÜRICH, SWITZERLAND.</b></p>
         </div>
-        <input type="checkbox" v-model="terms"> <span>I HAVE READ AND UNDERSTAND THIS AGREEMENT, AND I ACCEPT AND AGREE TO ALL OF ITS TERMS AND CONDITIONS.</span>
+        <input type="checkbox" v-model="terms"> <span>I have read this agreement and I accept to all of it's terms and conditions.</span>
       </div>
       <div slot="footer">
         <div class="text-center">
