@@ -35,10 +35,7 @@
       <div class="row">
         <div class="col-lg-12">
           <p class="bg-success">
-            Thank you very much for your contribution. You will receive an e-mail, once the token is ready for distribution. In the meantime, stay tuned to our progress on our
-            <a target="_blank" href="https://modum.io">website</a>,
-            <a target="_blank" href="https://medium.com/@modum_io">blog</a> or
-            <a target="_blank" href="https://medium.com/@modum_io">twitter</a>.
+            Thank you very much for your contribution. You will receive an e-mail, once the token is ready for distribution. In the meantime, follow us on <a target="_blank" href="https://twitter.com/modum_io">twitter</a>, join our <a target="_blank" href="https://modum-token.slack.com">slack channel</a> or check our <a target="_blank" href="https://modum.io">website</a>.
            </p>
         </div>
       </div>
