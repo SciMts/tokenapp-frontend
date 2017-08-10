@@ -8,9 +8,9 @@
     <div v-if="!this.errorMsg">
       <h2>Almost done!</h2>
 
-      <p>You can Send your Ether and Bitcoin from any source, including Exchange Wallets to either of the following addresses. You can send funds as often as you like.</p>
+      <p>You can send Ether and Bitcoin from any source, including exchange wallets to either of the following addresses. You can send funds as often as you like.</p>
       <p>
-        Do not forget to bookmark the addresses to double check the transaction status on
+        Bookmark the addresses to check the transaction status on
         <a target="_blank" href="https://blockchain.info/">blockchain.info</a>
         or
         <a target="_blank" href="https://etherscan.io/">etherscan.io</a>.
@@ -34,9 +34,9 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <p id="thanks" class="bg-success">
+          <p class="bg-success">
             Thank you very much for your contribution. You will receive an e-mail, once the token is ready for distribution. In the meantime, stay tuned to our progress on our <a
-            target="_blank" href="https://medium.com/@modum_io" style="color: rgb(68, 68, 68);">blog.</a></p>
+            target="_blank" href="https://medium.com/@modum_io">blog.</a></p>
         </div>
       </div>
     </div>

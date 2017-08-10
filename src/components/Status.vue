@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="logo-width" style="margin: auto;">
-      <h2>Status</h2>
+      <h2>Status*</h2>
     </div>
     <div class="row" v-if="!errorMsg && !soldOut">
       <div class="col-xs-3" v-for="tier in tiers">
@@ -14,8 +14,8 @@
           {{ Math.ceil(tier.amount / tier.maxAmount  * 100 )}}%
         </div>
       </div>
-      <p><b>Attention:</b> The tier status is not shown in realtime, because of confirmation delay</p>
     </div>
+    <p class="space-attention"><b>*Attention:</b> The tier status only serves as a indicator and is not binding (e.g. due to pending transactions)</p>
     <div class="row" v-if="soldOut">
       <div class="col-xs-4  col-xs-offset-4">
         <p>SOLD OUT</p>
@@ -118,3 +118,10 @@
     }
   }
 </script>
+
+<style scoped>
+  .space-attention {
+    font-size: 1.3rem;
+    margin-top: 3rem;
+  }
+</style>

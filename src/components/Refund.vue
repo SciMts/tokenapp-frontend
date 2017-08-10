@@ -21,21 +21,21 @@
 
       <div class="panel-group">
         <div class="panel">
-          <b-link block v-b-toggle.refundoption1 class="panel-heading">Specify your Ethereum Address as Refund Address</b-link>
+          <b-link block v-b-toggle.refundoption1 class="panel-heading">Specify your Ethereum address as refund address</b-link>
           <b-collapse id="refundoption1" accordion="refundoptions">
             <b-card>
               <input type="text" v-model="eth"
                      size="42"
-                     placeholder="0x32Be343B94f860124dC4fEe278FDCBD38C102D88"
+                     placeholder="Your Ethereum address"
                      pattern=".{42}" title="42 characters long address starting with 0x">
             </b-card>
           </b-collapse>
         </div>
         <div class="panel">
-          <b-link block v-b-toggle.refundoption2 class="panel-heading">Specify your Bitcoin Address as Refund Address</b-link>
+          <b-link block v-b-toggle.refundoption2 class="panel-heading">Specify your Bitcoin address as refund address</b-link>
           <b-collapse id="refundoption2" accordion="refundoptions">
             <b-card>
-              <input type="text" v-model="btc" size="42" placeholder="1P82rBjJMDFSay2RqKx1bydDRVh5QnGkkZ">
+              <input type="text" v-model="btc" size="42" placeholder="Your Bitcoin address">
             </b-card>
           </b-collapse>
         </div>
@@ -75,8 +75,8 @@
         axios.post(Vue.config.API + addressEndpoint,
           {
             address: this.$root.store.address,
-            refundBTC: this.btc,
-            refundETH: this.eth
+            refundBTC: this.btc.length > 0 ? this.btc : null,
+            refundETH: this.eth.length > 0 ? this.eth : null
           },
           config
         ).then(response => {
@@ -87,8 +87,10 @@
           let {status} = err.response
           if (status === 409) {
             this.errorMsg = 'You have already defined your token address. Please check your email for an overview of your provided data.'
+          } else if (status === 401) {
+            this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contact us.'
           } else {
-            this.errorMsg = 'Oops. Something is wrong. Is it possible that you used a invalid token? Please feel free to contact us...'
+            this.errorMsg = 'Oops. Something is wrong. Is it possible that you provided an invalid refund address? Please feel free to contact us.'
           }
           return err
         })

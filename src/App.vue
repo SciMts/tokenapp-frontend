@@ -28,10 +28,7 @@
     font-size: 35px;
     font-weight: 500;
     letter-spacing: 25px;
-
     display: block;
-    /*letter-spacing:1.2em;*/
-    margin-right: -25px;
   }
 
   h2 {

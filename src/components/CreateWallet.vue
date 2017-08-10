@@ -9,9 +9,8 @@
     </div>
     <div v-if="invalidToken==false">
       <div v-if="address === null">
-        <h2>Select how you would like to receive your MOD tokens.</h2>
-        <p>
-          We offer you 3 different options to define where you want to receive the modum tokens. </p>
+        <h2>Select how you would like to receive your modum tokens.</h2>
+        <p class="bg-danger">We offer you 3 different options to define where you want to receive the tokens. </p>
         <div class="row">
           <div class="col-xs-12">
             <p class="bg-danger">{{errorMsg}}</p>
@@ -27,7 +26,7 @@
           <b-card>
             <p>Enter a password for your new wallet. <strong>Do not forget it.</strong> Your password will be required to unlock the new wallet file that is generated for you.</p>
 
-            <p><b>If you loose your password and key store, your money wil be lost, we can not retrieve it.</b>
+            <p><b>If you loose your password or key store, your tokens will be lost, we can not retrieve it.</b>
             </p>
             <fieldset :disabled="waiting">
               <fieldset>
@@ -65,7 +64,7 @@
             <fieldset :disabled="waiting">
               <input type="text" v-model="insertedAddress"
                      size="42"
-                     placeholder="0x32Be343B94f860124dC4fEe278FDCBD38C102D88"
+                     placeholder="Your ERC20 compatible address"
                      pattern=".{42}"
                      title="42 characters long address starting with 0x"
                      v-on:keyup.enter="manual">
@@ -80,22 +79,17 @@
       <transition name="fade">
         <div v-if="v3stringwallet !== null">
           <h2>Download Wallet</h2>
-          <p>Please download your wallet file here. Remember to back up your wallet file and store your password securely, your password is not retrievable if lost.</p>
+          <p>Please download your wallet file here. Back up your wallet file and store your password securely. Your password can not be retrieved if lost or forgotten. modum.io is not responsible for lost or forgotten passwords or lost wallet files.</p>
           <button v-on:click="download" id="downloadBtn">DOWNLOAD WALLET FILE </button>
         </div>
       </transition>
       <transition name="fade">
         <div v-if="address !== null">
           <h3>Your Address</h3>
-          <p>Tokens will be sent to this address.</p>
+          <p>After the sale is finished, tokens will be distributed to this address. Please see our <a href="https://modum.io/tokensale" target="_blank">tokensale page</a> for the exact timeline.</p>
           <p>
             <a target="_blank" :href="'https://etherscan.io/address/' + address">{{ address }}</a>
           </p>
-          <div class="row">
-            <div class="col-xs-12">
-              <qrcode :value=address :size="200"></qrcode>
-            </div>
-          </div>
 
           <div class="row">
             <button v-on:click="invest" :disabled="!address || (v3stringwallet && !disclaimer)">

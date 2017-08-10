@@ -1,25 +1,13 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div>
-    <!-- PRELOADER -->
-    <div id="preloader">
-      <div class="clock">
-        <div class="arrow_sec"></div>
-        <div class="arrow_min"></div>
-      </div>
-    </div>
-    <div id="wrap">
-    </div>
-
     <img class="logo-width" src="./../assets/modum.png">
-
-    <h1>Token Sale</h1>
+    <h1 class="align-with-image">Token Sale</h1>
     <section>
       <div class="container">
-        <p class="lead">Please follow the steps below to purchase your modum tokens. <br/>
+        <p class="lead">Please follow the steps below to purchase modum tokens. <br/>
           Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.
         </p>
         <router-view></router-view>
-
       </div>
     </section>
     <section id="section">
@@ -82,6 +70,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .align-with-image {
+    padding-left: 30px;
+  }
+
   section {
     padding: 20px 0;
     position: relative;
