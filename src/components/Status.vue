@@ -7,18 +7,12 @@
       <div class="col-xs-3" v-for="tier in tiers">
         <div class="row">{{tier.name}}</div>
         <div class="row">
-          <img src="../assets/box-closed.svg" height="70px" v-if="tier.amount == tier.maxAmount">
+          <img src="../assets/box-closed.svg" height="70px" v-if="tier.amount >= tier.maxAmount">
           <img src="../assets/box-open.svg" height="70px" v-if="tier.amount < tier.maxAmount">
         </div>
         <div class="row">
           {{ Math.ceil(tier.amount / tier.maxAmount  * 100 )}}%
         </div>
-      </div>
-    </div>
-    <p class="space-attention"><b>*Attention:</b> The tier status only serves as a indicator and is not binding (e.g. due to pending transactions)</p>
-    <div class="row" v-if="soldOut">
-      <div class="col-xs-4  col-xs-offset-4">
-        <p>SOLD OUT</p>
       </div>
     </div>
     <div class="row" v-if="errorMsg">
@@ -37,7 +31,12 @@
         </div>
       </div>
     </div>
-
+    <p class="space-attention"><b>*Remark:</b> The tier status only serves as a indicator and is not binding (e.g. due to pending transactions)</p>
+    <div class="row" v-if="soldOut">
+      <div class="col-xs-4  col-xs-offset-4">
+        <p>SOLD OUT</p>
+      </div>
+    </div>
   </div>
 </template>
 

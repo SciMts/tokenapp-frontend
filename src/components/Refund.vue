@@ -1,13 +1,12 @@
 <template>
   <div>
     <h2>Almost there!</h2>
-    <p>Optionally specify your Bitcoin or Ethereum refund address</p>
-
+    <p>Optionally specify your Bitcoin or Ethereum refund address.</p>
     <div class="row">
       <div class="col-lg-12">
         <div class="alert refund-info">
           <h4>Why provide refund addresses?</h4>
-          <p><b>A:</b> Oversubscriptions of the whole token sale are returned to the investors after the closing of the token sales.</p>
+          <p><b>A:</b> If you provide a refund address, oversubscriptions of the token sale can be returned to you after the closing of the token sale. If you do not provide a refund address we will not be able to return any oversubscriptions of the tokensale. In such a case we will donate oversubscriptions without refund address to a charity at modum's sole discretion.</p>
         </div>
       </div>
     </div>
@@ -44,7 +43,13 @@
 
       <div class="row">
         <div class="col-xs-offset-2 col-xs-8">
-          <button type="submit" v-on:click="sendRefund">Next: Make Investment</button>
+          <p class="bg-danger" v-if="!validETH">The Ethereum refund address which you provided is not valid</p>
+          <p class="bg-danger" v-if="!validBTC">The Bitcoin refund address which you provided is not valid</p>
+          <fieldset :disabled="waiting">
+            <input type="checkbox" value="" v-model="agree">
+            <span>I understand that a refund is impossible without setting refund addresses</span>
+          </fieldset>
+          <button type="submit" v-on:click="sendRefund" :disabled="!agree || !validBTC || !validETH">Next: Make Investment</button>
         </div>
       </div>
     </div>
@@ -54,6 +59,7 @@
 <script>
   import Vue from 'vue'
   import axios from 'axios'
+  import {isAddress} from '@/lib/validate'
 
   const addressEndpoint = 'address'
   export default {
@@ -63,7 +69,16 @@
         btc: '',
         eth: '',
         invalidToken: false,
-        errorMsg: ''
+        errorMsg: '',
+        agree: false
+      }
+    },
+    computed: {
+      validBTC () {
+        return isAddress(this.btc) || this.btc === ''
+      },
+      validETH () {
+        return isAddress(this.eth) || this.eth === ''
       }
     },
     methods: {

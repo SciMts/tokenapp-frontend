@@ -10,7 +10,6 @@
     <div v-if="invalidToken==false">
       <div v-if="address === null">
         <h2>Select how you would like to receive your modum tokens.</h2>
-        <p class="bg-danger">We offer you 3 different options to define where you want to receive the tokens. </p>
         <div class="row">
           <div class="col-xs-12">
             <p class="bg-danger">{{errorMsg}}</p>
@@ -24,10 +23,8 @@
 
         <b-collapse id="walletoption1" visible accordion="walletoptions">
           <b-card>
-            <p>Enter a password for your new wallet. <strong>Do not forget it.</strong> Your password will be required to unlock the new wallet file that is generated for you.</p>
-
-            <p><b>If you loose your password or key store, your tokens will be lost, we can not retrieve it.</b>
-            </p>
+            <p>Enter a password for your new wallet. Your password will be required to unlock the wallet file that is generated for you.</p>
+            <p><b>If you loose your password or your wallet file, your tokens will be lost, we can not retrieve them.</b></p>
             <fieldset :disabled="waiting">
               <fieldset>
                 <input id="password"
@@ -48,11 +45,15 @@
 
         <b-collapse id="walletoption2" accordion="walletoptions">
           <b-card>
-            <p>Required format: UTC JSON (myetherwallet)</p>
+            <p>If you have a UTC JSON (myetherwallet) wallet file you can import it here.</p>
+            <p><b>If you continue using this file, make sure you are in possession of the respective password</b></p>
             <fieldset :disabled="waiting">
               <input type="file" @change="fileImport($event.target.files[0])" accept=".json"
                      style="text-align: center;  margin: auto;">
             </fieldset>
+            <div class="bg-danger" v-if="fileErr">
+              <p>Your file did not contain a valid address</p>
+            </div>
           </b-card>
         </b-collapse>
         </div>
@@ -61,6 +62,8 @@
 
         <b-collapse id="walletoption3" accordion="walletoptions">
           <b-card>
+            <p>Enter your valid Ethereum (ERC20 compatible) address.</p>
+            <p><b>Make sure you have the private key for this address. If you are not in possession of the private key, your tokens will be lost, we can not retrieve them.</b></p>
             <fieldset :disabled="waiting">
               <input type="text" v-model="insertedAddress"
                      size="42"
@@ -79,7 +82,9 @@
       <transition name="fade">
         <div v-if="v3stringwallet !== null">
           <h2>Download Wallet</h2>
-          <p>Please download your wallet file here. Back up your wallet file and store your password securely. Your password can not be retrieved if lost or forgotten. modum.io is not responsible for lost or forgotten passwords or lost wallet files.</p>
+          <p>Please download your wallet file here.</p>
+          <p><b>Back up your wallet file and store your password securely. Your password can not be retrieved if lost or forgotten.</b></p>
+          <p><b>modum.io is not responsible for lost or forgotten passwords or lost wallet files.</b></p>
           <button v-on:click="download" id="downloadBtn">DOWNLOAD WALLET FILE </button>
         </div>
       </transition>
@@ -105,11 +110,11 @@
 
 <script>
   var WalletWorker = require('worker-loader!@/lib/walletWorker.js')
+  import {isAddress} from '@/lib/validate'
   import store from '@/store'
   import Vue from 'vue'
   import axios from 'axios'
   import FileSaver from 'file-saver'
-  // import Wallet from '../lib/wallet'
   import Qrcode from 'v-qrcode'
 
   let validTokenEndpoint = 'register/:token/validate'
@@ -124,6 +129,7 @@
         address: null,
         invalidToken: false,
         errorMsg: '',
+        fileErr: false,
         sharedState: store
       }
     },
@@ -137,8 +143,8 @@
       validPassword: function () {
         return this.password.length > 0
       },
-      validAddress: function () {
-        return (this.insertedAddress.startsWith('0x') || this.insertedAddress.startsWith(('0X'))) && this.insertedAddress.length === 42
+      validAddress () {
+        return isAddress(this.insertedAddress)
       }
     },
     mounted: function () {
@@ -195,7 +201,17 @@
       fileImport: function (file) {
         let reader = new FileReader()
         reader.onload = event => {
-          this.address = '0x' + JSON.parse(event.target.result).address
+          try {
+            let {address} = JSON.parse(event.target.result)
+            if (isAddress(address)) {
+              this.address = '0x' + address
+              this.fileErr = false
+            } else {
+              this.fileErr = true
+            }
+          } catch (e) {
+
+          }
         }
         reader.readAsText(file)
       },

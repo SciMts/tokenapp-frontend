@@ -8,7 +8,7 @@
     <div v-if="!this.errorMsg">
       <h2>Almost done!</h2>
 
-      <p>You can send Ether and Bitcoin from any source, including exchange wallets to either of the following addresses. You can send funds as often as you like.</p>
+      <p>You can send Ether and/or Bitcoin from any source, including exchange wallets to either of the following addresses. You can send funds as often as you like.</p>
       <p>
         Bookmark the addresses to check the transaction status on
         <a target="_blank" href="https://blockchain.info/">blockchain.info</a>
@@ -35,8 +35,11 @@
       <div class="row">
         <div class="col-lg-12">
           <p class="bg-success">
-            Thank you very much for your contribution. You will receive an e-mail, once the token is ready for distribution. In the meantime, stay tuned to our progress on our <a
-            target="_blank" href="https://medium.com/@modum_io">blog.</a></p>
+            Thank you very much for your contribution. You will receive an e-mail, once the token is ready for distribution. In the meantime, stay tuned to our progress on our
+            <a target="_blank" href="https://modum.io">website</a>,
+            <a target="_blank" href="https://medium.com/@modum_io">blog</a> or
+            <a target="_blank" href="https://medium.com/@modum_io">twitter</a>.
+           </p>
         </div>
       </div>
     </div>
