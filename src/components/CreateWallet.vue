@@ -28,14 +28,23 @@
             <fieldset :disabled="waiting">
               <fieldset>
                 <input id="password"
-                       type="password"
-                       v-model="password"
-                       v-on:keyup.enter="createWallet"
-                       placeholder="PASSWORD"
-                       autofocus>
-                <button v-on:click="createWallet" :disabled="!validPassword">Create Wallet
-                </button>
+                  type="password"
+                  v-model="password"
+                  v-on:keyup.enter="createWallet"
+                  placeholder="Password"
+                  autofocus
+                >
               </fieldset>
+              <fieldset>
+                <input id="password2"
+                  type="password"
+                  v-model="password2"
+                  v-on:keyup.enter="createWallet"
+                  placeholder="Confirm Password"
+                >
+              </fieldset>
+              <button v-on:click="createWallet" :disabled="!validPassword || !passwordsMatch">Create Wallet</button>
+              <p><p class="bg-danger" v-if="!passwordsMatch">Your passwords do not match</p></p>
             </fieldset>
           </b-card>
         </b-collapse>
@@ -124,6 +133,7 @@
         disclaimer: false,
         waiting: false,
         password: '',
+        password2: '',
         v3stringwallet: null,
         insertedAddress: '',
         address: null,
@@ -142,6 +152,9 @@
     computed: {
       validPassword: function () {
         return this.password.length > 0
+      },
+      passwordsMatch () {
+        return this.password === this.password2
       },
       validAddress () {
         return isETHAddress(this.insertedAddress)
@@ -185,7 +198,7 @@
         this.stopWaiting()
       },
       generateWallet: function () {
-        if (this.validPassword) {
+        if (this.validPassword && this.passwordsMatch) {
           this.sharedState.loading = true
           let worker = new WalletWorker()
           worker.onmessage = ({data}) => {
