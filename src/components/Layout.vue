@@ -16,6 +16,7 @@
       </div>
     </section>
 
+    <browser-compatibility v-if="!validBrowser"/>
     <spinner v-if="sharedState.loading"/>
 
     <!-- FOOTER BEGIN -->
@@ -45,8 +46,10 @@
 </template>
 
 <script>
+  import uaparser from 'ua-parser-js'
   import store from '@/store'
   import Spinner from './Spinner.vue'
+  import BrowserCompatibility from './BrowserCompatibility.vue'
   import StatusComp from './Status.vue'
 
   export default {
@@ -62,8 +65,16 @@
       }
     },
     components: {
+      BrowserCompatibility,
       StatusComp,
       Spinner
+    },
+    computed: {
+      validBrowser () {
+        let notSupported = ['IE', 'Edge']
+        let browser = uaparser().browser.name
+        return notSupported.indexOf(browser) === -1
+      }
     }
   }
 </script>
