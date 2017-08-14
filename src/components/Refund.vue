@@ -87,7 +87,7 @@
       sendRefund () {
         this.errorMsg = ''
         const config = {
-          headers: {'Authorization': 'Bearer ' + this.$root.store.token}
+          headers: {'modum-authorization': `Bearer ${this.$root.store.token}`}
         }
         axios.post(Vue.config.API + addressEndpoint,
           {
