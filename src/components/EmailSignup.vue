@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- use the modal component, pass in the prop -->
     <modal-comp v-if="modalVisible" v-bind:modalVisible="this.modalVisible" @close="hideModal()">
-      <!--overwrite modal defaults-->
       <h3 slot="header">Terms & Conditions</h3>
       <div slot="body">
         <div id="legal">
@@ -165,7 +163,6 @@
       </div>
       <div class="row top-buffer">
         <div class="col-md-offset-2 col-md-8 col-xs-12">
-          <!--<button v-on:click="send" :disabled="!valid">Send Invite</button>-->
           <button :disabled="!validEmail || $root.store.soldOut" @click="showModal">Next</button>
         </div>
       </div>

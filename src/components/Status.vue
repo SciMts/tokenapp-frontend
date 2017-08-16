@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="logo-width" style="margin: auto;">
-      <h2>Status*</h2>
-    </div>
+    <h4>Status Bonus Tiers</h4>
     <div class="row" v-if="!errorMsg && !soldOut">
       <div class="col-xs-3" v-for="tier in tiers">
         <div class="row">{{tier.name}}</div>
@@ -31,7 +29,7 @@
         </div>
       </div>
     </div>
-    <p class="space-attention"><b>*Remark:</b> The tier status only serves as an indicator and is not binding (e.g. due to pending transactions)</p>
+    <p class="space-attention"><b>Remark:</b> The tier status only serves as an indicator and is not binding (e.g. due to pending transactions)</p>
     <div class="row" v-if="soldOut">
       <div class="col-xs-4  col-xs-offset-4">
         <p>SOLD OUT</p>

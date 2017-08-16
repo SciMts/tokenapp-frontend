@@ -11,8 +11,6 @@ var Wallet = function (priv, pub, path, hwType, hwTransport) {
   }
   this.pubKey = pub
   this.path = path
-  // this.hwType = hwType
-  // this.hwTransport = hwTransport
   this.type = 'default'
 }
 Wallet.generate = function (icapDirect) {

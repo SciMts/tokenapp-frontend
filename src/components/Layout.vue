@@ -1,24 +1,25 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div>
-    <img class="logo-width" src="./../assets/modum.png">
-    <h1 class="align-with-image">Token Sale</h1>
-    <section>
-      <div class="container">
-        <p class="lead">Please follow the steps below to purchase modum tokens. <br/>
+    <div class="container">
+      <section>
+        <img class="logo-width" src="./../assets/modum.png">
+        <stepper class="spaced" :steps="steps" :active="$route.name"/>
+        <p class="lead">Please follow the steps to purchase modum tokens. <br/>
           Still have questions?  Visit our information <a target="_blank" href="https://www.modum.io/tokensale">page</a>.
         </p>
+      </section>
+
+      <section>
         <router-view></router-view>
-      </div>
-    </section>
-    <section id="section">
-      <div class="container">
+      </section>
+
+      <section>
         <status-comp></status-comp>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <spinner v-if="sharedState.loading"/>
 
-    <!-- FOOTER BEGIN -->
     <footer class="footer">
       <div class="container">
         <div class="row">
@@ -40,12 +41,12 @@
         </div>
       </div>
     </footer>
-    <!-- FOOTER END -->
   </div>
 </template>
 
 <script>
   import store from '@/store'
+  import Stepper from './Stepper.vue'
   import Spinner from './Spinner.vue'
   import StatusComp from './Status.vue'
 
@@ -58,26 +59,31 @@
         model: {email: ''},
         email: 'invalid-email',
         sent: false,
-        sharedState: store
+        sharedState: store,
+        steps: [
+          {name: 'step1', img: 'icons/register.svg', activeImg: 'icons/register_active.svg'},
+          {name: 'step2', img: 'icons/confirm.svg', activeImg: 'icons/confirm_active.svg'},
+          {name: 'step3', img: 'icons/wallet.svg', activeImg: 'icons/confirm_active.svg'},
+          {name: 'step4', img: 'icons/refund.svg', activeImg: 'icons/confirm_active.svg'},
+          {name: 'step5', img: 'icons/invest.svg', activeImg: 'icons/confirm_active.svg'}
+        ]
       }
     },
     components: {
       StatusComp,
-      Spinner
+      Spinner,
+      Stepper
     }
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .align-with-image {
-    padding-left: 30px;
+  .spaced {
+    margin: 25px 0 25px 0;
   }
 
   section {
-    padding: 20px 0;
-    position: relative;
-    background: #fff;
+    margin-bottom: 40px;
   }
 
   footer {
@@ -85,7 +91,6 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
     height: 200px;
     background: #818181;
   }

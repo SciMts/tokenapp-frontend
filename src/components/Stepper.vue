@@ -2,45 +2,11 @@
   <div class="wizard" id="wizard">
     <div class="progress" v-bind:style="{ width: barWidth + '%' }"></div>
     <ul>
-      <li :class="{active: $route.name === 'step1'}">
-        <div>
-          <img src="../assets/icons/register_active.svg" v-if="$route.name === 'step1'"/>
-          <img src="../assets/icons/register.svg" v-else/>
-        </div>
-      </li>
-
-      <li :class="{active: $route.name === 'step2'}">
-        <div>
-          <img src="../assets/icons/confirm_active.svg" v-if="$route.name === 'step2'"/>
-          <img src="../assets/icons/confirm.svg" v-else>
-        </div>
-      </li>
-
-      <li :class="{active: $route.name === 'step3'}">
-        <div>
-          <img src="../assets/icons/wallet_active.svg" v-if="$route.name === 'step3'"/>
-          <img src="../assets/icons/wallet.svg" v-else>
-        </div>
-      </li>
-
-      <li :class="{active: $route.name === 'step4'}">
-        <div>
-          <img src="../assets/icons/refund_active.svg" v-if="$route.name === 'step4'"/>
-          <img src="../assets/icons/refund.svg" v-else>
-        </div>
-      </li>
-
-      <li :class="{active: $route.name === 'step5'}">
-        <div>
-          <img src="../assets/icons/invest_active.svg" v-if="$route.name === 'step5'"/>
-          <img src="../assets/icons/invest.svg" v-else>
-        </div>
+      <li v-for="step in steps">
+        <img :src="getImgUrl(step.activeImg)" v-if="active === step.name">
+        <img :src="getImgUrl(step.img)" v-else>
       </li>
     </ul>
-    <div>
-      <router-view class="wizard-component"></router-view>
-    </div>
-
   </div>
 </template>
 
@@ -67,27 +33,35 @@
     }
   })
 
-  const stepCount = 5
-
   export default {
-    name: 'formwizard',
-    data: function () {
-      return {
-        token: '',
-        eth: ''
+    name: 'Stepper',
+    components: {
+      Icon
+    },
+    props: {
+      steps: {
+        type: Array,
+        required: true,
+        default: () => []
+      },
+      active: {
+        type: String,
+        required: true
       }
     },
     computed: {
       step: function () {
-        return this.$route.name.replace(/\D/g, '')
+        return this.steps.findIndex(item => item.name === this.active) + 1
       },
       barWidth: function () {
-        const unit = 100 / (2 * stepCount)
+        const unit = 100 / (2 * this.steps.length)
         return (2 * unit * this.step - unit)
       }
     },
-    components: {
-      Icon
+    methods: {
+      getImgUrl (path) {
+        return require(`@/assets/${path}`)
+      }
     }
   }
 </script>
@@ -116,10 +90,11 @@
   }
 
   .wizard .progress {
+    margin: 0;
     background-color: #0C547C;
     height: 3px;
     position: relative;
-    top: 70px;
+    top: 51.5px;
     transition: width 0.3s ease;
   }
 
@@ -131,7 +106,7 @@
       height: 80px;
     }
     .wizard .progress {
-      top: 60px;
+      top: 41.5px;
     }
   }
   @media only screen and (max-width: 500px) {
@@ -142,7 +117,7 @@
       height: 60px;
     }
     .wizard .progress {
-      top: 50px;
+      top: 31.5px;
     }
   }
 </style>

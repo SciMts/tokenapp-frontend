@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/components/Layout'
-import FormWizard from '@/components/FormWizard'
 import EmailSignup from '@/components/EmailSignup'
 import CheckEmail from '@/components/CheckEmail'
 import CreateWallet from '@/components/CreateWallet'
@@ -25,45 +24,36 @@ export default new Router({
     {
       path: '/',
       component: Layout,
+      meta: { scrollToTop: true },
       children: [
-        // Root path needs to show UserList in the left sidebar
         {
           path: '/',
-          component: FormWizard,
-          meta: { scrollToTop: true },
-          children: [
-            {
-              path: '/',
-              name: 'step1',
-              component: EmailSignup
-            },
-            {
-              path: '/confirm',
-              name: 'step2',
-              component: CheckEmail
-            },
-            {
-              path: '/confirm/:token',
-              name: 'step3',
-              component: CreateWallet,
-              props: true
-            },
-            {
-              path: '/refund',
-              name: 'step4',
-              component: Refund
-            },
-            {
-              path: '/invest',
-              name: 'step5',
-              component: Invest
-            }
-          ]
+          name: 'step1',
+          component: EmailSignup
+        },
+        {
+          path: '/confirm',
+          name: 'step2',
+          component: CheckEmail
+        },
+        {
+          path: '/confirm/:token',
+          name: 'step3',
+          component: CreateWallet,
+          props: true
+        },
+        {
+          path: '/refund',
+          name: 'step4',
+          component: Refund
+        },
+        {
+          path: '/invest',
+          name: 'step5',
+          component: Invest
         }
-
       ]
     },
-    // and finally the default route, when none of the above matches:
     {
       path: '*',
       name: '404',

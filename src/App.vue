@@ -11,10 +11,6 @@
 </script>
 
 <style>
-
-  /*@import url(./assets/opensans/stylesheet.css);*/
-  /*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700,800');*/
-  /*@import url(./assets/open_sans/stylesheet.css);*/
   body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -33,18 +29,7 @@
 
   h2 {
     line-height: 1.6;
-    /*text-align:right;*/
   }
-
-  /*h3 {*/
-  /*font-size: 40px;*/
-  /*font-weight: 100;*/
-  /*}*/
-
-  /*h4 {*/
-  /*font-size: 30px;*/
-  /*font-weight: 100;*/
-  /*}*/
 
   h1,
   h2,
@@ -71,7 +56,6 @@
   input[type="email"],
   input[type="password"] {
     line-height: 36px;
-    /*font-family: Raleway, sans-serif;*/
     white-space: nowrap;
     outline: 0;
     font-style: normal;
@@ -81,7 +65,6 @@
     padding: 0 15px;
     border-style: solid;
     height: 3rem;
-    /*font-size: 13px;*/
     color: rgb(12, 84, 124);
     border-color: rgb(12, 84, 124);
     background-color: rgb(255, 255, 255);
