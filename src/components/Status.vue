@@ -1,7 +1,12 @@
 <template>
   <div>
     <h4>Status Bonus Tiers</h4>
-    <div class="row" v-if="!errorMsg && !soldOut">
+    <div class="row" v-if="errorMsg">
+      <div class="col-xs-12">
+        <p class="bg-warning">We are currently unable to determine your expected bonus tier.</p>
+      </div>
+    </div>
+    <div class="row" v-if="!soldOut">
       <div class="col-xs-3" v-for="tier in tiers">
         <div class="row">{{tier.name}}</div>
         <div class="row">
@@ -9,32 +14,17 @@
           <img src="../assets/box-open.svg" height="70px" v-if="tier.amount < tier.maxAmount">
         </div>
         <div class="row">
-          {{ Math.ceil(tier.amount / tier.maxAmount  * 100 )}}%
+          <span v-if="tier.amount !== null">{{ Math.ceil(tier.amount / tier.maxAmount  * 100 )}}%</span>
+          <span v-else>???</span>
         </div>
       </div>
     </div>
-    <div class="row" v-if="errorMsg">
-      <div class="col-xs-12">
-        <p class="bg-warning">We are currently unable to determine your expected bonus tier.</p>
-      </div>
-    </div>
-    <div class="row" v-if="errorMsg">
-      <div class="col-xs-3" v-for="tier in tiers">
-        <div class="row">{{tier.name}}</div>
-        <div class="row">
-          <img src="../assets/box-open.svg" height="70px">
-        </div>
-        <div class="row">
-          ???
-        </div>
-      </div>
-    </div>
-    <p class="space-attention"><b>Remark:</b> The tier status only serves as an indicator and is not binding (e.g. due to pending transactions)</p>
-    <div class="row" v-if="soldOut">
+    <div class="row" v-else>
       <div class="col-xs-4  col-xs-offset-4">
         <p>SOLD OUT</p>
       </div>
     </div>
+    <p class="space-attention"><b>Remark:</b> The tier status only serves as an indicator and is not binding (e.g. due to pending transactions)</p>
   </div>
 </template>
 
@@ -52,22 +42,22 @@
         tiers: [
           {
             name: 'Pre ITO',
-            amount: 0,
+            amount: null,
             maxAmount: 1050000
           },
           {
             name: 'Tier 1',
-            amount: 0,
+            amount: null,
             maxAmount: 4200000
           },
           {
             name: 'Tier 2',
-            amount: 0,
+            amount: null,
             maxAmount: 5100000
           },
           {
             name: 'Tier 3',
-            amount: 0,
+            amount: null,
             maxAmount: 6000000
           }
         ]
@@ -101,12 +91,12 @@
             return err
           })
       },
-      setTiers: function (amount) {
-        this.tiers.forEach(function (tier) {
+      setTiers (amount) {
+        this.tiers.forEach(tier => {
           if (amount >= tier.maxAmount) {
             tier.amount = tier.maxAmount
             amount = amount - tier.maxAmount
-          } else if (amount < tier.maxAmount) {
+          } else {
             tier.amount = amount
             amount = 0
           }
