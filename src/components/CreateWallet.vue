@@ -11,7 +11,7 @@
       <div v-if="address === null">
         <h2>Select how you would like to receive your MOD tokens.</h2>
         <p>
-          We offer you 3 different options to define where you want to receive the modum tokens. </p>
+          We offer you 3 different options to define where you want to receive the Eureka tokens. </p>
         <div class="row">
           <div class="col-xs-12">
             <p class="bg-danger">{{errorMsg}}</p>
@@ -208,7 +208,7 @@
       download: function () {
         this.disclaimer = true
         let blob = new Blob([this.v3stringwallet], {type: 'application/json;charset=utf-8'})
-        FileSaver.saveAs(blob, 'modum-ico.json')
+        FileSaver.saveAs(blob, 'eureka-ico.json')
       },
       manual: function () {
         this.address = this.insertedAddress

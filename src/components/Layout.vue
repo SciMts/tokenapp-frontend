@@ -38,10 +38,10 @@
             <img class="footer_logo" src="./../assets/modum_logo_white-text-tight-crop.png" alt="logo" width="150">
           </div>
           <div class="col-xs-6 col-sm-6 text-left">
-            modum.io AG<br/>
+            ScienceMatters AG<br/>
             Technoparkstrasse 1<br/>
             8005 Zürich, CH<br/>
-            <a href="mailto:token@modum.io?Subject=[modum.io ICO]" target="_top">token@modum.io</a>
+            <a href="mailto:info@sciencematters.io?Subject=[Eureka ICO]" target="_top">info@sciencematters.io</a>
           </div>
           <div class="col-xs-6 col-sm-6 text-right">
 
