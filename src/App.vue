@@ -146,7 +146,7 @@
   }
 
   .logo-width {
-    width: 415px;
+    width: 200px;
   }
 
   .top-buffer {
