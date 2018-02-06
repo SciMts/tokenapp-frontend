@@ -75,8 +75,8 @@
         axios.post(Vue.config.API + addressEndpoint,
           {
             address: this.$root.store.address,
-            refundBTC: this.btc,
-            refundETH: this.eth
+            refundBTC: this.btc || null,
+            refundETH: this.eth || null
           },
           config
         ).then(response => {
