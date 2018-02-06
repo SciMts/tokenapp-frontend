@@ -7,6 +7,9 @@ if (!process.env.NODE_ENV) {
 var express = require('express')
 var app = express()
 
+// handle fallback for HTML5 history API
+app.use(require('connect-history-api-fallback')())
+
 app.use('/', express.static(path.join(__dirname, '..', 'dist')));
 
 var server = app.listen(8080)

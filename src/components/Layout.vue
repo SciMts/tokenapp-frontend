@@ -39,8 +39,8 @@
           </div>
           <div class="col-xs-6 col-sm-6 text-left">
             ScienceMatters AG<br/>
-            Technoparkstrasse 1<br/>
-            8005 Zürich, CH<br/>
+            Seilergraben 53 1<br/>
+            8003 Zürich, CH<br/>
             <a href="mailto:info@sciencematters.io?Subject=[Eureka ICO]" target="_top">info@sciencematters.io</a>
           </div>
           <div class="col-xs-6 col-sm-6 text-right">
