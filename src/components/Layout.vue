@@ -35,7 +35,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 text-left">
-            <img class="footer_logo" src="./../assets/scimts_logo.png" alt="logo" width="144">
+            <img class="footer_logo" src="./../assets/scimts_logo.png" alt="logo" width="50">
           </div>
           <div class="col-xs-6 col-sm-6 text-left">§
             ScienceMatters AG<br/>
