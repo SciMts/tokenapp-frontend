@@ -10,7 +10,7 @@
     <div id="wrap">
     </div>
 
-    <img class="logo-width" src="./../assets/modum.png">
+    <img class="logo-width" src="./../assets/scimts_logo.png">
 
     <h1>Token Sale</h1>
     <section>
@@ -35,7 +35,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 text-left">
-            <img class="footer_logo" src="./../assets/modum_logo_white-text-tight-crop.png" alt="logo" width="150">
+            <img class="footer_logo" src="./../assets/scimts_logo.png" alt="logo" width="150">
           </div>
           <div class="col-xs-6 col-sm-6 text-left">
             ScienceMatters AG<br/>
