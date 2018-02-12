@@ -15,7 +15,7 @@
     <h1>Eureka Token Sale</h1>
     <section>
       <div class="container">
-        <p class="lead">Please follow the steps below to purchase your Eureka tokens. <br/>
+        <p>Please follow the steps below to purchase your Eureka tokens. <br/>
           Still have questions?  Visit our information <a target="_blank" href="https://tokensale.sciencematters.io/">page</a>.
         </p>
         <router-view></router-view>

@@ -97,8 +97,15 @@
   button {
     width: 100%;
     max-width: 300px;
-    
+
   }
+
+  p {
+    font-weight: 300;
+    font-size: 1.3em;
+    line-height: 1.6;
+  }
+
 
   .panel {
     background: #f8f8f8;
