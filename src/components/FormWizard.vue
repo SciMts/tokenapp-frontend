@@ -3,11 +3,11 @@
     <div class="progress" v-bind:style="{ width: barWidth + '%' }"></div>
     <ul>
       <li :class="{active: $route.name === 'step1'}">
-        <div class="icon-container">
+        <div :class="{active: $route.name === 'step1'}" class="icon-container">
           <!--<img src="../assets/icons/register_active.svg" v-if="$route.name === 'step1'"/>-->
           <!--<img src="../assets/icons/register.svg" v-else/>-->
-          <icon class="awesome-icon" name="envelope-o" scale="2"></icon>
-          <span class="awesome-icon">Register</span>
+          <icon :class="{active: $route.name === 'step1'}" class="awesome-icon" name="envelope" scale="2"></icon>
+          <span :class="{active: $route.name === 'step1'}" class="awesome-icon min-width">Register</span>
         </div>
 
       </li>
@@ -18,28 +18,36 @@
           <!--<img src="../assets/icons/confirm.svg" v-else>-->
 
           <icon class="awesome-icon" name="check" scale="2"></icon>
-          <span class="awesome-icon">Confirm</span>
+          <span class="awesome-icon min-width">Confirm</span>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step3'}">
-        <div>
-          <img src="../assets/icons/wallet_active.svg" v-if="$route.name === 'step3'"/>
-          <img src="../assets/icons/wallet.svg" v-else>
+        <div class="icon-container">
+          <!--<img src="../assets/icons/wallet_active.svg" v-if="$route.name === 'step3'"/>-->
+          <!--<img src="../assets/icons/wallet.svg" v-else>-->
+
+          <icon class="awesome-icon" name="cog" scale="2"></icon>
+          <span class="awesome-icon min-width">Wallet</span>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step4'}">
-        <div>
-          <img src="../assets/icons/refund_active.svg" v-if="$route.name === 'step4'"/>
-          <img src="../assets/icons/refund.svg" v-else>
+        <div class="icon-container">
+          <!--<img src="../assets/icons/refund_active.svg" v-if="$route.name === 'step4'"/>-->
+          <!--<img src="../assets/icons/refund.svg" v-else>-->
+          <icon class="awesome-icon" name="reply" scale="2"></icon>
+          <span class="awesome-icon min-width">Refund</span>
         </div>
       </li>
 
       <li :class="{active: $route.name === 'step5'}">
-        <div>
-          <img src="../assets/icons/invest_active.svg" v-if="$route.name === 'step5'"/>
-          <img src="../assets/icons/invest.svg" v-else>
+        <div class="icon-container">
+          <!--<img src="../assets/icons/invest_active.svg" v-if="$route.name === 'step5'"/>-->
+          <!--<img src="../assets/icons/invest.svg" v-else>-->
+
+          <icon class="awesome-icon" name="btc" scale="2"></icon>
+          <span class="awesome-icon min-width">Invest</span>
         </div>
       </li>
     </ul>
@@ -52,11 +60,13 @@
 
 <script>
   import Icon from 'vue-awesome/components/Icon'
-  import 'vue-awesome/icons/envelope-o'
+  import 'vue-awesome/icons/envelope'
   import 'vue-awesome/icons/inbox'
   import 'vue-awesome/icons/btc'
   import 'vue-awesome/icons/reply-all'
   import 'vue-awesome/icons/check'
+  import 'vue-awesome/icons/cog'
+  import 'vue-awesome/icons/reply'
 
   // Custom wallet icon
   Icon.register({
@@ -163,6 +173,7 @@
     transition: width 0.3s ease;
   }
 
+
   .icon-container {
     border: 1px solid #2174f3;
     border-radius: 50%;
@@ -170,15 +181,21 @@
     display: flex;
     flex-direction:column;
     align-items: center;
-  }
-
-  .disabled{
     opacity:0.4;
     cursor: not-allowed;
   }
 
+  .active{
+   opacity: 1;
+    cursor: pointer;
+  }
+
   .awesome-icon{
     color: #2174f3;
+  }
+
+  .min-width {
+    min-width: 60px;
   }
 
 
