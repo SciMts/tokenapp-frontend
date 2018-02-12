@@ -16,7 +16,7 @@
   /*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700,800');*/
   /*@import url(./assets/open_sans/stylesheet.css);*/
   body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Roboto,sans-serif;
     font-size: 16px;
     font-weight: 100;
     color: #444;
@@ -25,13 +25,13 @@
   }
 
   h1 {
-    font-size: 35px;
-    font-weight: 500;
-    letter-spacing: 25px;
-
+    letter-spacing: 2px;
     display: block;
     /*letter-spacing:1.2em;*/
     margin-right: -25px;
+    font-size: 3em;
+    font-family: Roboto,sans-serif;
+    font-weight: bold;
   }
 
   h2 {
@@ -146,7 +146,7 @@
   }
 
   .logo-width {
-    width: 200px;
+    width: 100px;
   }
 
   .top-buffer {
