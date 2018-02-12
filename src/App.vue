@@ -60,34 +60,44 @@
     text-align: center;
   }
 
+  input[type="email"]:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus{
+    border-color: #4caef3;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+  }
+
   input[type="text"],
   input[type="email"],
   input[type="password"] {
+    font-family:inherit;
     line-height: 36px;
-    /*font-family: Raleway, sans-serif;*/
     white-space: nowrap;
     outline: 0;
     font-style: normal;
     letter-spacing: 1px;
     text-shadow: none;
     text-decoration: none;
-    padding: 0 15px;
-    border-style: solid;
-    height: 3rem;
-    /*font-size: 13px;*/
-    color: rgb(12, 84, 124);
-    border-color: rgb(12, 84, 124);
     background-color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.8);
     width: 100%;
     max-width: 300px;
-    border-radius: 4px;
     margin-bottom: 10px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    border-radius: 8px;
+    height: 48px;
+    font-size: 16px;
   }
 
   button {
     width: 100%;
     max-width: 300px;
+    
   }
 
   .panel {
