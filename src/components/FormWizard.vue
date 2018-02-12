@@ -6,8 +6,8 @@
         <div :class="{active: $route.name === 'step1'}" class="icon-container">
           <!--<img src="../assets/icons/register_active.svg" v-if="$route.name === 'step1'"/>-->
           <!--<img src="../assets/icons/register.svg" v-else/>-->
-          <icon :class="{active: $route.name === 'step1'}" class="awesome-icon" name="envelope" scale="2"></icon>
-          <span :class="{active: $route.name === 'step1'}" class="awesome-icon min-width">Register</span>
+          <icon class="awesome-icon" name="envelope" scale="2"></icon>
+          <span class="awesome-icon min-width">Register</span>
         </div>
 
       </li>
