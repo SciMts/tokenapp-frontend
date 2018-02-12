@@ -3,16 +3,22 @@
     <div class="progress" v-bind:style="{ width: barWidth + '%' }"></div>
     <ul>
       <li :class="{active: $route.name === 'step1'}">
-        <div>
-          <img src="../assets/icons/register_active.svg" v-if="$route.name === 'step1'"/>
-          <img src="../assets/icons/register.svg" v-else/>
+        <div class="icon-container">
+          <!--<img src="../assets/icons/register_active.svg" v-if="$route.name === 'step1'"/>-->
+          <!--<img src="../assets/icons/register.svg" v-else/>-->
+          <icon class="awesome-icon" name="envelope-o" scale="2"></icon>
+          <span class="awesome-icon">Register</span>
         </div>
+
       </li>
 
       <li :class="{active: $route.name === 'step2'}">
-        <div>
-          <img src="../assets/icons/confirm_active.svg" v-if="$route.name === 'step2'"/>
-          <img src="../assets/icons/confirm.svg" v-else>
+        <div class="icon-container">
+          <!--<img src="../assets/icons/confirm_active.svg" v-if="$route.name === 'step2'"/>-->
+          <!--<img src="../assets/icons/confirm.svg" v-else>-->
+
+          <icon class="awesome-icon" name="check" scale="2"></icon>
+          <span class="awesome-icon">Confirm</span>
         </div>
       </li>
 
@@ -50,6 +56,7 @@
   import 'vue-awesome/icons/inbox'
   import 'vue-awesome/icons/btc'
   import 'vue-awesome/icons/reply-all'
+  import 'vue-awesome/icons/check'
 
   // Custom wallet icon
   Icon.register({
@@ -149,12 +156,32 @@
   }
 
   .wizard .progress {
-    background-color: #0C547C;
-    height: 3px;
+    background-color: #2174f3;
+    height: 2px;
     position: relative;
     top: 70px;
     transition: width 0.3s ease;
   }
+
+  .icon-container {
+    border: 1px solid #2174f3;
+    border-radius: 50%;
+    padding: 1.42em;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+  }
+
+  .disabled{
+    opacity:0.4;
+    cursor: not-allowed;
+  }
+
+  .awesome-icon{
+    color: #2174f3;
+  }
+
+
 
   @media only screen and (max-width: 600px) {
     .wizard li {
