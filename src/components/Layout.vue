@@ -95,11 +95,12 @@
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 200px;
-    background: #818181;
+    background: linear-gradient(90deg,#685de4,#4caef3);
+    color: #ffffff;
   }
 
   footer a {
-    color: rgb(68, 68, 68);
+    color: #ffffff;
   }
 
   @media only screen and (max-width: 500px) {
