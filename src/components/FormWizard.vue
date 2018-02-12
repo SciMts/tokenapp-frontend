@@ -13,7 +13,7 @@
       </li>
 
       <li :class="{active: $route.name === 'step2'}">
-        <div class="icon-container">
+        <div :class="{active: $route.name === 'step2'}" class="icon-container">
           <!--<img src="../assets/icons/confirm_active.svg" v-if="$route.name === 'step2'"/>-->
           <!--<img src="../assets/icons/confirm.svg" v-else>-->
 
@@ -23,7 +23,7 @@
       </li>
 
       <li :class="{active: $route.name === 'step3'}">
-        <div class="icon-container">
+        <div :class="{active: $route.name === 'step3'}" class="icon-container">
           <!--<img src="../assets/icons/wallet_active.svg" v-if="$route.name === 'step3'"/>-->
           <!--<img src="../assets/icons/wallet.svg" v-else>-->
 
@@ -33,7 +33,7 @@
       </li>
 
       <li :class="{active: $route.name === 'step4'}">
-        <div class="icon-container">
+        <div :class="{active: $route.name === 'step4'}" class="icon-container">
           <!--<img src="../assets/icons/refund_active.svg" v-if="$route.name === 'step4'"/>-->
           <!--<img src="../assets/icons/refund.svg" v-else>-->
           <icon class="awesome-icon" name="reply" scale="2"></icon>
@@ -42,7 +42,7 @@
       </li>
 
       <li :class="{active: $route.name === 'step5'}">
-        <div class="icon-container">
+        <div :class="{active: $route.name === 'step5'}" class="icon-container">
           <!--<img src="../assets/icons/invest_active.svg" v-if="$route.name === 'step5'"/>-->
           <!--<img src="../assets/icons/invest.svg" v-else>-->
 
