@@ -106,18 +106,18 @@
   }
 
   button {
-    background-color: #0C547C;
-    border: 2px solid #0C547C;
-    border-radius: 4px;
+    background-color: #4caef3;
+    border: 2px solid #4caef3;
+    border-radius: 5px;
     color: white;
     font-weight: 600;
     cursor: pointer;
   }
 
   button:disabled {
-    background-color: #0C547C;
+    background-color: #2174f3;
     opacity: 0.4;
-    border-color: #0C547C;
+    border-color: #2174f3;
     cursor: not-allowed;
   }
 
