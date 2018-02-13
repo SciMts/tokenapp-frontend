@@ -3,7 +3,7 @@
     <div class="progress" v-bind:style="{ width: barWidth + '%' }"></div>
     <ul>
       <li :class="{active: $route.name === 'step1'}">
-        <div :class="{active: $route.name === 'step1'}" class="icon-container">
+        <div :class="{active: $route.name === 'step1' || $route.name === 'step2' || $route.name === 'step3' || $route.name === 'step4' || $route.name === 'step5'}" class="icon-container">
           <!--<img src="../assets/icons/register_active.svg" v-if="$route.name === 'step1'"/>-->
           <!--<img src="../assets/icons/register.svg" v-else/>-->
           <icon class="awesome-icon" name="envelope" scale="2"></icon>
@@ -13,7 +13,7 @@
       </li>
 
       <li :class="{active: $route.name === 'step2'}">
-        <div :class="{active: $route.name === 'step2'}" class="icon-container">
+        <div :class="{active: $route.name === 'step2' || $route.name === 'step3' || $route.name === 'step4' || $route.name === 'step5'}" class="icon-container">
           <!--<img src="../assets/icons/confirm_active.svg" v-if="$route.name === 'step2'"/>-->
           <!--<img src="../assets/icons/confirm.svg" v-else>-->
 
@@ -23,7 +23,7 @@
       </li>
 
       <li :class="{active: $route.name === 'step3'}">
-        <div :class="{active: $route.name === 'step3'}" class="icon-container">
+        <div :class="{active: $route.name === 'step3' || $route.name === 'step4' || $route.name === 'step5'}" class="icon-container">
           <!--<img src="../assets/icons/wallet_active.svg" v-if="$route.name === 'step3'"/>-->
           <!--<img src="../assets/icons/wallet.svg" v-else>-->
 
@@ -32,8 +32,8 @@
         </div>
       </li>
 
-      <li :class="{active: $route.name === 'step4'}">
-        <div :class="{active: $route.name === 'step4'}" class="icon-container">
+      <li :class="{active: $route.name === 'step4' || $route.name === 'step5'}">
+        <div :class="{active: $route.name === 'step4' }" class="icon-container">
           <!--<img src="../assets/icons/refund_active.svg" v-if="$route.name === 'step4'"/>-->
           <!--<img src="../assets/icons/refund.svg" v-else>-->
           <icon class="awesome-icon" name="reply" scale="2"></icon>
@@ -210,6 +210,10 @@
     .wizard .progress {
       top: 60px;
     }
+
+    .icon-container{
+      padding: 0.42em;
+    }
   }
   @media only screen and (max-width: 500px) {
     .wizard li {
@@ -220,6 +224,10 @@
     }
     .wizard .progress {
       top: 50px;
+    }
+
+    .icon-container{
+      padding: 0.36em;
     }
   }
 </style>
