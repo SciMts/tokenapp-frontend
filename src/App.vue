@@ -174,8 +174,5 @@
       letter-spacing: 15px;
       margin-right: 0;
     }
-    .logo-width {
-      width:90%;
-    }
   }
 </style>
