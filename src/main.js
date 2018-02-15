@@ -7,6 +7,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VTooltip from 'v-tooltip'
 
 Vue.config.productionTip = false
 
@@ -14,7 +15,7 @@ Vue.config.API = '/api/'
 // Vue.config.API = 'https://token.modum.io/api/'
 // Vue.config.API = 'http://localhost:8081/'
 
-Vue.use(BootstrapVue)
+Vue.use(BootstrapVue, VTooltip)
 
 /* eslint-disable no-new */
 new Vue({
