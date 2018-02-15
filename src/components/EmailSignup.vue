@@ -21,8 +21,9 @@
     </modal-comp>
     <div class="row">
       <div class="col-xs-12 text-center">
-        <div style="margin: auto;">
-          <h2>Please register your E-Mail and<br/>confirm the token sale terms.</h2>
+        <div style="margin-top: 3em;">
+
+          <!--<h2>Please register your E-Mail and<br/>confirm the token sale terms.</h2>-->
         </div>
       </div>
     </div>
