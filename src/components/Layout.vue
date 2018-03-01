@@ -10,11 +10,12 @@
     <div id="wrap">
     </div>
 
-    <img class="logo-width" src="./../assets/scimts_logo.png">
-
-    <h1>Eureka Token Sale</h1>
+    <img class="logo-width" src="./../assets/eureka.png">
     <section>
       <div class="container">
+        <strong>
+          EUREKA Token Sale
+        </strong>
         <p>Please follow the steps below to purchase your Eureka tokens. <br/>
           Still have questions?  Visit our information <a target="_blank" href="https://tokensale.sciencematters.io/">page</a>.
         </p>

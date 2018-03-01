@@ -158,11 +158,10 @@
     color: #666;
     text-align: center;
     align-items: center;
-    align: center;
   }
 
   .logo-width {
-    width: 100px;
+    height: 80px;
   }
 
   .top-buffer {
