@@ -1,5 +1,6 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div>
+    <div class="warning">This is a test site. DO NOT send any BTC or ETH to the addresses generated or you will lose them.</div>
     <!-- PRELOADER -->
     <div id="preloader">
       <div class="clock">
@@ -9,7 +10,6 @@
     </div>
     <div id="wrap">
     </div>
-
     <img class="logo-width" src="./../assets/eureka.png">
     <section>
       <div class="container">
@@ -37,7 +37,7 @@
         <div class="row">
           <div class="col-xs-6 col-sm-6 text-left" style="margin-top: 20px">
             ScienceMatters AG<br/>
-            Seilergraben 53 1<br/>
+            Seilergraben 53<br/>
             8001 Zürich, CH<br/>
             <a href="mailto:info@eurekatoken.io?Subject=[Eureka ICO]" target="_top">info@eurekatoken.io</a>
           </div>
@@ -99,6 +99,10 @@
 
   footer a {
     color: #ffffff;
+  }
+
+  .warning {
+    background: yellow
   }
 
   @media only screen and (max-width: 500px) {

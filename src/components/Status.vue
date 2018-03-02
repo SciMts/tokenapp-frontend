@@ -34,15 +34,105 @@
     <div class="logo-width" style="margin: auto;">
       <h2>Estimate tokens</h2>
     </div>
-    <p>1 ETH = {{ethPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}
-      <br/>
-      1 BTC = {{btcPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}
-    </p>
-    <p>Price per token = {{tokenPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}</p>
-    <p>ETH investment: <input type="text" v-model="ethInvestment"/></p>
-    <p>BTC investment: <input type="text" v-model="btcInvestment"/></p>
-    <p>Estimated tokens: {{getTokens()}}</p>
+    <p>Use our calculator to estimate how much EKA tokens you will receive based on your investment.</p>
+    <div class="estimate-table">
+      <div class="estimate-row">
+        <div class="estimate-row-cell">
+          <span>ETH Contribution<sup>1)</sup></span>
+        </div>
+        <div style="flex: 1"></div>
+        <div class="estimate-row-cell">
+          <span><input type="number" min="0" v-model="ethInvestment"/> <span class="estimate-row-gray"> <span class="estimate-row-sign">×</span> <span class="estimate-row-middle">{{ethPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}</span> <span class="estimate-row-sign">=</span> </span> <span class="estimate-row-right"> {{getEthInvestment().toLocaleString('en-US', { style: 'currency', currency: 'USD' })}} </span> </span>
+        </div>
+      </div>
+      <div class="estimate-row">
+        <div class="estimate-row-cell">
+          <span>
+            BTC Contribution<sup>1)</sup>
+          </span>
+        </div>
+        <div style="flex: 1"></div>
+        <div class="estimate-row-cell">
+          <span>
+            <input type="number" min="0" step="0.1" v-model="btcInvestment"/> <span class="estimate-row-gray"> <span class="estimate-row-sign">×</span> <span class="estimate-row-middle">{{btcPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}</span> <span class="estimate-row-sign">=</span> </span> <span class="estimate-row-right">{{getBtcInvestment().toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}</span>
+          </span>
+        </div>
+      </div>
+      <div class="estimate-row" style="border-bottom-width: 2px">
+        <div class="estimate-row-cell">
+          <strong>Total investment</strong>
+        </div>
+        <div style="flex: 1"></div>
+        <div class="estimate-row-cell">
+          <strong>{{getInvestment().toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}</strong>
+        </div>
+      </div>
+      <div class="estimate-row">
+        <div class="estimate-row-cell">
+          <span>
+          Price per token
+          </span>
+        </div>
+        <div style="flex: 1"></div>
+        <div class="estimate-row-cell">
+          <span>
+            {{tokenPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}
+          </span>
+        </div>
+      </div>
+      <div class="estimate-row">
+        <div class="estimate-row-cell">
+          <span style="color: #685de4">
+          Discount for Tier 1: 20%<sup>2)</sup>
+          </span>
+        </div>
+        <div style="flex: 1"></div>
+        <div class="estimate-row-cell" style="color: #685de4">
+          <span class="estimate-row-sign">
+          −
+          </span>
+          <span class="estimate-row-right">
+           {{(discount * tokenPrice).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}
+          </span>
+        </div>
+      </div>
+      <div class="estimate-row" style="border-bottom-width: 0px">
+        <div class="estimate-row-cell">
+          <span>
+          <strong>Discounted token price</strong>
+          </span>
+        </div>
+        <div style="flex: 1"></div>
+        <div class="estimate-row-cell">
+          <span>
+          <strong>{{getDiscountedTokenPrice().toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 3})}}</strong>
+          </span>
+        </div>
+      </div>
+      <div class="estimate-row final-cell">
+        <div class="estimate-row-cell">
+          <strong>
+          Estimated EKA tokens
+          </strong>
+        </div>
+        <div style="flex: 1"></div>
+        <div class="estimate-row-cell">
+          <span>{{getInvestment().toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}</span>
+          <span><span class="estimate-row-sign">÷</span> <span class="estimate-row-middle">{{getDiscountedTokenPrice().toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 3})}}</span></span>
+          <span class="estimate-row-sign">=</span>
+          <span class="estimate-row-right">
+            <strong>
+            {{getTokens().toLocaleString('en-US', { style: 'currency', currency: 'USD' }).substr(1)}} EKA
+            </strong>
+          </span>
+        </div>
+      </div>
   </div>
+  <div class="disclaimer">
+      1) Non-binding live prices. The prices at the time of your deposit will determine the actual amount of EKA tokens you'll receive. <br/>
+      2) Live discount rate. The discount rate may be lower at the time of your deposit, or your investment might fill the total amount of tokens available at certain tier, which might decrease the discount for the rest of your investment.
+    </div>
+    </div>
 </template>
 
 <script>
@@ -58,6 +148,7 @@
         errorMsg: '',
         ethPrice: 0,
         btcPrice: 0,
+        discount: 0.2,
         ethInvestment: 0,
         btcInvestment: 0,
         tokenPrice: 0.1,
@@ -87,6 +178,9 @@
     },
     mounted: function () {
       this.getStatus()
+      setInterval(() => {
+        this.getStatus()
+      }, 10000)
     },
     methods: {
       getStatus: function () {
@@ -106,8 +200,14 @@
       getBtcInvestment: function () {
         return this.btcInvestment * this.btcPrice
       },
+      getInvestment: function () {
+        return this.getEthInvestment() + this.getBtcInvestment()
+      },
+      getDiscountedTokenPrice: function () {
+        return this.tokenPrice * (1 - this.discount)
+      },
       getTokens: function () {
-        return (this.getEthInvestment() + this.getBtcInvestment()) / this.tokenPrice
+        return this.getInvestment() / this.tokenPrice
       },
       setTiers: function (amount) {
         this.tiers.forEach(function (tier) {
@@ -124,3 +224,61 @@
   }
 </script>
 
+<style>
+  .estimate-table {
+    border: 1px solid black;
+    border-bottom-width: 0;
+    max-width: 600px;
+    margin: auto;
+    font-weight: 400;
+  }
+  .estimate-row {
+    border-bottom: 1px solid black;
+    display: flex;
+    padding: 5px 10px;
+    text-align: left;
+  }
+  input[type=number] {
+    width: 80px;
+    height: 40px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom: -5px;
+    margin-top: -5px;
+    border-radius: 0;
+    border-width: 0;
+    text-align: right;
+    background: linear-gradient(90deg, white, rgba(76, 174, 243, 0.2));
+  }
+  .estimate-row-gray {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .estimate-row-sign {
+    text-align: right;
+    width: 15px;
+    display: inline-block;
+  }
+  .estimate-row-middle {
+    text-align: right;
+    width: 90px;
+    display: inline-block;
+  }
+  .estimate-row-right {
+    text-align: right;
+    width: 130px;
+    display: inline-block;
+  }
+  .disclaimer {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    margin-top: 15px;
+  }
+  .final-cell {
+    background: linear-gradient(90deg,#685de4,#4caef3);
+    color: white;
+  }
+</style>
