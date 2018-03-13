@@ -11,9 +11,9 @@ import VTooltip from 'v-tooltip'
 
 Vue.config.productionTip = false
 
-Vue.config.API = 'https://api.eurekatoken.io/'
+// Vue.config.API = 'https://api.eurekatoken.io/'
 // Vue.config.API = 'https://token.modum.io/api/'
-// Vue.config.API = 'http://localhost:8081/'
+Vue.config.API = 'http://localhost:8081/'
 
 Vue.use(BootstrapVue, VTooltip)
 
