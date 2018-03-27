@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 
 // Vue.config.API = 'https://api.eurekatoken.io/'
 // Vue.config.API = 'https://token.modum.io/api/'
-Vue.config.API = typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production' ? process.env.API_URL : 'http://localhost:8081/'
+Vue.config.API = typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production' ? 'https://api-dev.eurekatoken.io/' : 'http://localhost:8081/'
 
 Vue.use(BootstrapVue, VTooltip)
 

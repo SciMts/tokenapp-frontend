@@ -139,7 +139,7 @@
   import Vue from 'vue'
   import axios from 'axios'
 
-  let statusEndpoint = '/status'
+  let statusEndpoint = 'status'
 
   export default {
     name: 'status-comp',
