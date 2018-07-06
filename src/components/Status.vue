@@ -9,7 +9,7 @@
 
         <div class="col-xs-3" v-for="tier in tiers" v-bind:key="tier.name" >
           <div class="type" v-bind:class="{ activeTier: tier.type === 'ACTIVE', closedTier: tier.type === 'CLOSED', incomingTier: tier.type === 'INCOMING'}" >{{tier.type}}</div>
-          <div v-bind:class="{ currentTier: tier.isCurrent }"  style="padding: 12px">
+          <div v-bind:class="{ currentTier: tier.isCurrent }"  style="display: flex; flex-direction: column; align-items: center; padding: 12px">
             <div class="row blue">{{tier.name}}</div>
             <div class="row blue">
               <div v-if="tier.amount === tier.maxAmount">
@@ -307,9 +307,8 @@
   .token-sold {
   color: white;
     background: linear-gradient(90deg,#2273f3,#4cc4f3);
-    margin: 0 40px;
     border-radius: 7px;
-    padding: 2px;
+    padding: 4px 32px;
     font-size: 12px;
   }
 
