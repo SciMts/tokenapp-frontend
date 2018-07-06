@@ -27,7 +27,7 @@
           <b-card>
             <p>Enter a password for your new wallet. <strong>Do not forget it.</strong> Your password will be required to unlock the new wallet file that is generated for you.</p>
 
-            <p><b>If you lose your password and key store, your money wil be lost, we can not retrieve it.</b>
+            <p><b>In the case that you lose your password and key store, THERE IS NO WAY that we could retrieve your password or send you a new one and your money will be lost forever, we can not retrieve it.</b>
             </p>
             <fieldset :disabled="waiting">
               <fieldset>
