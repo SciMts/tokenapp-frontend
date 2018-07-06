@@ -93,7 +93,7 @@
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 200px;
-    background: linear-gradient(90deg,#685de4,#4caef3);
+    background: linear-gradient(90deg,#2273f3,#4cc4f3);
     color: #ffffff;
   }
 
