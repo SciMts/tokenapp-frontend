@@ -189,9 +189,6 @@
               tier.isCurrent = tier.startDate <= currentIsoDate && tier.endDate >= currentIsoDate
               if (tier.isCurrent) {
                 this.discount = tier.discount
-                tier.type = 'ACTIVE'
-              } else {
-                tier.type = 'INCOMING'
               }
             })
           }).catch(err => {
