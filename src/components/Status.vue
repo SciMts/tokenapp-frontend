@@ -44,7 +44,7 @@
       <h2>Estimate tokens</h2>
     </div>
     <p>Use our calculator to estimate how much EKA tokens you will receive based on your investment.</p>
-    <div class="estimate-table">
+    <div class="estimate-table" v-if="tiers">
       <div class="estimate-row">
         <div class="estimate-row-cell">
           <span>ETH Contribution<sup>1)</sup></span>
@@ -92,7 +92,7 @@
       <div class="estimate-row">
         <div class="estimate-row-cell">
           <span style="color: #685de4">
-          Discount for Tier 1: 20%<sup>2)</sup>
+            Discount for {{getCurrentTier() ? getCurrentTier().name : null}}: {{discount}} % <sup>2)</sup>
           </span>
         </div>
         <div style="flex: 1"></div>
@@ -182,9 +182,10 @@
             this.tiers.forEach(tier => {
               const currentIsoDate = new Date().toISOString().split('T')[0]
               tier.isCurrent = tier.startDate <= currentIsoDate && tier.endDate >= currentIsoDate
+              if (tier.isCurrent) {
+                this.discount = tier.discount
+              }
             })
-
-            console.log(this.tiers)
           }).catch(err => {
             // this.errorMsg = 'Oops. an error occured while loading the status'
             return err
@@ -224,6 +225,9 @@
             amount = 0
           }
         })
+      },
+      getCurrentTier: function () {
+        return this.tiers.find(tier => tier.isCurrent)
       }
     }
   }
@@ -283,7 +287,7 @@
     margin-top: 15px;
   }
   .final-cell {
-    background: linear-gradient(90deg,#685de4,#4caef3);
+    background: linear-gradient(90deg,#2273f3,#4cc4f3);
     color: white;
   }
 
