@@ -4,15 +4,18 @@
       <h2>Status</h2>
     </div>
     <div class="row" v-if="!errorMsg">
-      <div class="col-xs-3" v-for="tier in tiers" v-bind:key="tier.name">
+      <div class="col-xs-3" v-for="tier in tiers" v-bind:key="tier.name" v-bind:class="{ currentTier: tier.isCurrent }" style="padding: 12px">
         <div class="row">{{tier.name}}</div>
         <div class="row">
-          <img src="../assets/box-closed.svg" height="70px" v-if="tier.amount == tier.maxAmount">
+          <img src="../assets/box-closed.svg" height="70px" v-if="tier.amount === tier.maxAmount">
           <img src="../assets/box-open.svg" height="70px" v-if="tier.amount < tier.maxAmount">
         </div>
         <div class="row">
           {{ Math.ceil(tier.amount / tier.maxAmount  * 100 )}}%
         </div>
+        <!--<div class="row">-->
+          <!--{{ tier.amount }} tokens sold-->
+        <!--</div>-->
       </div>
     </div>
     <div class="row" v-if="errorMsg">
@@ -139,7 +142,8 @@
   import Vue from 'vue'
   import axios from 'axios'
 
-  let statusEndpoint = 'status'
+  let tiersEndpoint = 'tiers'
+  let ratesEndPoint = 'rates/current'
 
   export default {
     name: 'status-comp',
@@ -152,28 +156,29 @@
         ethInvestment: 0,
         btcInvestment: 0,
         tokenPrice: 0.1,
-        tiers: [
-          {
-            name: 'Pre ICO',
-            amount: 1050000,
-            maxAmount: 1050000
-          },
-          {
-            name: 'Tier 1',
-            amount: 10,
-            maxAmount: 4200000
-          },
-          {
-            name: 'Tier 2',
-            amount: 5,
-            maxAmount: 5100000
-          },
-          {
-            name: 'Tier 3',
-            amount: 0,
-            maxAmount: 6000000
-          }
-        ]
+        // tiers: [
+        //   {
+        //     name: 'Pre ICO',
+        //     amount: 1050000,
+        //     maxAmount: 1050000
+        //   },
+        //   {
+        //     name: 'Tier 1',
+        //     amount: 10,
+        //     maxAmount: 4200000
+        //   },
+        //   {
+        //     name: 'Tier 2',
+        //     amount: 5,
+        //     maxAmount: 5100000
+        //   },
+        //   {
+        //     name: 'Tier 3',
+        //     amount: 0,
+        //     maxAmount: 6000000
+        //   }
+        // ]
+        tiers: []
       }
     },
     mounted: function () {
@@ -184,15 +189,31 @@
     },
     methods: {
       getStatus: function () {
-        axios.get(Vue.config.API + statusEndpoint)
+        axios.get(Vue.config.API + tiersEndpoint)
           .then(response => {
-            this.btcPrice = response.data.btcPrice
-            this.ethPrice = response.data.ethPrice
+            // this.btcPrice = response.data.btcPrice
+            // this.ethPrice = response.data.ethPrice
             // this.setTiers(response.data)
+            this.tiers = response.data
+            this.tiers.forEach(tier => {
+              const currentIsoDate = new Date().toISOString().split('T')[0]
+              tier.isCurrent = tier.startDate <= currentIsoDate && tier.endDate >= currentIsoDate
+            })
+
+            console.log(this.tiers)
           }).catch(err => {
             // this.errorMsg = 'Oops. an error occured while loading the status'
             return err
           })
+      },
+
+      getRates: function () {
+        axios.get(Vue.config.API + ratesEndPoint).then(response => {
+          // successfull
+          return response
+        }).catch(err => {
+          return err
+        })
       },
       getEthInvestment: function () {
         return this.ethInvestment * this.ethPrice
@@ -280,5 +301,10 @@
   .final-cell {
     background: linear-gradient(90deg,#685de4,#4caef3);
     color: white;
+  }
+
+  .currentTier{
+    border: 1px solid #01527e;
+    border-radius: 15px;
   }
 </style>
