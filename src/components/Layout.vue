@@ -10,7 +10,7 @@
     </div>
     <div id="wrap">
     </div>
-    <img class="logo-width" src="./../assets/eureka.png">
+    <img class="logo-width" src="./../assets/eureka-blue.png">
     <section>
       <div class="container">
         <strong>

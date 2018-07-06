@@ -15,8 +15,9 @@
   /*@import url(./assets/opensans/stylesheet.css);*/
   /*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700,800');*/
   /*@import url(./assets/open_sans/stylesheet.css);*/
+  @import url('https://fonts.googleapis.com/css?family=Poppins');
   body {
-    font-family: Roboto,sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 100;
     color: #444;
@@ -30,7 +31,7 @@
     /*letter-spacing:1.2em;*/
     margin-right: -25px;
     font-size: 3em;
-    font-family: Roboto,sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
   }
 
