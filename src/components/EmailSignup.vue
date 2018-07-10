@@ -46,6 +46,7 @@
       <div class="row top-buffer">
         <div class="col-md-offset-2 col-md-8 col-xs-12">
           <!--<button v-on:click="send" :disabled="!valid">Send Invite</button>-->
+
           <button :disabled="!validEmail" @click="showModal">Next</button>
         </div>
       </div>
