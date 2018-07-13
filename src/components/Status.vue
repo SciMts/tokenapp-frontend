@@ -170,10 +170,12 @@
         tiers: []
       }
     },
+
     mounted: function () {
       this.getStatus()
-      setInterval(() => {
-        this.getStatus()
+      setInterval(async () => {
+        await this.getStatus()
+        await this.getRates()
       }, 10000)
     },
     methods: {
@@ -198,11 +200,11 @@
       },
 
       getRates: function () {
-        axios.get(Vue.config.API + ratesEndPoint).then(response => {
+        axios.get('https://rates-dev.eurekatoken.io/' + ratesEndPoint).then(response => {
           // set BTC/ETH prices
           this.ethPrice = response.data.ethPrice
           this.btcPrice = response.data.btcPrice
-          return response
+          console.log(response.data)
         }).catch(err => {
           return err
         })
