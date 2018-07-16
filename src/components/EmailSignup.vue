@@ -87,7 +87,7 @@
         return this.email && re.test(this.email)
       },
       valid: function () {
-        return this.validEmail && this.terms
+        return this.validEmail && this.terms && this.recaptchaToken
       }
     },
     methods: {
@@ -106,7 +106,8 @@
         if (this.valid) {
           try {
             this.sharedState.loading = true
-            await axios.post(Vue.config.API + registerEndpoint, {
+            const url = registerEndpoint + '/?g-recaptcha-response=' + this.recaptchaToken
+            await axios.post(Vue.config.API + url, {
               email: this.email
             })
             this.$router.push({name: 'step2'})
@@ -120,11 +121,10 @@
         this.hideModal()
       },
       onVerify: function (token) {
-        console.log('Verify: ' + token)
         this.recaptchaToken = token
       },
       onExpired: function () {
-        console.log('Expired')
+        this.recaptchaToken = null
       }
       // resetRecaptcha () {
       //   this.$refs.recaptcha.reset() // Direct call reset method
