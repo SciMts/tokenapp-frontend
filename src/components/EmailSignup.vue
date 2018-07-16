@@ -52,10 +52,10 @@
                            @expired="onExpired"
                            :sitekey="sitekey"/>
           </div>
-          <button :disabled="!validEmail" @click="showModal">Next</button>
-          <button @click="resetRecaptcha">reset recaptcha</button>
+          <button :disabled="!validEmail || !recaptchaToken" @click="showModal">Next</button>
         </div>
       </div>
+
     <!--</form>-->
   </div>
 </template>
@@ -76,7 +76,8 @@
         terms: false,
         errorMsg: '',
         sharedState: store,
-        sitekey: '6LcdBmMUAAAAAMPhm2NyQKHxAOOm-eS7yS5C-YbN'
+        sitekey: '6LcdBmMUAAAAAMPhm2NyQKHxAOOm-eS7yS5C-YbN',
+        recaptchaToken: null
       }
     },
     computed: {
@@ -117,20 +118,19 @@
         }
         this.sharedState.loading = false
         this.hideModal()
+      },
+      onVerify: function (token) {
+        console.log('Verify: ' + token)
+        this.recaptchaToken = token
+      },
+      onExpired: function () {
+        console.log('Expired')
       }
+      // resetRecaptcha () {
+      //   this.$refs.recaptcha.reset() // Direct call reset method
+      // }
     },
-    onSubmit: function () {
-      this.$refs.recaptcha.execute()
-    },
-    onVerify: function (response) {
-      console.log('Verify: ' + response)
-    },
-    onExpired: function () {
-      console.log('Expired')
-    },
-    resetRecaptcha () {
-      this.$refs.recaptcha.reset() // Direct call reset method
-    },
+
     components: {
       ModalComp,
       VueRecaptcha
