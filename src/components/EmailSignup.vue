@@ -106,7 +106,7 @@
         if (this.valid) {
           try {
             this.sharedState.loading = true
-            const url = registerEndpoint + '/?g-recaptcha-response=' + this.recaptchaToken
+            const url = registerEndpoint + '?g-recaptcha-response=' + this.recaptchaToken
             await axios.post(Vue.config.API + url, {
               email: this.email
             })
