@@ -46,10 +46,10 @@
       <div class="row top-buffer">
         <div class="col-md-offset-2 col-md-8 col-xs-12">
           <!--<button v-on:click="send" :disabled="!valid">Send Invite</button>-->
-          <vue-recaptcha sitekey="6LcdBmMUAAAAAMPhm2NyQKHxAOOm-eS7yS5C-YbN">
-            <button>click me</button>
-            <!--<button :disabled="!validEmail" @click="showModal">Next</button>-->
-          </vue-recaptcha>
+          <div style="display: flex;align-items: center;justify-content: center; margin-bottom:20px;">
+          <vue-recaptcha sitekey="6LcdBmMUAAAAAMPhm2NyQKHxAOOm-eS7yS5C-YbN"/>
+          </div>
+          <button :disabled="!validEmail" @click="showModal">Next</button>
 
         </div>
       </div>
