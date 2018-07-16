@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <form>
+    <!--<form>-->
       <div class="row">
         <div class="col-xs-12">
           <p class="bg-danger">{{errorMsg}}</p>
@@ -47,13 +47,16 @@
         <div class="col-md-offset-2 col-md-8 col-xs-12">
           <!--<button v-on:click="send" :disabled="!valid">Send Invite</button>-->
           <div style="display: flex;align-items: center;justify-content: center; margin-bottom:20px;">
-          <vue-recaptcha sitekey="6LcdBmMUAAAAAMPhm2NyQKHxAOOm-eS7yS5C-YbN"/>
+            <vue-recaptcha ref="recaptcha"
+                           @verify="onVerify"
+                           @expired="onExpired"
+                           :sitekey="sitekey"/>
           </div>
           <button :disabled="!validEmail" @click="showModal">Next</button>
-
+          <button @click="resetRecaptcha">reset recaptcha</button>
         </div>
       </div>
-    </form>
+    <!--</form>-->
   </div>
 </template>
 
@@ -72,7 +75,8 @@
         email: '',
         terms: false,
         errorMsg: '',
-        sharedState: store
+        sharedState: store,
+        sitekey: '6LcdBmMUAAAAAMPhm2NyQKHxAOOm-eS7yS5C-YbN'
       }
     },
     computed: {
@@ -114,6 +118,18 @@
         this.sharedState.loading = false
         this.hideModal()
       }
+    },
+    onSubmit: function () {
+      this.$refs.recaptcha.execute()
+    },
+    onVerify: function (response) {
+      console.log('Verify: ' + response)
+    },
+    onExpired: function () {
+      console.log('Expired')
+    },
+    resetRecaptcha () {
+      this.$refs.recaptcha.reset() // Direct call reset method
     },
     components: {
       ModalComp,
