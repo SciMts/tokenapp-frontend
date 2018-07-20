@@ -20,7 +20,7 @@
               </div>
             </div>
             <div>
-              <div v-if="tier.maxAmount == 0 || tier.maxAmount == undefined">
+              <div v-if="tier.maxAmount == 0 || tier.maxAmount == undefined" class="row blue">
                 0%
               </div>
               <div v-else class="row blue">
