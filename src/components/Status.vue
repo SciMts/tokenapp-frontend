@@ -24,11 +24,11 @@
                 0%
               </div>
               <div v-else class="row blue">
-                {{ Math.ceil(tier.amount / tier.maxAmount  * 100 )}}%
+                {{ Math.round(tier.amount / tier.maxAmount  * 100 )}}%
               </div>
             </div>
             <div class="row" style="margin-top: 10px">
-              <div class="token-sold">{{ tier.amount }} token sold</div>
+              <div class="token-sold">{{ Math.round(tier.amount / Math.pow(10, 21)) }}k token sold</div>
             </div>
           </div>
         </div>
