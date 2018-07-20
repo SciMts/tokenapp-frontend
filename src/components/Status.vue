@@ -111,7 +111,7 @@
           −
           </span>
           <span class="estimate-row-right">
-           {{(discount * tokenPrice).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}}
+           {{(discount * tokenPrice).toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 3})}}
           </span>
         </div>
       </div>
