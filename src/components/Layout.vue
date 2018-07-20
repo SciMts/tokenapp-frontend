@@ -16,7 +16,7 @@
         <strong>
           EUREKA Token Sale
         </strong>
-        <p>Please follow the steps below to purchase your Eureka tokens. <br/>
+        <p>Please follow the steps below to purchase your EUREKA tokens. <br/>
           Still have questions?  Visit our information <a target="_blank" href="https://eurekatoken.io/">page</a>.
         </p>
         <router-view></router-view>

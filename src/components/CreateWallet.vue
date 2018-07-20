@@ -9,9 +9,9 @@
     </div>
     <div v-if="invalidToken==false">
       <div v-if="address === null">
-        <h2>Select how you would like to receive your MOD tokens.</h2>
+        <h2>Select how you would like to receive your EKA tokens.</h2>
         <p>
-          We offer you 3 different options to define where you want to receive the Eureka tokens. </p>
+          We offer you 3 different options to define where you want to receive the EUREKA tokens. </p>
         <div class="row">
           <div class="col-xs-12">
             <p class="bg-danger">{{errorMsg}}</p>
@@ -27,7 +27,7 @@
           <b-card>
             <p>Enter a password for your new wallet. <strong>Do not forget it.</strong> Your password will be required to unlock the new wallet file that is generated for you.</p>
 
-            <p><b>In the case that you lose your password and key store, THERE IS NO WAY that we could retrieve your password or send you a new one and your money will be lost forever, we can not retrieve it.</b>
+            <p style="color: red"><b>In the case that you lose your password and key store, THERE IS NO WAY that we could retrieve your password or send you a new one and your money will be lost forever, we can not retrieve it.</b>
             </p>
             <fieldset :disabled="waiting">
               <fieldset>
