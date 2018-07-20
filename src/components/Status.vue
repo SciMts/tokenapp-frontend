@@ -314,7 +314,7 @@
   color: white;
     background: linear-gradient(90deg,#2273f3,#4cc4f3);
     border-radius: 7px;
-    padding: 4px 32px;
+    padding: 4px 15px;
     font-size: 12px;
   }
 
