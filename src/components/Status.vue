@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="row" style="margin-top: 10px">
-              <div class="token-sold">{{ Math.round(tier.amount / Math.pow(10, 21)) }}k token sold</div>
+              <div class="token-sold">{{ Math.round(tier.amount / Math.pow(10, 21)) }}k tokens sold</div>
             </div>
           </div>
         </div>
