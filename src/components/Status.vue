@@ -181,7 +181,7 @@
       setInterval(async () => {
         await this.getStatus()
         await this.getRates()
-      }, 10000)
+      }, 60000)
     },
     methods: {
       getStatus: function () {
