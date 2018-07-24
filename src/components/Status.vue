@@ -178,6 +178,7 @@
 
     mounted: function () {
       this.getStatus()
+      this.getRates()
       setInterval(async () => {
         await this.getStatus()
         await this.getRates()
